@@ -15,6 +15,13 @@
     <td></td>
     <td></td>
   </tr>
+  <tr>
+    <td>(Hard code from sales data)</td>
+    <td><%= Person.where("pedserial IS NOT NULL").count %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
 </table>
 
 
