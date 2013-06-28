@@ -1,0 +1,35 @@
+<h1>Pirate Metrics Dashboard</h1>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th class="span2">Acquisition</th>
+    <th class="span2">Activation</th>
+    <th class="span2">Retention</th>
+    <th class="span2">Revenue</th>
+    <th class="span2">Referral</th>
+  </tr>
+  <tr>
+    <td>Number of connected devices (Pedometer, Activity Monitor, Scale, BP Monitor) sold</td>
+    <td>Percentage of devices sold that are activated by connecting to the web app</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+
+<h3>Misc KM stats from s3 bucket sample</h3>
+<p><%= link_to 'Grab data (sample of 20) from buckets', refresh_url, class: 'btn btn-warning' %> - Careful! This loads a LOT of data</p>
+<p>List of actions and how often they've been performed</p>
+<ul>
+<% Event.select("DISTINCT(ACTION)").each do |e| %>
+  <li><%= e.action %> - <%= Event.where(action: e.action).count %></li>
+<% end %>
+</ul>
+
+<p>List of unique people (<%= Event.select("DISTINCT(DOER)").count %>)</p>
+<ul>
+<% Event.select("DISTINCT(DOER)").each do |e| %>
+  <li><%= e.doer %></li>
+<% end %>
+</ul>
