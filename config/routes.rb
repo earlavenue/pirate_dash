@@ -1,4 +1,7 @@
 PirateMetricsDashboard::Application.routes.draw do
+  resources :people
+
+
   root to: 'Sessions#new'
 
   resources :users
