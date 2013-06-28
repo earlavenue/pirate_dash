@@ -11,6 +11,7 @@
   <tr>
     <th>Pedserial</th>
     <th>KM UserID</th>
+    <th># of events performed</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,6 +21,7 @@
   <tr>
     <td><%= person.pedserial %></td>
     <td><%= person.km_userid %></td>
+    <td><%= Event.where("doer" => person.km_userid).count %></td>
     <td><%= link_to 'Show', person %></td>
     <td><%= link_to 'Edit', edit_person_path(person) %></td>
     <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>

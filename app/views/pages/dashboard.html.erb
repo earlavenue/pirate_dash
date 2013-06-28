@@ -34,9 +34,3 @@
 <% end %>
 </ul>
 
-<p>List of unique people (<%= Event.select("DISTINCT(DOER)").count %>)</p>
-<ul>
-<% Event.select("DISTINCT(DOER)").each do |e| %>
-  <li><%= e.doer %></li>
-<% end %>
-</ul>
