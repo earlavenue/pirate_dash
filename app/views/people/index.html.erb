@@ -23,3 +23,10 @@
 <br />
 
 <%= link_to 'New Person', new_person_path %>
+
+<h2>Import people</h2>
+
+<%= form_tag import_people_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>

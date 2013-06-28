@@ -1,5 +1,7 @@
 PirateMetricsDashboard::Application.routes.draw do
-  resources :people
+  resources :people do
+    collection { post :import }
+  end
 
 
   root to: 'Sessions#new'

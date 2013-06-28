@@ -1,4 +1,11 @@
 class PeopleController < ApplicationController
+
+  def import
+    Person.import(params[:file])
+    redirect_to people_url
+  end
+
+
   # GET /people
   # GET /people.json
   def index
