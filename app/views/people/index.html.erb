@@ -6,7 +6,25 @@
   <%= submit_tag "Import" %>
 <% end %>
 
-<h4>Full list</h4>
+<h3>Search</h3>
+  <p><%= form_tag people_path, :method => :get, class: "form-search" do %>
+    Last name: <%= text_field_tag :search_last_name, params[:search_last_name], class: "search-query" %></p>
+    <h5>OR</h5>
+    <p>Device serial: <%= text_field_tag :search_serial, params[:search_serial], class: "search-query" %></p>
+    <p><%= submit_tag "Search", :name => nil, class: "btn btn-primary" %></p>
+  <% end %>
+
+
+<% if params[:search_last_name].present? %>
+  <h3>Search Results for Last Name = <%= params[:search_last_name].capitalize %></h3>
+  <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
+<% elsif params[:search_serial].present? %>
+  <h3>Search Results for Device serial number = <%= params[:search_serial] %></h3>
+  <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
+<% else %>
+  <h3>First ten people</h3>
+<% end %>
+
 <table class="table table-bordered table-striped">
   <tr>
     <th>Pedserial</th>

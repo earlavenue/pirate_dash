@@ -6,4 +6,12 @@ class Person < ActiveRecord::Base
       Person.create! row.to_hash
     end
   end
+
+  def self.search_last_name_results(query)
+    Person.where last_name: query
+  end
+
+  def self.search_serial_results(query)
+    Person.where pedserial: query
+  end
 end

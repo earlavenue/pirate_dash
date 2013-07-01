@@ -9,11 +9,12 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @people }
+    if params[:search_last_name].present?
+      @people = Person.search_last_name_results(params[:search_last_name])
+    elsif params[:search_serial].present?
+      @people = Person.search_serial_results(params[:search_serial])
+    else
+      @people = Person.first(10)
     end
   end
 
