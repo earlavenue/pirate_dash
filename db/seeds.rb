@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.destroy_all
 @user = User.new
 @user.email = 'pirate@example.com'
 @user.password = '12345'
@@ -16,3 +17,28 @@ puts 'email: "pirate@example.com"'
 puts 'password: "12345"'
 puts ''
 puts 'If you are importing people from KISSmetrics, make sure the csv has only two columns: "km_userid" and "pedserial".'
+
+Person.destroy_all
+@person = Person.create(
+  {pedserial: 'HJ72026025380',
+    km_userid: '700',
+    omron_userid: 86301,
+    first_name: "Foo",
+    last_name: "Bar",
+    email: "foobar@example.com",
+    gender: "male",
+    city: "Chicago",
+    state: "IL",
+    country: "USA"},
+  {pedserial: 'HJ72026071490',
+    km_userid: '1002',
+    omron_userid: 552,
+    first_name: "Foofoo",
+    last_name: "Barbar",
+    email: "foofoobarbar@example.com",
+    gender: "female",
+    city: "San Francisco",
+    state: "CA",
+    country: "USA"}
+  )
+puts 'Two people created'

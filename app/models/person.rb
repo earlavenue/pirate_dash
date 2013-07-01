@@ -32,6 +32,6 @@ class Person < ActiveRecord::Base
     # return people_objects
     Person.first(10)
 
-    #lines 19-32 currently raise errors because not all the people in our table have properties defined. If all the rows of the People table had values in place instead of nil, this method should work.
+    #lines 19-32 currently raise errors because not all the people in our table have properties defined. If all the rows of the People table had values in place instead of nil, this method should work. For now, I'm just returning the first 10 people in the database.
   end
 end
