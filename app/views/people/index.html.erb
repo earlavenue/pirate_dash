@@ -27,22 +27,20 @@
 
 <table class="table table-bordered table-striped">
   <tr>
-    <th>Pedserial</th>
+    <th>Name</th>
     <th>KM UserID</th>
+    <th>Omron UserID</th>
+    <th>Pedserial</th>
     <th># of events performed</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @people.each do |person| %>
   <tr>
-    <td><%= person.pedserial %></td>
+    <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
     <td><%= person.km_userid %></td>
+    <td><%= person.omron_userid %></td>
+    <td><%= person.pedserial %></td>
     <td><%= Event.where("doer" => person.km_userid).count %></td>
-    <td><%= link_to 'Show', person %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
-    <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
