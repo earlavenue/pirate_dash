@@ -14,7 +14,7 @@ class PeopleController < ApplicationController
     elsif params[:search_serial].present?
       @people = Person.search_serial_results(params[:search_serial])
     else
-      @people = Person.first(10)
+      @people = Person.recently_active
     end
   end
 
