@@ -20,7 +20,7 @@ puts 'If you are importing people from KISSmetrics, make sure the csv has only t
 
 Person.destroy_all
 @person = Person.create(
-  {pedserial: 'HJ72026025380',
+    {pedserial: 'HJ72026025380',
     km_userid: '700',
     omron_userid: 86301,
     first_name: "Foo",
@@ -29,8 +29,9 @@ Person.destroy_all
     gender: "male",
     city: "Chicago",
     state: "IL",
-    country: "USA"},
-  {pedserial: 'HJ72026071490',
+    country: "USA"})
+@person = Person.create(
+    {pedserial: 'HJ72026071490',
     km_userid: '1002',
     omron_userid: 552,
     first_name: "Foofoo",
@@ -39,6 +40,5 @@ Person.destroy_all
     gender: "female",
     city: "San Francisco",
     state: "CA",
-    country: "USA"}
-  )
+    country: "USA"})
 puts 'Two people created'
