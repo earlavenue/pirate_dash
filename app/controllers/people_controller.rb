@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  before_filter :require_signin
 
   def import
     Person.import(params[:file])
