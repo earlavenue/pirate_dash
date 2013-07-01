@@ -6,14 +6,13 @@
             <!-- header -->
             <div class="row-fluid header">
                 <div class="span8">
-                    <img src="img/contact-profile.png" class="avatar img-circle">
                     <h3 class="name"><%= @person.first_name %> <%= @person.last_name %></h3>
                     <span class="area">Maybe badges go here, or something?</span>
                 </div>
-                <a class="btn-flat icon pull-right delete-user" data-toggle="tooltip" title="Delete user" data-placement="top">
+                <a class="btn btn-flat icon pull-right delete-user" data-toggle="tooltip" title="Delete user" data-placement="top">
                     <i class="icon-trash"></i>
                 </a>
-                 <%= link_to "Edit this person", edit_person_path(@person), class: "btn-flat icon large pull-right edit" %>
+                 <%= link_to "Edit this person", edit_person_path(@person), class: "btn btn-flat icon large pull-right edit" %>
             </div>
 
             <div class="row-fluid profile">
@@ -69,10 +68,7 @@
                     <ul>
                         <li><%= @person.city %>, <%= @person.state %></li>
                         <li><%= @person.country %></li>
-                         <li class="ico-li">
-                            <i class="ico-mail"></i>
-                            <%= mail_to @person.email %>
-                        </li>
+                         <li class="ico-li"><i class="icon-envelope"></i><%= mail_to @person.email %></li>
                     </ul>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <h1>People from KISSmetrics</h1>
 
 <h4>Import</h4>
+<p>Note: This import currently works for a csv file with two columns: 'km_userid' and 'pedserial'. Import functionality can and will be expanded.</p>
 <%= form_tag import_people_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
