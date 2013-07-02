@@ -23,23 +23,23 @@ Person.create(
     {pedserial: 'HJ72026025380',
     km_userid: '700',
     omron_userid: 86301,
-    first_name: "Foo",
-    last_name: "Bar",
-    email: "foobar@example.com",
+    first_name: "Luke",
+    last_name: "Skywalker",
+    email: "luke@example.com",
     gender: "male",
-    city: "Chicago",
-    state: "IL",
+    city: "Tatooine",
+    state: "KS",
     country: "USA"})
 Person.create(
     {pedserial: 'HJ72026071490',
     km_userid: '1002',
     omron_userid: 552,
-    first_name: "Foofoo",
-    last_name: "Barbar",
-    email: "foofoobarbar@example.com",
-    gender: "female",
-    city: "San Francisco",
-    state: "CA",
+    first_name: "Andrew",
+    last_name: "Wiggin",
+    email: "andrew@example.com",
+    gender: "male",
+    city: "Milagre",
+    state: "FL",
     country: "USA"})
 Person.create(
     {pedserial: 'HJ72025088790',
@@ -88,3 +88,108 @@ Person.create(
 
 puts 'Six people created'
 puts 'Currently, importing people from KISSmetrics only supports two columns. Make sure the csv only includes "km_userid" and "pedserial".'
+puts ''
+
+Event.destroy_all
+Event.create(
+    {action: 'dashboard',
+    doer: '1123',
+    event_time: 1367889160})
+Event.create(
+    {action: 'page view',
+    doer: '1075',
+    event_time: 1367890276})
+Event.create(
+    {action: 'uploaded',
+    doer: '1077',
+    event_time: 1367890283})
+Event.create(
+    {action: 'uploaded',
+    doer: '1012',
+    event_time: 1367890296})
+Event.create(
+    {action: 'pc driver download',
+    doer: '1002',
+    event_time: 1367890299})
+Event.create(
+    {action: 'home page view',
+    doer: '700',
+    event_time: 1367890339})
+Event.create(
+    {action: 'page view',
+    doer: 'luke@example.com',
+    event_time: 1367890349})
+Event.create(
+    {action: 'uploaded',
+    doer: 'andrew@example.com',
+    event_time: 1367890356})
+Event.create(
+    {action: 'email signup',
+    doer: 'marty@example.com',
+    event_time: 1367890361})
+Event.create(
+    {action: 'dashboard',
+    doer: 'michael@example.com',
+    event_time: 1367890369})
+Event.create(
+    {action: 'uploaded',
+    doer: 'audrey@example.com',
+    event_time: 1367890385})
+Event.create(
+    {action: 'mac download page',
+    doer: 'miles@example.com',
+    event_time: 1367890478})
+Event.create(
+    {action: 'visited site',
+    doer: '1077',
+    event_time: 1367890499})
+Event.create(
+    {action: 'visited site',
+    doer: '1012',
+    event_time: 1367889122})
+Event.create(
+    {action: 'uploaded',
+    doer: '1075',
+    event_time: 1367889154})
+Event.create(
+    {action: 'uploaded',
+    doer: '1075',
+    event_time: 1367889164})
+Event.create(
+    {action: 'uploaded',
+    doer: '1002',
+    event_time: 1367889268})
+Event.create(
+    {action: 'uploaded',
+    doer: '700',
+    event_time: 1367889298})
+Event.create(
+    {action: 'uploaded',
+    doer: 'marty@example.com',
+    event_time: 1367889607})
+Event.create(
+    {action: 'uploaded',
+    doer: '1123',
+    event_time: 1367889611})
+Event.create(
+    {action: 'uploaded',
+    doer: '700',
+    event_time: 1367889740})
+Event.create(
+    {action: 'uploaded',
+    doer: 'audrey@example.com',
+    event_time: 1367889736})
+Event.create(
+    {action: 'visited site',
+    doer: 'luke@example.com',
+    event_time: 1367889731})
+Event.create(
+    {action: 'page view',
+    doer: '1002',
+    event_time: 1367889727})
+
+puts '24 events created with "action", "doer", and "event_time" set (this is what we receive in JSON from KM).'
+
+puts 'Now, run a script to identify the people who did those events using the "doer" column and set the "person_id" column.'
+puts 'WRITE SCRIPT HERE'
+puts '"person_id" column set for all events.'
