@@ -58,7 +58,7 @@ Person.create(
     omron_userid: 1998,
     first_name: "Michael",
     last_name: "Jordan",
-    email: "mj@example.com",
+    email: "michael@example.com",
     gender: "male",
     city: "Chicago",
     state: "IL",

@@ -59328,3 +59328,555 @@ Served asset /application.css - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 10:21:32 -0500
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 10:28:04 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" IS NULL LIMIT 1
+  Rendered people/index.html.erb within layouts/application (327.4ms)
+Completed 500 Internal Server Error in 395ms
+
+ActionView::Template::Error (undefined method `first_name' for nil:NilClass):
+    37: 
+    38: <% @people.each do |person| %>
+    39:   <tr>
+    40:     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
+    41:     <td><%= person.km_userid %></td>
+    42:     <td><%= person.omron_userid %></td>
+    43:     <td><%= person.pedserial %></td>
+  app/views/people/index.html.erb:40:in `block in _app_views_people_index_html_erb___3116259349328443774_2175956120'
+  app/views/people/index.html.erb:38:in `each'
+  app/views/people/index.html.erb:38:in `_app_views_people_index_html_erb___3116259349328443774_2175956120'
+
+
+  Rendered /Users/mrk/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /Users/mrk/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/mrk/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (30.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 10:31:24 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" IS NULL LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3726 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3727 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3728 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3730 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3729 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3731 LIMIT 1[0m
+  Rendered people/index.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 113ms
+
+ActionView::Template::Error (undefined method `first_name' for nil:NilClass):
+    37: 
+    38: <% @people.each do |person| %>
+    39:   <tr>
+    40:     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
+    41:     <td><%= person.km_userid %></td>
+    42:     <td><%= person.omron_userid %></td>
+    43:     <td><%= person.pedserial %></td>
+  app/views/people/index.html.erb:40:in `block in _app_views_people_index_html_erb___3116259349328443774_2175956120'
+  app/views/people/index.html.erb:38:in `each'
+  app/views/people/index.html.erb:38:in `_app_views_people_index_html_erb___3116259349328443774_2175956120'
+
+
+  Rendered /Users/mrk/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/mrk/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/mrk/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.1ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (317.5ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 6]]
+  [1m[36m (19.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'pirate@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (12.9ms)[0m  INSERT INTO "users" ("created_at", "email", "password_digest", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00], ["email", "pirate@example.com"], ["password_digest", "$2a$10$YBfkACHtbuueURrr3kM8oecBMfC6Sis6WjWceaXwucA3FDirOTR3O"], ["updated_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT "people".* FROM "people" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "people" WHERE "people"."id" = ?  [["id", 3726]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 3727]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "people" WHERE "people"."id" = ?  [["id", 3728]]
+  [1m[36m (13.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 3729]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "people" WHERE "people"."id" = ?  [["id", 3730]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 3731]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["city", "Tatooine"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00], ["email", "luke@example.com"], ["first_name", "Luke"], ["gender", "male"], ["km_userid", "700"], ["last_name", "Skywalker"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", 86301], ["pedserial", "HJ72026025380"], ["state", "KS"], ["updated_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "Milagre"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00], ["email", "andrew@example.com"], ["first_name", "Andrew"], ["gender", "male"], ["km_userid", "1002"], ["last_name", "Wiggin"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", 552], ["pedserial", "HJ72026071490"], ["state", "FL"], ["updated_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["city", "Hill Valley"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00], ["email", "marty@example.com"], ["first_name", "Marty"], ["gender", "male"], ["km_userid", "1012"], ["last_name", "McFly"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", 1985], ["pedserial", "HJ72025088790"], ["state", "CA"], ["updated_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "Chicago"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00], ["email", "michael@example.com"], ["first_name", "Michael"], ["gender", "male"], ["km_userid", "1075"], ["last_name", "Jordan"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", 1998], ["pedserial", "HJ72027007820"], ["state", "IL"], ["updated_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["city", "Los Angeles"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00], ["email", "audrey@example.com"], ["first_name", "Audrey"], ["gender", "female"], ["km_userid", "1077"], ["last_name", "Hepburn"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", 1929084], ["pedserial", "HJ72012066850"], ["state", "CA"], ["updated_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "St. Louis"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00], ["email", "miles@example.com"], ["first_name", "Miles"], ["gender", "male"], ["km_userid", "1123"], ["last_name", "Davis"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", 628200], ["pedserial", "HJ72026109690"], ["state", "MO"], ["updated_at", Tue, 02 Jul 2013 15:32:23 UTC +00:00]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49905]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49906]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49907]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49908]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49909]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49910]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49911]]
+  [1m[35m (6.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49912]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49913]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49914]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49915]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49916]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49917]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49918]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49919]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49920]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49921]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49922]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49923]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49924]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49925]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49926]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49927]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49928]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "dashboard"], ["doer", "1123"], ["event_time", 1367889160], ["person_id", nil]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "page view"], ["doer", "1075"], ["event_time", 1367890276], ["person_id", nil]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "1077"], ["event_time", 1367890283], ["person_id", nil]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "1012"], ["event_time", 1367890296], ["person_id", nil]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "pc driver download"], ["doer", "1002"], ["event_time", 1367890299], ["person_id", nil]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "home page view"], ["doer", "700"], ["event_time", 1367890339], ["person_id", nil]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "page view"], ["doer", "luke@example.com"], ["event_time", 1367890349], ["person_id", nil]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "andrew@example.com"], ["event_time", 1367890356], ["person_id", nil]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "email signup"], ["doer", "marty@example.com"], ["event_time", 1367890361], ["person_id", nil]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "dashboard"], ["doer", "michael@example.com"], ["event_time", 1367890369], ["person_id", nil]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "audrey@example.com"], ["event_time", 1367890385], ["person_id", nil]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "mac download page"], ["doer", "miles@example.com"], ["event_time", 1367890478], ["person_id", nil]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "visited site"], ["doer", "1077"], ["event_time", 1367890499], ["person_id", nil]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "visited site"], ["doer", "1012"], ["event_time", 1367889122], ["person_id", nil]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "1075"], ["event_time", 1367889154], ["person_id", nil]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "1075"], ["event_time", 1367889164], ["person_id", nil]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "1002"], ["event_time", 1367889268], ["person_id", nil]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "700"], ["event_time", 1367889298], ["person_id", nil]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "marty@example.com"], ["event_time", 1367889607], ["person_id", nil]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "1123"], ["event_time", 1367889611], ["person_id", nil]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "700"], ["event_time", 1367889740], ["person_id", nil]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "audrey@example.com"], ["event_time", 1367889736], ["person_id", nil]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "visited site"], ["doer", "luke@example.com"], ["event_time", 1367889731], ["person_id", nil]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "page view"], ["doer", "1002"], ["event_time", 1367889727], ["person_id", nil]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" 
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1123' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1123' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "events" SET "person_id" = 3737 WHERE "events"."id" = 49929
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3735 WHERE "events"."id" = 49930[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1077' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1077' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3736 WHERE "events"."id" = 49931
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1012' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1012' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3734 WHERE "events"."id" = 49932[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3733 WHERE "events"."id" = 49933
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3732 WHERE "events"."id" = 49934[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'luke@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'luke@example.com' LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'luke@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3732 WHERE "events"."id" = 49935[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'andrew@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'andrew@example.com' LIMIT 1
+  [1m[36mPerson Load (1.4ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'andrew@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.8ms)[0m  [1mUPDATE "events" SET "person_id" = 3733 WHERE "events"."id" = 49936[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'marty@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'marty@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'marty@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3734 WHERE "events"."id" = 49937[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'michael@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'michael@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'michael@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3735 WHERE "events"."id" = 49938[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'audrey@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'audrey@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'audrey@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3736 WHERE "events"."id" = 49939[0m
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'miles@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'miles@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'miles@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3737 WHERE "events"."id" = 49940[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1077' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1077' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3736 WHERE "events"."id" = 49941
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1012' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1012' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3734 WHERE "events"."id" = 49942[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3735 WHERE "events"."id" = 49943
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3735 WHERE "events"."id" = 49944[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3733 WHERE "events"."id" = 49945
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3732 WHERE "events"."id" = 49946[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'marty@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'marty@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'marty@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3734 WHERE "events"."id" = 49947[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mPerson Load (0.4ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1123' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1123' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "events" SET "person_id" = 3737 WHERE "events"."id" = 49948
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3732 WHERE "events"."id" = 49949[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'audrey@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'audrey@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'audrey@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3736 WHERE "events"."id" = 49950[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'luke@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'luke@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'luke@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3732 WHERE "events"."id" = 49951[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3733 WHERE "events"."id" = 49952
+  [1m[36m (22.1ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 10:32:26 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :require_signin rendered or redirected
+Completed 302 Found in 33ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2013-07-02 10:32:26 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Completed 200 OK in 51ms (Views: 50.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 10:32:27 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:27 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:27 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:27 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 10:32:27 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 10:32:27 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:27 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:27 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-07-02 10:32:32 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QTesvuURewPFfpB+qVQgN30HeFDt6b9iPR2whtJezW8=", "email"=>"pirate@example.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'pirate@example.com' LIMIT 1[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 96ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-07-02 10:32:32 -0500
+Processing by PagesController#dashboard as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "people" WHERE (pedserial IS NOT NULL)[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT DISTINCT(ACTION) FROM "events" 
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'dashboard'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'page view'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'uploaded'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'pc driver download'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'home page view'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'email signup'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'mac download page'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'visited site'
+  Rendered pages/dashboard.html.erb within layouts/application (7.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+Completed 200 OK in 42ms (Views: 38.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 10:32:33 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:33 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:33 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 10:32:33 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 10:32:33 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:33 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:33 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:33 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 10:32:35 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3732 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3733 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3734 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3736 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3735 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3737 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."doer" = '700'[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."doer" = '1002'
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."doer" = '1012'[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."doer" = '1077'
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."doer" = '1075'[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."doer" = '1123'
+  Rendered people/index.html.erb within layouts/application (651.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+Completed 200 OK in 775ms (Views: 766.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 10:32:36 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 10:32:36 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:36 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 10:32:36 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:36 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:36 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:36 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 10:32:36 -0500
+Served asset /people.js - 304 Not Modified (0ms)
