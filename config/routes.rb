@@ -2,7 +2,8 @@ PirateMetricsDashboard::Application.routes.draw do
   resources :people do
     collection { post :import }
   end
-
+  get '/sync' => 'People#sync', as: 'sync'
+  get '/operations' => 'People#operations', as: 'operations'
 
   root to: 'Sessions#new'
 

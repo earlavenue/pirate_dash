@@ -62109,3 +62109,1806 @@ Served asset /people.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:49:42 -0500
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/people?utf8=%E2%9C%93&search_last_name=Knepper&search_serial=" for 127.0.0.1 at 2013-07-02 13:52:07 -0500
+Processing by PeopleController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_last_name"=>"Knepper", "search_serial"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."last_name" = 'Knepper'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3738[0m
+  Rendered people/index.html.erb within layouts/application (3.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 13:52:07 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 13:52:07 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:07 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 13:52:07 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:07 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:07 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:07 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:07 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 13:52:11 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3732 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3733 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3734 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3736 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3735 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3737 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3732
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3733[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3734
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3736[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3735
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3737[0m
+  Rendered people/index.html.erb within layouts/application (7.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 20.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 13:52:11 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 13:52:11 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:11 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:11 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:11 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 13:52:11 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:11 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:52:11 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2013-07-02 13:57:28 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  Rendered users/show.html.erb within layouts/application (19.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+Completed 200 OK in 116ms (Views: 111.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:28 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:28 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:28 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:28 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:28 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:28 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:28 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:28 -0500
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-07-02 13:57:30 -0500
+Processing by PagesController#dashboard as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "people" WHERE (pedserial IS NOT NULL)[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT DISTINCT(ACTION) FROM "events" 
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'dashboard'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'page view'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'uploaded'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'pc driver download'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'home page view'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'email signup'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'mac download page'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'visited site'
+  Rendered pages/dashboard.html.erb within layouts/application (8.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+Completed 200 OK in 54ms (Views: 50.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:30 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:30 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:30 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:30 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:30 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:30 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:30 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:30 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 13:57:33 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3732 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3733 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3734 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3736 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3735 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3737 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3732[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3733
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3734[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3736
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3735[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3737
+  Rendered people/index.html.erb within layouts/application (10.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+Completed 200 OK in 61ms (Views: 54.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:33 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:33 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:33 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:33 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:33 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:33 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:33 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:33 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-07-02 13:57:46 -0500
+Processing by PagesController#dashboard as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "people" WHERE (pedserial IS NOT NULL)
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(ACTION) FROM "events" [0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'dashboard'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'page view'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'uploaded'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'pc driver download'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'home page view'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'email signup'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'mac download page'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'visited site'[0m
+  Rendered pages/dashboard.html.erb within layouts/application (5.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:46 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:46 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:46 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:46 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:46 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 13:57:46 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:46 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:57:46 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mUser Load (15.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.5ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 7]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'pirate@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (76.6ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00], ["email", "pirate@example.com"], ["first_name", "Edward"], ["last_name", "Teach"], ["password_digest", "$2a$10$DgIKUPlMQOUsR785hsavBe8/p82NIZtfjn135CzvslW7cdzmRNIUi"], ["updated_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (1.0ms)[0m  SELECT "people".* FROM "people" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "people" WHERE "people"."id" = ?  [["id", 3732]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 3733]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "people" WHERE "people"."id" = ?  [["id", 3734]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 3735]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "people" WHERE "people"."id" = ?  [["id", 3736]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 3737]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "people" WHERE "people"."id" = ?  [["id", 3738]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 3739]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["city", "Tatooine"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00], ["email", "luke@example.com"], ["first_name", "Luke"], ["gender", "male"], ["km_userid", "700"], ["last_name", "Skywalker"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", "86301"], ["pedserial", "HJ72026025380"], ["state", "KS"], ["updated_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "Milagre"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00], ["email", "andrew@example.com"], ["first_name", "Andrew"], ["gender", "male"], ["km_userid", "1002"], ["last_name", "Wiggin"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", "552"], ["pedserial", "HJ72026071490"], ["state", "FL"], ["updated_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["city", "Hill Valley"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00], ["email", "marty@example.com"], ["first_name", "Marty"], ["gender", "male"], ["km_userid", "1012"], ["last_name", "McFly"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", "1985"], ["pedserial", "HJ72025088790"], ["state", "CA"], ["updated_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "Chicago"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00], ["email", "michael@example.com"], ["first_name", "Michael"], ["gender", "male"], ["km_userid", "1075"], ["last_name", "Jordan"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", "1998"], ["pedserial", "HJ72027007820"], ["state", "IL"], ["updated_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["city", "Los Angeles"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00], ["email", "audrey@example.com"], ["first_name", "Audrey"], ["gender", "female"], ["km_userid", "1077"], ["last_name", "Hepburn"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", "1929084"], ["pedserial", "HJ72012066850"], ["state", "CA"], ["updated_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "people" ("city", "country", "created_at", "email", "first_name", "gender", "km_userid", "last_name", "last_upload", "last_visit_time", "omron_date_created", "omron_userid", "pedserial", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "St. Louis"], ["country", "USA"], ["created_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00], ["email", "miles@example.com"], ["first_name", "Miles"], ["gender", "male"], ["km_userid", "1123"], ["last_name", "Davis"], ["last_upload", nil], ["last_visit_time", nil], ["omron_date_created", nil], ["omron_userid", "628200"], ["pedserial", "HJ72026109690"], ["state", "MO"], ["updated_at", Tue, 02 Jul 2013 19:25:19 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49929]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49930]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49931]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49932]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49933]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49934]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49935]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49936]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49937]]
+  [1m[35m (8.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49938]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49939]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49940]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49941]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49942]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49943]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49944]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49945]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49946]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49947]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49948]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49949]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49950]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 49951]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 49952]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "dashboard"], ["doer", "1123"], ["event_time", 1367889160], ["person_id", nil]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "page view"], ["doer", "1075"], ["event_time", 1367890276], ["person_id", nil]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "1077"], ["event_time", 1367890283], ["person_id", nil]]
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "1012"], ["event_time", 1367890296], ["person_id", nil]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "pc driver download"], ["doer", "1002"], ["event_time", 1367890299], ["person_id", nil]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "home page view"], ["doer", "700"], ["event_time", 1367890339], ["person_id", nil]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "page view"], ["doer", "luke@example.com"], ["event_time", 1367890349], ["person_id", nil]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "andrew@example.com"], ["event_time", 1367890356], ["person_id", nil]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "email signup"], ["doer", "marty@example.com"], ["event_time", 1367890361], ["person_id", nil]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.9ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "dashboard"], ["doer", "michael@example.com"], ["event_time", 1367890369], ["person_id", nil]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "audrey@example.com"], ["event_time", 1367890385], ["person_id", nil]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "mac download page"], ["doer", "miles@example.com"], ["event_time", 1367890478], ["person_id", nil]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "visited site"], ["doer", "1077"], ["event_time", 1367890499], ["person_id", nil]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "visited site"], ["doer", "1012"], ["event_time", 1367889122], ["person_id", nil]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "1075"], ["event_time", 1367889154], ["person_id", nil]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "1075"], ["event_time", 1367889164], ["person_id", nil]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "1002"], ["event_time", 1367889268], ["person_id", nil]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "700"], ["event_time", 1367889298], ["person_id", nil]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "marty@example.com"], ["event_time", 1367889607], ["person_id", nil]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "1123"], ["event_time", 1367889611], ["person_id", nil]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "uploaded"], ["doer", "700"], ["event_time", 1367889740], ["person_id", nil]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "uploaded"], ["doer", "audrey@example.com"], ["event_time", 1367889736], ["person_id", nil]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)[0m  [["action", "visited site"], ["doer", "luke@example.com"], ["event_time", 1367889731], ["person_id", nil]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("action", "doer", "event_time", "person_id") VALUES (?, ?, ?, ?)  [["action", "page view"], ["doer", "1002"], ["event_time", 1367889727], ["person_id", nil]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" 
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1123' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1123' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "events" SET "person_id" = 3745 WHERE "events"."id" = 49953
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3743 WHERE "events"."id" = 49954[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1077' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1077' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3744 WHERE "events"."id" = 49955
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1012' LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1012' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3742 WHERE "events"."id" = 49956[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3741 WHERE "events"."id" = 49957
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3740 WHERE "events"."id" = 49958[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'luke@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'luke@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'luke@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "events" SET "person_id" = 3740 WHERE "events"."id" = 49959[0m
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'andrew@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'andrew@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'andrew@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3741 WHERE "events"."id" = 49960[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'marty@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'marty@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'marty@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3742 WHERE "events"."id" = 49961[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'michael@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'michael@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'michael@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3743 WHERE "events"."id" = 49962[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'audrey@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'audrey@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'audrey@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3744 WHERE "events"."id" = 49963[0m
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'miles@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'miles@example.com' LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'miles@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3745 WHERE "events"."id" = 49964[0m
+  [1m[35m (9.2ms)[0m  commit transaction
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1077' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1077' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "events" SET "person_id" = 3744 WHERE "events"."id" = 49965
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1012' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1012' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3742 WHERE "events"."id" = 49966[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "events" SET "person_id" = 3743 WHERE "events"."id" = 49967
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1075' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3743 WHERE "events"."id" = 49968[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3741 WHERE "events"."id" = 49969
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3740 WHERE "events"."id" = 49970[0m
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'marty@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'marty@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'marty@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3742 WHERE "events"."id" = 49971[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1123' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1123' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "events" SET "person_id" = 3745 WHERE "events"."id" = 49972
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '700' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "person_id" = 3740 WHERE "events"."id" = 49973[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'audrey@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'audrey@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'audrey@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3744 WHERE "events"."id" = 49974[0m
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = 'luke@example.com' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."email" = 'luke@example.com' LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."email" = 'luke@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "events" SET "person_id" = 3740 WHERE "events"."id" = 49975[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."km_userid" = '1002' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "person_id" = 3741 WHERE "events"."id" = 49976
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-02 14:25:28 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+Completed 200 OK in 64ms (Views: 63.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 14:25:28 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 14:25:28 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 14:25:28 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:28 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:28 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:28 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:28 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:28 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-07-02 14:25:32 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QTesvuURewPFfpB+qVQgN30HeFDt6b9iPR2whtJezW8=", "email"=>"pirate@example.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'pirate@example.com' LIMIT 1
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 88ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-07-02 14:25:33 -0500
+Processing by PagesController#dashboard as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "people" WHERE (pedserial IS NOT NULL)
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(ACTION) FROM "events" [0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'dashboard'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'page view'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'uploaded'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'pc driver download'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'home page view'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'email signup'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'mac download page'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'visited site'[0m
+  Rendered pages/dashboard.html.erb within layouts/application (6.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 14:25:33 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:33 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:33 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 14:25:33 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:33 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 14:25:33 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:33 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:33 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 14:25:45 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (7.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 20.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 14:25:45 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 14:25:45 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:45 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:45 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 14:25:45 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:45 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:45 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 14:25:45 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 14:58:17 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (11.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (12.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 216ms (Views: 29.2ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 14:58:17 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 14:58:17 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 14:58:17 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 14:58:17 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 14:58:17 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 14:58:17 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 14:58:17 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 14:58:17 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:00:30 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (11.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 88ms (Views: 26.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:00:30 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:30 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:30 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:00:30 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:30 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:00:30 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:30 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:30 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:00:45 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (10.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 96ms (Views: 89.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:00:45 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:00:45 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:45 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:45 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:45 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:00:45 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:45 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:00:45 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:01:17 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (10.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 23.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:01:17 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:01:17 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:17 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:01:17 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:17 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:17 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:17 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:17 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:01:28 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (10.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 23.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:01:28 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:28 -0500
+Served asset /people.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:01:28 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:28 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:28 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:28 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:28 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:01:28 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/sync" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Processing by PeopleController#sync as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."km_userid" IS NULL[0m
+Redirected to http://localhost:3000/people
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (7.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 21.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:01:50 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:03:42 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (10.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 140ms (Views: 26.7ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:03:42 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:42 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:43 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:43 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:03:43 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:03:43 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:43 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:43 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:03:57 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (8.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 23.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:03:57 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:03:57 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:57 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:57 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:03:57 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:57 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:57 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:03:57 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:04:13 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (10.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 23.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:13 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:13 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:13 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:13 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:13 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:13 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:13 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:13 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:04:19 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (8.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 29ms (Views: 22.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:19 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:19 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:19 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:19 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:19 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:19 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:19 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:19 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:04:27 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (10.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 32ms (Views: 24.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:27 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:27 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:27 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:27 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:27 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:27 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:27 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:27 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:04:39 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745[0m
+  Rendered people/index.html.erb within layouts/application (9.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 23.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:39 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:39 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:39 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:39 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:39 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:39 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:39 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:39 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/operations" for 127.0.0.1 at 2013-07-02 15:04:45 -0500
+Processing by PeopleController#operations as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered people/operations.html.erb within layouts/application (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:45 -0500
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:45 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:45 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:45 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:45 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:45 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:45 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:45 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/operations" for 127.0.0.1 at 2013-07-02 15:04:53 -0500
+Processing by PeopleController#operations as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered people/operations.html.erb within layouts/application (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:54 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:54 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:54 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:54 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:54 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:04:54 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:54 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:04:54 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/operations" for 127.0.0.1 at 2013-07-02 15:05:08 -0500
+Processing by PeopleController#operations as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered people/operations.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:08 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:08 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:09 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:09 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:09 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:09 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:09 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:09 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/operations" for 127.0.0.1 at 2013-07-02 15:05:28 -0500
+Processing by PeopleController#operations as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered people/operations.html.erb within layouts/application (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:28 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:28 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:28 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:28 -0500
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:28 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:28 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:28 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:28 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/operations" for 127.0.0.1 at 2013-07-02 15:05:36 -0500
+Processing by PeopleController#operations as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered people/operations.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:37 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:37 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:37 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:37 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:37 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:37 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:37 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:37 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:05:40 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745
+  Rendered people/index.html.erb within layouts/application (8.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+Completed 200 OK in 28ms (Views: 20.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:40 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:40 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:40 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:40 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:40 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:40 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:40 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:40 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 15:05:46 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3740 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3741 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3742 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3744 LIMIT 1
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3743 LIMIT 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3745 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3740[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3741
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3742[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3744
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3743[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3745
+  Rendered people/index.html.erb within layouts/application (9.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+Completed 200 OK in 32ms (Views: 25.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:46 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:46 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:47 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:47 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:47 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:47 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 15:05:47 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 15:05:47 -0500
+Served asset /application.css - 304 Not Modified (0ms)

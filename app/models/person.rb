@@ -3,6 +3,21 @@ class Person < ActiveRecord::Base
 
   has_many :events
 
+  def self.sync
+    people_needing_km_data = Person.where km_userid: nil
+    unsynced_km_people = Person.where("km_userid IS NOT NULL AND omron_userid IS NULL")
+
+    people_needing_km_data.each do |person_needing_km_userid|
+      unsynced_km_people.each do |person_from_km|
+        if person_needing_km_userid.pedserial == person_from_km.pedserial
+          person_needing_km_userid.km_userid = person_from_km.km_userid
+          person_needing_km_userid.save
+          person_from_km.destroy
+        end
+      end
+    end
+  end
+
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       Person.create! row.to_hash

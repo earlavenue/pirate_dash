@@ -1,6 +1,14 @@
 class PeopleController < ApplicationController
   before_filter :require_signin
 
+  def operations
+  end
+
+  def sync
+    Person.sync
+    redirect_to people_url, notice: 'People successfully synced.'
+  end
+
   def import
     Person.import(params[:file])
     redirect_to people_url
