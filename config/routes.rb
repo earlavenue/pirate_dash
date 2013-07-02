@@ -5,7 +5,7 @@ PirateMetricsDashboard::Application.routes.draw do
   get '/sync' => 'People#sync', as: 'sync'
   get '/operations' => 'People#operations', as: 'operations'
 
-  root to: 'Sessions#new'
+  root to: 'Pages#dashboard'
 
   resources :users
 
