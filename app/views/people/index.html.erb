@@ -41,7 +41,7 @@
     <td><%= person.km_userid %></td>
     <td><%= person.omron_userid %></td>
     <td><%= person.pedserial %></td>
-    <td><%= Event.where("doer" => person.km_userid).count %></td>
+    <td><%= person.events.count %></td>
   </tr>
 <% end %>
 </table>
