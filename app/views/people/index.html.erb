@@ -1,13 +1,13 @@
-<h1>People from KISSmetrics</h1>
+<h1>People</h1>
 
-<h4>Import</h4>
+<h4>Import from KISSmetrics</h4>
 <p>Note: This import currently works for a csv file with two columns: 'km_userid' and 'pedserial'. Import functionality can and will be expanded.</p>
 <%= form_tag import_people_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>
 
-<h3>Search</h3>
+<h4>Search</h4>
   <p><%= form_tag people_path, :method => :get, class: "form-search" do %>
     Last name: <%= text_field_tag :search_last_name, params[:search_last_name], class: "search-query" %></p>
     <h5>OR</h5>
@@ -17,13 +17,13 @@
 
 
 <% if params[:search_last_name].present? %>
-  <h3>Search Results for Last Name = <%= params[:search_last_name].capitalize %></h3>
+  <h4>Search Results for Last Name = <%= params[:search_last_name].capitalize %></h4>
   <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
 <% elsif params[:search_serial].present? %>
-  <h3>Search Results for Device serial number = <%= params[:search_serial] %></h3>
+  <h4>Search Results for Device serial number = <%= params[:search_serial] %></h4>
   <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
 <% else %>
-  <h3>Recently active</h3>
+  <h4>Recently active</h4>
 <% end %>
 
 <table class="table table-bordered table-striped">
