@@ -16,10 +16,10 @@ puts 'Log in as "pirate":'
 puts 'email: "pirate@example.com"'
 puts 'password: "12345"'
 puts ''
-puts 'If you are importing people from KISSmetrics, make sure the csv has only two columns: "km_userid" and "pedserial".'
+
 
 Person.destroy_all
-@person = Person.create(
+Person.create(
     {pedserial: 'HJ72026025380',
     km_userid: '700',
     omron_userid: 86301,
@@ -30,7 +30,7 @@ Person.destroy_all
     city: "Chicago",
     state: "IL",
     country: "USA"})
-@person = Person.create(
+Person.create(
     {pedserial: 'HJ72026071490',
     km_userid: '1002',
     omron_userid: 552,
@@ -42,3 +42,4 @@ Person.destroy_all
     state: "CA",
     country: "USA"})
 puts 'Two people created'
+puts 'Currently, importing people from KISSmetrics only supports two columns. Make sure the csv only includes "km_userid" and "pedserial".'
