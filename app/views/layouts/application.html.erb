@@ -23,7 +23,7 @@
           <% end %>
           <ul class="nav pull-right" id="main-menu-right">
             <% if current_user %>
-              <li><%= link_to "Hi, #{current_user.email}.", current_user %></li>
+              <li><%= link_to "Hi, #{current_user.first_name}.", current_user %></li>
               <li><%= link_to "Sign out", sessions_url, method: :delete %></li>
             <% else %>
               <li><%= link_to "Sign in", new_session_url %></li>
