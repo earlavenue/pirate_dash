@@ -1,6 +1,8 @@
 class Person < ActiveRecord::Base
   attr_accessible :pedserial, :km_userid, :omron_userid, :first_name, :last_name, :email, :gender, :country, :city, :state
 
+  has_many :events
+
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       Person.create! row.to_hash

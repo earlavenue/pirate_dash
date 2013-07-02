@@ -12148,3 +12148,173 @@ Migrating to AddPersonIDtoEvent (20130702144911)
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130702144911')[0m
   [1m[35m (12.0ms)[0m  commit transaction
   [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-02 09:52:48 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 490ms (Views: 487.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 09:52:48 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:49 -0500
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 09:52:49 -0500
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:49 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:49 -0500
+Served asset /application.js - 304 Not Modified (58ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:49 -0500
+Served asset /people.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 09:52:49 -0500
+Served asset /user-profile.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:49 -0500
+Served asset /users.js - 304 Not Modified (2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QTesvuURewPFfpB+qVQgN30HeFDt6b9iPR2whtJezW8=", "email"=>"pirate@example.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'pirate@example.com' LIMIT 1[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 98ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Processing by PagesController#dashboard as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "people" WHERE (pedserial IS NOT NULL)[0m
+  [1m[35mEvent Load (12.8ms)[0m  SELECT DISTINCT(ACTION) FROM "events" 
+  [1m[36m (4.4ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'dashboard'[0m
+  [1m[35m (4.5ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'page view'
+  [1m[36m (4.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'visited site'[0m
+  [1m[35m (3.6ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" IS NULL
+  [1m[36m (4.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'viewed dashboard'[0m
+  [1m[35m (4.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'dashboard edit'
+  [1m[36m (3.7ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'create profile'[0m
+  [1m[35m (4.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'uploaded'
+  [1m[36m (4.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'visited profile'[0m
+  [1m[35m (3.8ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'email signup'
+  [1m[36m (3.9ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'products page view'[0m
+  [1m[35m (4.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'driver selection'
+  [1m[36m (3.8ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'view select device'[0m
+  [1m[35m (3.8ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'visited sign up page'
+  [1m[36m (4.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'visited homepage'[0m
+  [1m[35m (3.9ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'pc download page'
+  [1m[36m (3.8ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'pc driver download'[0m
+  [1m[35m (3.7ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'omron fitness overview'
+  [1m[36m (3.9ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'twitter signup'[0m
+  [1m[35m (3.8ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'frequently asked questions'
+  [1m[36m (4.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'home page view'[0m
+  [1m[35m (4.4ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'search engine hit'
+  [1m[36m (3.9ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'facebook signup'[0m
+  [1m[35m (4.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'signed out'
+  [1m[36m (3.8ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'viewed end user license agreement'[0m
+  [1m[35m (3.9ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'visited products page'
+  [1m[36m (4.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'mac download page'[0m
+  [1m[35m (3.9ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'mac driver download'
+  [1m[36m (3.8ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."action" = 'viewed new dashboard'[0m
+  [1m[35m (4.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."action" = 'request classic dashboard'
+  Rendered pages/dashboard.html.erb within layouts/application (170.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+Completed 200 OK in 202ms (Views: 66.4ms | ActiveRecord: 133.2ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 09:52:54 -0500
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 09:53:01 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" LIMIT 10
+  [1m[36m (4.4ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."doer" = '700'[0m
+  [1m[35m (4.4ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."doer" = '1002'
+  Rendered people/index.html.erb within layouts/application (17.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+Completed 200 OK in 78ms (Views: 47.8ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 09:53:01 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 09:53:01 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 09:53:01 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 09:53:01 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 09:53:01 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 09:53:01 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 09:53:01 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 09:53:01 -0500
+Served asset /application.js - 304 Not Modified (0ms)
