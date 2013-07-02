@@ -189,7 +189,17 @@ Event.create(
     event_time: 1367889727})
 
 puts '24 events created with "action", "doer", and "event_time" set (this is what we receive in JSON from KM).'
+puts ''
+puts 'Now we run a script to identify the people who did those events using the "doer" column and set the "person_id" column.'
 
-puts 'Now, run a script to identify the people who did those events using the "doer" column and set the "person_id" column.'
-puts 'WRITE SCRIPT HERE'
+Event.all.each do |event|
+    if Person.find_by_km_userid(event.doer)
+        event.person_id = Person.find_by_km_userid(event.doer).id
+        event.save
+    elsif Person.find_by_email(event.doer)
+        event.person_id = Person.find_by_email(event.doer).id
+        event.save
+    end
+end
+
 puts '"person_id" column set for all events.'
