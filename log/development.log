@@ -61155,3 +61155,185 @@ Served asset /users.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 10:52:04 -0500
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/people?utf8=%E2%9C%93&search_last_name=Wiggin&search_serial=" for 127.0.0.1 at 2013-07-02 13:11:02 -0500
+Processing by PeopleController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_last_name"=>"Wiggin", "search_serial"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."last_name" = 'Wiggin'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3733
+  Rendered people/index.html.erb within layouts/application (23.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+Completed 200 OK in 42ms (Views: 39.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 13:11:03 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 13:11:03 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 13:11:03 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:03 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:03 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:03 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:03 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:03 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2013-07-02 13:11:06 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT DISTINCT(PERSON_ID) FROM "events" ORDER BY EVENT_TIME DESC LIMIT 10
+  [1m[36mPerson Load (0.4ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3732 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3733 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3734 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3736 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people" WHERE "people"."id" = 3735 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = 3737 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3732[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3733
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3734[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3736
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3735[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."person_id" = 3737
+  Rendered people/index.html.erb within layouts/application (8.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+Completed 200 OK in 51ms (Views: 20.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 13:11:06 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 13:11:06 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 13:11:06 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:06 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:06 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:06 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:06 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 13:11:06 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/people/3732" for 127.0.0.1 at 2013-07-02 13:29:20 -0500
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"3732"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", "3732"]]
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."person_id" = 3732[0m
+  Rendered people/show.html.erb within layouts/application (3.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+Completed 200 OK in 62ms (Views: 58.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-02 13:29:20 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-02 13:29:20 -0500
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user-profile.css?body=1" for 127.0.0.1 at 2013-07-02 13:29:20 -0500
+Served asset /user-profile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-02 13:29:20 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-02 13:29:20 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-02 13:29:20 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2013-07-02 13:29:20 -0500
+Served asset /people.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-02 13:29:20 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateEventsTable (20130626194339)
+Migrating to CreateUsers (20130628181132)
+Migrating to CreatePeople (20130628201918)
+Migrating to AddProductiondataToPeople (20130701175935)
+Migrating to AddPersonIDtoEvent (20130702144911)
+Migrating to AddNameToUser (20130702154001)
+Migrating to ChangeDatatypeOfOmronid (20130702182507)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TEMPORARY TABLE "altered_people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pedserial" varchar(255), "km_userid" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "omron_userid" integer, "first_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "gender" varchar(255), "country" varchar(255), "city" varchar(255), "state" varchar(255), "omron_date_created" datetime, "last_visit_time" datetime, "last_upload" datetime) 
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "people"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_people" ("id","pedserial","km_userid","created_at","updated_at","omron_userid","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3732, 'HJ72026025380', '700', '2013-07-02 15:32:23.579813', '2013-07-02 15:32:23.579813', 86301, 'Luke', 'Skywalker', 'luke@example.com', 'male', 'USA', 'Tatooine', 'KS', NULL, NULL, NULL)
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "altered_people" ("id","pedserial","km_userid","created_at","updated_at","omron_userid","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3733, 'HJ72026071490', '1002', '2013-07-02 15:32:23.585234', '2013-07-02 15:32:23.585234', 552, 'Andrew', 'Wiggin', 'andrew@example.com', 'male', 'USA', 'Milagre', 'FL', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_people" ("id","pedserial","km_userid","created_at","updated_at","omron_userid","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3734, 'HJ72025088790', '1012', '2013-07-02 15:32:23.588860', '2013-07-02 15:32:23.588860', 1985, 'Marty', 'McFly', 'marty@example.com', 'male', 'USA', 'Hill Valley', 'CA', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_people" ("id","pedserial","km_userid","created_at","updated_at","omron_userid","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3735, 'HJ72027007820', '1075', '2013-07-02 15:32:23.592610', '2013-07-02 15:32:23.592610', 1998, 'Michael', 'Jordan', 'michael@example.com', 'male', 'USA', 'Chicago', 'IL', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_people" ("id","pedserial","km_userid","created_at","updated_at","omron_userid","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3736, 'HJ72012066850', '1077', '2013-07-02 15:32:23.596177', '2013-07-02 15:32:23.596177', 1929084, 'Audrey', 'Hepburn', 'audrey@example.com', 'female', 'USA', 'Los Angeles', 'CA', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_people" ("id","pedserial","km_userid","created_at","updated_at","omron_userid","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3737, 'HJ72026109690', '1123', '2013-07-02 15:32:23.599528', '2013-07-02 15:32:23.599528', 628200, 'Miles', 'Davis', 'miles@example.com', 'male', 'USA', 'St. Louis', 'MO', NULL, NULL, NULL)[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "people"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pedserial" varchar(255), "km_userid" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "gender" varchar(255), "country" varchar(255), "city" varchar(255), "state" varchar(255), "omron_date_created" datetime, "last_visit_time" datetime, "last_upload" datetime) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "altered_people"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "people" ("id","pedserial","km_userid","created_at","updated_at","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3732, 'HJ72026025380', '700', '2013-07-02 15:32:23.579813', '2013-07-02 15:32:23.579813', 'Luke', 'Skywalker', 'luke@example.com', 'male', 'USA', 'Tatooine', 'KS', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "people" ("id","pedserial","km_userid","created_at","updated_at","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3733, 'HJ72026071490', '1002', '2013-07-02 15:32:23.585234', '2013-07-02 15:32:23.585234', 'Andrew', 'Wiggin', 'andrew@example.com', 'male', 'USA', 'Milagre', 'FL', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "people" ("id","pedserial","km_userid","created_at","updated_at","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3734, 'HJ72025088790', '1012', '2013-07-02 15:32:23.588860', '2013-07-02 15:32:23.588860', 'Marty', 'McFly', 'marty@example.com', 'male', 'USA', 'Hill Valley', 'CA', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "people" ("id","pedserial","km_userid","created_at","updated_at","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3735, 'HJ72027007820', '1075', '2013-07-02 15:32:23.592610', '2013-07-02 15:32:23.592610', 'Michael', 'Jordan', 'michael@example.com', 'male', 'USA', 'Chicago', 'IL', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "people" ("id","pedserial","km_userid","created_at","updated_at","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3736, 'HJ72012066850', '1077', '2013-07-02 15:32:23.596177', '2013-07-02 15:32:23.596177', 'Audrey', 'Hepburn', 'audrey@example.com', 'female', 'USA', 'Los Angeles', 'CA', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "people" ("id","pedserial","km_userid","created_at","updated_at","first_name","last_name","email","gender","country","city","state","omron_date_created","last_visit_time","last_upload") VALUES (3737, 'HJ72026109690', '1123', '2013-07-02 15:32:23.599528', '2013-07-02 15:32:23.599528', 'Miles', 'Davis', 'miles@example.com', 'male', 'USA', 'St. Louis', 'MO', NULL, NULL, NULL)
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "altered_people"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "people" ADD "omron_userid" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130702182507')[0m
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
