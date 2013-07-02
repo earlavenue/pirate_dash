@@ -49,7 +49,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% Event.where("doer" => @person.km_userid).each do |event| %>
+                                <% @person.events.each do |event| %>
                                 <tr class="first">
                                     <td>X</td>
                                     <td><%= event.event_time %></td>
