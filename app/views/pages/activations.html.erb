@@ -4,16 +4,3 @@
   <%= file_field_tag :file %><br>
   <%= submit_tag "Import", class: 'btn btn-info' %>
 <% end %>
-
-<table class="table table-bordered table-striped">
-  <tr>
-    <th>Upload Time</th>
-    <th>Dev Serial</th>
-  </tr>
-<% @uploads.each do |upload| %>
-  <tr>
-    <td><%= upload.upload_time %></td>
-    <td><%= upload.dev_serial %></td>
-  </tr>
-<% end %>
-</table>
