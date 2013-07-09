@@ -6,45 +6,132 @@
 <html class="no-js" lang="en" itemscope="" itemtype="http://schema.org/Product">
 <!--<![endif]-->
 <head>
-  <title>PirateMetricsDashboard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>PirateMetricsDashboard</title>
+
+    <!-- Meta data -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <!-- open sans font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
+
 <body>
 
-  <div class="navbar navbar-fixed-top">
-     <div class="navbar-inner">
-       <div class="container">
-         <a class="brand" href="../">Omron Fitness</a>
-         <div class="nav-collapse collapse" id="main-menu">
-          <% if current_user %>
-          <ul class="nav" id="main-menu-left">
-            <li><%= link_to "Dashboard", dashboard_url %></li>
-            <li><%= link_to "Users", users_url %></li>
-            <li><%= link_to "People", people_url %></li>
-          </ul>
-          <% end %>
-          <ul class="nav pull-right" id="main-menu-right">
-            <% if current_user %>
-              <li><%= link_to "Hi, #{current_user.first_name}.", current_user %></li>
-              <li><%= link_to "Sign out", sessions_url, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "Sign in", new_session_url %></li>
-              <li><%= link_to "Sign up", new_user_url %></li>
-            <% end %>
-          </ul>
-         </div>
-       </div>
-     </div>
-   </div>
+    <!-- navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a class="brand" href="index.html">
+            <img src="../images/omron_logo.png" alt="omron_logo">
+            </a>
 
-<br><br><br>
+            <ul class="nav pull-right">                
+                
+                <% if current_user %>
+                  
+                  <li><%= link_to "Dashboard", dashboard_url %></li>
+                  <li><%= link_to "Users", users_url %></li>
+                  <li><%= link_to "People", people_url %></li>
+          
+                <% end %>
+                
+                
+              
 
-<div class="container">
-  <%= yield %>
-</div>
+                
+                  <li class="dropdown settings" class=" hidden-phone">
+                    <a href="#" role="button" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
+                        <i class="icon-user"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <% if current_user %>
+                        <li><%= link_to "Hi, #{current_user.first_name}.", current_user %></li>
+                        <li><%= link_to "Sign out", sessions_url, method: :delete %></li>
+                        <% else %>
+                        <li><%= link_to "Sign in", new_session_url %></li>
+                        <li><%= link_to "Sign up", new_user_url %></li>
+                      <% end %>
+                    </ul>
+                </li>
+            </ul>            
+        </div>
+    </div>
+    <!-- end navbar -->
 
+    
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li>                
+                <a href="index.html">
+                    <i class="icon-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="active">                
+                <a href="#">
+                    <i class="icon-group"></i>
+                    <div class="pointer">
+                      <div class="arrow"></div>
+            <div class="arrow_border"></div>
+                    </div>
+                    <span>Aquisitions</span>
+                </a>
+            </li>            
+            <li>                
+                <a href="#">
+                    <i class="icon-laptop"></i>
+                    <span>Activations</span>
+                </a>
+            </li>                  
+            <li>                
+                <a href="#">
+                    <i class="icon-refresh"></i>
+                    <span>Retentions</span>
+                </a>
+            </li>            
+            <li>                
+                <a href="#">
+                    <i class="icon-comments"></i>
+                    <span>Referrals</span>
+                </a>
+            </li> 
+            <li>                
+                <a href="#">
+                    <i class="icon-money"></i>
+                    <span>Revenue</span>
+                </a>
+            </li> 
+        </ul>
+    </div>
+    <!-- end sidebar -->
+    <!-- main container -->
+    <div class="content">
+        <div class="container-fluid">
+            <div id="pad-wrapper">
+              <%= yield %>
+            </div>
+        </div>
+    </div>
+    <!-- end main container -->
 </body>
 </html>
