@@ -11,6 +11,9 @@ PirateMetricsDashboard::Application.routes.draw do
 
   get '/dashboard' => 'Pages#dashboard', as: 'dashboard'
   get '/refresh' => 'Pages#refresh', as: 'refresh'
+  get '/activations' => 'Pages#activations', as: 'activations'
+  post '/import_uploads' => 'Pages#import_uploads', as: 'import_uploads'
+
 
 
   get '/sessions/new' => 'Sessions#new', as: 'new_session'

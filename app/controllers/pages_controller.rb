@@ -24,4 +24,14 @@ class PagesController < ApplicationController
     end
     redirect_to dashboard_url
   end
+
+  def activations
+    @uploads = Upload.all
+  end
+
+  def import_uploads
+    Upload.import(params[:file])
+    redirect_to activations_url
+  end
+
 end
