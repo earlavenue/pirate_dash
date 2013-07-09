@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   end
 
   def activations
-    @uploads = Upload.all
+    @uploads = Upload.first(20)
   end
 
   def import_uploads
