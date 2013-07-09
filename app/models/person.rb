@@ -3,6 +3,14 @@ class Person < ActiveRecord::Base
 
   has_many :events
 
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Person.create! row.to_hash
+    end
+  end
+#import method supports importing data from EITHER KM or Omron production db. When you import from BOTH sources, the people table will have duplicates. Use the sync method to resolve this problem by identifying duplicates through identical device serial numbers, saving the KM id to the closer-to-complete Omron person row, and deleting the KM duplicate row.
+
   def self.sync
     people_needing_km_data = Person.where km_userid: nil
     unsynced_km_people = Person.where("km_userid IS NOT NULL AND omron_userid IS NULL")
@@ -15,12 +23,6 @@ class Person < ActiveRecord::Base
           person_from_km.destroy
         end
       end
-    end
-  end
-
-  def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      Person.create! row.to_hash
     end
   end
 
