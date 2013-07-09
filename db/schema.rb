@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702182507) do
+ActiveRecord::Schema.define(:version => 20130709141337) do
 
   create_table "events", :force => true do |t|
     t.string  "action"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(:version => 20130702182507) do
     t.datetime "last_visit_time"
     t.datetime "last_upload"
     t.string   "omron_userid"
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.datetime "upload_time"
+    t.string   "dev_serial"
   end
 
   create_table "users", :force => true do |t|

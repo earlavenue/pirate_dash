@@ -65634,3 +65634,20 @@ Served asset /application.js - 304 Not Modified (0ms)
 
 Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 12:02:22 -0500
 Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.9ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateEventsTable (20130626194339)
+Migrating to CreateUsers (20130628181132)
+Migrating to CreatePeople (20130628201918)
+Migrating to AddProductiondataToPeople (20130701175935)
+Migrating to AddPersonIDtoEvent (20130702144911)
+Migrating to AddNameToUser (20130702154001)
+Migrating to ChangeDatatypeOfOmronid (20130702182507)
+Migrating to AddUploadsTable (20130709141337)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "upload_time" datetime, "dev_serial" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130709141337')[0m
+  [1m[35m (33.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
