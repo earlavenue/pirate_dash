@@ -1,5 +1,5 @@
 .brand img{
-	height: 18px;
+  height: 18px;
 }
 
 .main-stats {
@@ -36,13 +36,13 @@
       right: 50px; }
       
 .data p{
-	text-align: center;
+  text-align: center;
 }      
 .data h4{
-	text-align: center;
-	padding: 0;
-	margin-left: 0 !important;
-	margin-bottom: 1em !important;
+  text-align: center;
+  padding: 0;
+  margin-left: 0 !important;
+  margin-bottom: 1em !important;
 }
 
 .big_number{
@@ -54,22 +54,22 @@
 }
 
 .number {
-	background: #32a0ee;	
-	border-radius: 4px;
-	padding:5px;
-	width: 85%;
-	display: block;
-	margin: 0 auto;
-	color: #fff;
-	font-size: 1.2em;
+  background: #32a0ee;  
+  border-radius: 4px;
+  padding:5px;
+  width: 85%;
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 1.2em;
 }
 .activated{
-	background: #05e727;
+  background: #05e727;
 }
 .property{
-	text-align: center;
-	display: block;
-	margin: 0 auto;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .device_pic{
@@ -83,18 +83,18 @@ background-repeat: no-repeat;
 }
 
 .pedometer{
-	background-position: center 7px;
+  background-position: center 7px;
 }
 .activity_monitor{
-	background-position: center -47px;
+  background-position: center -47px;
 }
 
 .hrm_monitor{
-	background-position: center -105px;
+  background-position: center -105px;
 }
 
 .weight_scale{
-	background-position: center 53px;
+  background-position: center 53px;
 }
 
 /* Dashboard
@@ -109,14 +109,15 @@ background-repeat: no-repeat;
 }
 
 .test {
-	border: 1px solid red;
+  border: 1px solid red;
 }
 
 .alpha {
-	margin-left: 0 !important;
+  margin-left: 0 !important;
 }
 
-/*KNOBS*/
+/* KNOBS
+-----------------------*/
 
 .knobs {
   overflow: auto; 
