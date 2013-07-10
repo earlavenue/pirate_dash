@@ -1,5 +1,84 @@
 <h1>Pirate Metrics Dashboard</h1>
 
+
+<div class="row-fluid section">
+  <div class="span12 dashboard_item">
+      <h2>Acquisition</h2>
+      <div class="row">
+          <div class="span2 well">
+              <div class="data">
+                <span class="big_number">120,000,000</span>
+                <span class="device_pic pedometer"></span>
+                <h4 class="device_name">
+                  HJ-322U
+                </h4>
+              </div>
+          </div>
+          <div class="span2 well">
+            <div class="data">
+              <span class="big_number">20,000,000</span>
+              <span class="device_pic pedometer"></span>
+              <h4 class="device_name">
+                HJ-323U
+              </h4>
+            </div>
+          </div>
+          <div class="span2 well">
+            <div class="data">
+              <span class="big_number">500,000</span>  
+              <span class="device_pic pedometer"></span>
+              <h4 class="referral_name">
+                HJ-324U
+              </h4>
+            </div>
+          </div>
+          <div class="span2 well">
+            <div class="data">
+              <span class="big_number">2457</span>
+              <span class="device_pic activity_monitor"></span>
+              <h4 class="device_name">
+                HJA-312
+              </h4>
+            </div>
+          </div>
+          <div class="span2 well">
+            <div class="data">
+              <span class="big_number">2457</span>
+              <span class="device_pic hrm_monitor"></span>
+              <h4 class="device_name">
+                HR-500U
+              </h4>
+            </div>
+          </div>
+          <div class="span2 well">
+            <div class="data">
+              <span class="big_number">2457</span>
+              <span class="device_pic weight_scale"></span>
+              <h4 class="device_name">
+                TBD
+              </h4>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <div class="alpha span6">
+      <h2><%= link_to "Activation", activations_url, title: "Activation"%></h2>
+      <div class="span12">
+        <div id="statsChart"></div>
+      </div>
+  </div>
+    <div class="span6 well">
+      <h2>Retention</h2>
+  </div>
+    <div class="alpha span8 well">
+      <h2>Revenue</h2>
+  </div>
+    <div class="span4 well">
+      <h2>Referral</h2>
+  </div>
+</div>
+
 <table class="table table-bordered table-striped">
   <tr>
     <th class="span2">Acquisition</th>
