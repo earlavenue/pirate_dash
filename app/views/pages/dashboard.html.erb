@@ -1,83 +1,27 @@
-<h1>Pirate Metrics Dashboard</h1>
-
-
 <div class="row-fluid section">
-  <div class="span12 dashboard_item">
-      <h2>Acquisition</h2>
-      <div class="row">
-          <div class="span2 well">
-              <div class="data">
-                <span class="big_number">120,000,000</span>
-                <span class="device_pic pedometer"></span>
-                <h4 class="device_name">
-                  HJ-322U
-                </h4>
-              </div>
-          </div>
-          <div class="span2 well">
-            <div class="data">
-              <span class="big_number">20,000,000</span>
-              <span class="device_pic pedometer"></span>
-              <h4 class="device_name">
-                HJ-323U
-              </h4>
-            </div>
-          </div>
-          <div class="span2 well">
-            <div class="data">
-              <span class="big_number">500,000</span>  
-              <span class="device_pic pedometer"></span>
-              <h4 class="referral_name">
-                HJ-324U
-              </h4>
-            </div>
-          </div>
-          <div class="span2 well">
-            <div class="data">
-              <span class="big_number">2457</span>
-              <span class="device_pic activity_monitor"></span>
-              <h4 class="device_name">
-                HJA-312
-              </h4>
-            </div>
-          </div>
-          <div class="span2 well">
-            <div class="data">
-              <span class="big_number">2457</span>
-              <span class="device_pic hrm_monitor"></span>
-              <h4 class="device_name">
-                HR-500U
-              </h4>
-            </div>
-          </div>
-          <div class="span2 well">
-            <div class="data">
-              <span class="big_number">2457</span>
-              <span class="device_pic weight_scale"></span>
-              <h4 class="device_name">
-                TBD
-              </h4>
-            </div>
-          </div>
-        </div>
-    </div>
 
-  <div class="alpha span6">
-      <h2><%= link_to "Activation", activations_url, title: "Activation"%></h2>
-      <div class="span12">
-        <div id="statsChart"></div>
-      </div>
-  </div>
-    <div class="span6 well">
-      <h2>Retention</h2>
-  </div>
-    <div class="alpha span8 well">
-      <h2>Revenue</h2>
-  </div>
-    <div class="span4 well">
-      <h2>Referral</h2>
-  </div>
+<div class="span3 well">
+ <h2>Acquisition <small>Number of connected devices (Pedometer, Activity Monitor, Scale, BP Monitor) sold</small></h2>
 </div>
+
+<div class="span3 well">
+ <h2><%= link_to "Activation", activations_url, title: "Activation"%> <small>Percentage of devices sold that are activated by connecting to the web app</small></h2>
+</div>
+
+<div class="span3 well">
+ <h2>Retention</h2>
+</div>
+
+<div class="span3 well">
+ <h2>Reveneu</h2>
+</div>
+
+<div class="span3 well">
+ <h2>Referal</h2>
+</div>
+
+</div>
+
 
 <table class="table table-bordered table-striped">
   <tr>
@@ -103,7 +47,7 @@
   </tr>
 </table>
 
-
+<!--
 <h3>Misc KM stats from s3 bucket sample</h3>
 <p><%= link_to 'Grab data (sample of 20) from buckets', refresh_url, class: 'btn btn-warning' %> - Careful! This loads a LOT of data</p>
 <p>List of actions and how often they've been performed</p>
@@ -112,4 +56,89 @@
   <li><%= e.action %> - <%= Event.where(action: e.action).count %></li>
 <% end %>
 </ul>
+-->
+<script type="text/javascript">
 
+        //  jQuery Flot Chart
+        var activated = [[1, 50], [2, 40], [3, 45], [4, 23],[5, 55],[6, 65],[7, 61],[8, 70],[9, 65],[10, 75],[11, 57],[12, 59]];
+        var sold = [[1, 55], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,50],[11,47],[12, 39]];
+
+        var plot = $.plot($("#activation_chart"),
+            [ { data: activated, label: "Activated"},
+             { data: sold, label: "Sold" }], {
+                series: {
+                    lines: { show: true,
+                            lineWidth: 1,
+                            fill: true, 
+                            fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.09 } ] }
+                         },
+                    points: { show: true, 
+                             lineWidth: 2,
+                             radius: 3
+                         },
+                    shadowSize: 0,
+                    stack: false
+                },
+                grid: { hoverable: true, 
+                       clickable: true, 
+                       tickColor: "#f9f9f9",
+                       borderWidth: 0
+                    },
+                legend: {
+                        // show: false
+                        labelBoxBorderColor: "#fff"
+                    },  
+                colors: ["#05e727", "#30a0eb"],
+                xaxis: {
+                    ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"], 
+                           [7,"JUL"], [8,"AUG"], [9,"SEP"], [10,"OCT"], [11,"NOV"], [12,"DEC"]],
+                    font: {
+                        size: 12,
+                        family: "Open Sans, Arial",
+                        variant: "small-caps",
+                        color: "#9da3a9"
+                    }
+                },
+                yaxis: {
+                    ticks:3, 
+                    tickDecimals: 0,
+                    font: {size:12, color: "#9da3a9"}
+                }
+             });
+
+        function showTooltip(x, y, contents) {
+            $('<div id="tooltip">' + contents + '</div>').css( {
+                position: 'absolute',
+                display: 'none',
+                top: y - 30,
+                left: x - 50,
+                color: "#fff",
+                padding: '2px 5px',
+                'border-radius': '6px',
+                'background-color': '#000',
+                opacity: 0.80
+            }).appendTo("body").fadeIn(200);
+        }
+
+        var previousPoint = null;
+        $("#statsChart").bind("plothover", function (event, pos, item) {
+            if (item) {
+                if (previousPoint != item.dataIndex) {
+                    previousPoint = item.dataIndex;
+
+                    $("#tooltip").remove();
+                    var x = item.datapoint[0].toFixed(0),
+                        y = item.datapoint[1].toFixed(0);
+
+                    var month = item.series.xaxis.ticks[item.dataIndex].label;
+
+                    showTooltip(item.pageX, item.pageY,
+                                item.series.label + " of " + month + ": " + y);
+                }
+            }
+            else {
+                $("#tooltip").remove();
+                previousPoint = null;
+            }
+        });
+    </script>

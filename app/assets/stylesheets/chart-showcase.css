@@ -12,8 +12,8 @@
 
 #pad-wrapper .section {
   border-top: 1px solid #edeff1;
-  margin-top: 70px;
-  padding-top: 45px;
+  margin-top: 10px;
+  padding-top: 1em;
   box-shadow: inset 0px 3px 4px -1px #fafafa; }
 #pad-wrapper h4.title {
   margin-bottom: 45px; }
