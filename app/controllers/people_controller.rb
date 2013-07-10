@@ -20,7 +20,7 @@ class PeopleController < ApplicationController
     elsif params[:search_serial].present?
       @people = Person.search_serial_results(params[:search_serial])
     else
-      @people = Person.recently_active
+      @people = Person.all#.where(organization: current_user.organization)
     end
   end
 
