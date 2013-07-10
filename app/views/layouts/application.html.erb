@@ -40,25 +40,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
+
             <a class="brand" href="index.html">
               <%= image_tag("omron_logo.png", :alt => "rss feed") %>
             </a>
 
-            <ul class="nav pull-right">                
-                
+            <ul class="nav pull-right">
+
                 <% if current_user %>
-                  
+
                   <li><%= link_to "Dashboard", dashboard_url %></li>
                   <li><%= link_to "Users", users_url %></li>
                   <li><%= link_to "People", people_url %></li>
-          
-                <% end %>
-                
-                
-              
 
-                
+                <% end %>
+
+
+
+
+
                   <li class="dropdown settings" class=" hidden-phone">
                     <a href="#" role="button" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
                         <i class="icon-user"></i>
@@ -73,53 +73,53 @@
                       <% end %>
                     </ul>
                 </li>
-            </ul>            
+            </ul>
         </div>
     </div>
     <!-- end navbar -->
 
-    
+
     <!-- sidebar -->
     <div id="sidebar-nav">
         <ul id="dashboard-menu">
-            <li>                
-                <a href="index.html">
+            <li>
+                <a href="dashboard.html">
                     <i class="icon-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="active"> 
-                <a href="/activation">
+            <li class="active">
+                <a href="/activations">
                     <i class="icon-laptop"></i>
                     <span>Activations</span>
                 </a>
-            </li>            
+            </li>
             <!--
-            <li>                
+            <li>
                 <a href="#">
                     <i class="icon-laptop"></i>
                     <span>Activations</span>
                 </a>
-            </li>                  
-            <li>                
+            </li>
+            <li>
                 <a href="#">
                     <i class="icon-refresh"></i>
                     <span>Retentions</span>
                 </a>
-            </li>            
-            <li>                
+            </li>
+            <li>
                 <a href="#">
                     <i class="icon-comments"></i>
                     <span>Referrals</span>
                 </a>
-            </li> 
-            <li>                
+            </li>
+            <li>
                 <a href="#">
                     <i class="icon-money"></i>
                     <span>Revenue</span>
                 </a>
             </li>
-            --> 
+            -->
         </ul>
     </div>
     <!-- end sidebar -->
