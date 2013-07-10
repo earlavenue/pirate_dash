@@ -80,7 +80,7 @@
     <script type="text/javascript">
 
         //  jQuery Flot Chart
-        var activated = [[1, 50], [2, 40], [3, 45], [4, 23],[5, 55],[6, 65],[7, 61],[8, 70],[9, 65],[10, 75],[11, 57],[12, 59]];
+        var activated = [[1, <%= Upload.aggregate_activations('2013-02-01') %>], [2, <%= Upload.aggregate_activations('2013-03-01') %>], [3, <%= Upload.aggregate_activations('2013-04-01') %>], [4, <%= Upload.aggregate_activations('2013-05-01') %>],[5, <%= Upload.aggregate_activations('2013-06-01') %>],[6, <%= Upload.aggregate_activations('2013-07-01') %>],[7, <%= Upload.aggregate_activations('2013-08-01') %>],[8, <%= Upload.aggregate_activations('2013-09-01') %>],[9, <%= Upload.aggregate_activations('2013-10-01') %>],[10, <%= Upload.aggregate_activations('2013-11-01') %>],[11, <%= Upload.aggregate_activations('2013-12-01') %>],[12, <%= Upload.aggregate_activations('2014-01-01') %>]];
         var sold = [[1, 55], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,50],[11,47],[12, 39]];
 
         var plot = $.plot($("#statsChart"),
@@ -153,7 +153,7 @@
                     var month = item.series.xaxis.ticks[item.dataIndex].label;
 
                     showTooltip(item.pageX, item.pageY,
-                                item.series.label + " of " + month + ": " + y);
+                                item.series.label + " as of " + month + ": " + y);
                 }
             }
             else {
