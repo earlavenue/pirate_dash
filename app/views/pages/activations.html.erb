@@ -80,8 +80,8 @@
     <script type="text/javascript">
 
         //  jQuery Flot Chart
-        var activated = [[1, <%= Upload.aggregate_activations('2013-02-01') %>], [2, <%= Upload.aggregate_activations('2013-03-01') %>], [3, <%= Upload.aggregate_activations('2013-04-01') %>], [4, <%= Upload.aggregate_activations('2013-05-01') %>],[5, <%= Upload.aggregate_activations('2013-06-01') %>],[6, <%= Upload.aggregate_activations('2013-07-01') %>],[7, <%= Upload.aggregate_activations('2013-08-01') %>],[8, <%= Upload.aggregate_activations('2013-09-01') %>],[9, <%= Upload.aggregate_activations('2013-10-01') %>],[10, <%= Upload.aggregate_activations('2013-11-01') %>],[11, <%= Upload.aggregate_activations('2013-12-01') %>],[12, <%= Upload.aggregate_activations('2014-01-01') %>]];
-        var sold = [[1, 55], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,50],[11,47],[12, 39]];
+        var activated = [[1, <%= Upload.aggregate_activations('2012-11-01') %>], [2, <%= Upload.aggregate_activations('2012-12-01') %>], [3, <%= Upload.aggregate_activations('2013-01-01') %>], [4, <%= Upload.aggregate_activations('2013-02-01') %>],[5, <%= Upload.aggregate_activations('2013-03-01') %>],[6, <%= Upload.aggregate_activations('2013-04-01') %>],[7, <%= Upload.aggregate_activations('2013-05-01') %>],[8, <%= Upload.aggregate_activations('2013-06-01') %>],[9, <%= Upload.aggregate_activations('2013-07-01') %>]];
+        var sold = [[1, 55], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43]];
 
         var plot = $.plot($("#statsChart"),
             [ { data: activated, label: "Activated"},
@@ -110,8 +110,8 @@
                     },
                 colors: ["#05e727", "#30a0eb"],
                 xaxis: {
-                    ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"],
-                           [7,"JUL"], [8,"AUG"], [9,"SEP"], [10,"OCT"], [11,"NOV"], [12,"DEC"]],
+                    ticks: [[1, "OCT"], [2, "NOV"], [3, "DEC"], [4,"JAN"], [5,"FEB"], [6,"MAR"],
+                           [7,"APR"], [8,"MAY"], [9,"JUN"]],
                     font: {
                         size: 12,
                         family: "Open Sans, Arial",
