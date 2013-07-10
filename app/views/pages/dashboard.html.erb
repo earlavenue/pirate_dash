@@ -5,7 +5,17 @@
 </div>
 
 <div class="span3 well">
- <h2><%= link_to "Activation", activations_url, title: "Activation"%> <small>Percentage of devices sold that are activated by connecting to the web app</small></h2>
+ <h2><%= link_to "Activation", activations_url, title: "Activation"%> </h2>
+
+ <div class="knob-wrapper">
+  <input type="text" value="50" class="knob" data-thickness=".3" data-inputColor="#333" data-fgColor="#30a1ec" data-bgColor="#d4ecfd" data-width="150">
+    <div class="info">
+    <div class="param">
+    <span class="line blue"></span>
+    Activated Devices
+    </div>
+  </div>
+</div>
 </div>
 
 <div class="span3 well">
@@ -23,30 +33,6 @@
 </div>
 
 
-<table class="table table-bordered table-striped">
-  <tr>
-    <th class="span2">Acquisition</th>
-    <th class="span2"><%= link_to "Activation", activations_url %></th>
-    <th class="span2">Retention</th>
-    <th class="span2">Revenue</th>
-    <th class="span2">Referral</th>
-  </tr>
-  <tr>
-    <td>Number of connected devices (Pedometer, Activity Monitor, Scale, BP Monitor) sold</td>
-    <td>Percentage of devices sold that are activated by connecting to the web app</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>(Hard code from sales data)</td>
-    <td><%= Person.where("pedserial IS NOT NULL").count %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
 <!--
 <h3>Misc KM stats from s3 bucket sample</h3>
 <p><%= link_to 'Grab data (sample of 20) from buckets', refresh_url, class: 'btn btn-warning' %> - Careful! This loads a LOT of data</p>
@@ -58,88 +44,11 @@
 </ul>
 -->
 <script type="text/javascript">
+        $(function () {
 
-        //  jQuery Flot Chart
-        var activated = [[1, 50], [2, 40], [3, 45], [4, 23],[5, 55],[6, 65],[7, 61],[8, 70],[9, 65],[10, 75],[11, 57],[12, 59]];
-        var sold = [[1, 55], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,50],[11,47],[12, 39]];
+            // jQuery Knobs
+            $(".knob").knob();
 
-        var plot = $.plot($("#activation_chart"),
-            [ { data: activated, label: "Activated"},
-             { data: sold, label: "Sold" }], {
-                series: {
-                    lines: { show: true,
-                            lineWidth: 1,
-                            fill: true,
-                            fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.09 } ] }
-                         },
-                    points: { show: true,
-                             lineWidth: 2,
-                             radius: 3
-                         },
-                    shadowSize: 0,
-                    stack: false
-                },
-                grid: { hoverable: true,
-                       clickable: true,
-                       tickColor: "#f9f9f9",
-                       borderWidth: 0
-                    },
-                legend: {
-                        // show: false
-                        labelBoxBorderColor: "#fff"
-                    },
-                colors: ["#05e727", "#30a0eb"],
-                xaxis: {
-                    ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"],
-                           [7,"JUL"], [8,"AUG"], [9,"SEP"], [10,"OCT"], [11,"NOV"], [12,"DEC"]],
-                    font: {
-                        size: 12,
-                        family: "Open Sans, Arial",
-                        variant: "small-caps",
-                        color: "#9da3a9"
-                    }
-                },
-                yaxis: {
-                    ticks:3,
-                    tickDecimals: 0,
-                    font: {size:12, color: "#9da3a9"}
-                }
-             });
-
-        function showTooltip(x, y, contents) {
-            $('<div id="tooltip">' + contents + '</div>').css( {
-                position: 'absolute',
-                display: 'none',
-                top: y - 30,
-                left: x - 50,
-                color: "#fff",
-                padding: '2px 5px',
-                'border-radius': '6px',
-                'background-color': '#000',
-                opacity: 0.80
-            }).appendTo("body").fadeIn(200);
-        }
-
-        var previousPoint = null;
-        $("#statsChart").bind("plothover", function (event, pos, item) {
-            if (item) {
-                if (previousPoint != item.dataIndex) {
-                    previousPoint = item.dataIndex;
-
-                    $("#tooltip").remove();
-                    var x = item.datapoint[0].toFixed(0),
-                        y = item.datapoint[1].toFixed(0);
-
-                    var month = item.series.xaxis.ticks[item.dataIndex].label;
-
-                    showTooltip(item.pageX, item.pageY,
-                                item.series.label + " of " + month + ": " + y);
-                }
-            }
-            else {
-                $("#tooltip").remove();
-                previousPoint = null;
-            }
         });
     </script>
 

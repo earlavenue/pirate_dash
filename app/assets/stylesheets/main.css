@@ -116,3 +116,31 @@ background-repeat: no-repeat;
 	margin-left: 0 !important;
 }
 
+/*KNOBS*/
+
+.knobs {
+  overflow: auto; 
+  margin: 0 auto;
+}
+.knob-wrapper {
+  margin: 1em auto;
+  /*float: left;*/
+  display: block;
+  margin-top: 2em; }
+.knob-wrapper .knob {
+    box-shadow: none; }
+.knob-wrapper .info {
+    position: relative;
+    top: -20px; }
+.knob-wrapper .info .param {
+      color: #9da3a9;
+      text-align: center; }
+.knob-wrapper .info .param .line {
+        background-color: #c4cdd8;
+        height: 3px;
+        width: 25px;
+        display: inline-block;
+        margin-right: 10px; }
+.knob-wrapper .info .param .line.blue {
+          background-color: #30a1ec; }
+
