@@ -69,28 +69,28 @@
                 series: {
                     lines: { show: true,
                             lineWidth: 1,
-                            fill: true, 
+                            fill: true,
                             fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.09 } ] }
                          },
-                    points: { show: true, 
+                    points: { show: true,
                              lineWidth: 2,
                              radius: 3
                          },
                     shadowSize: 0,
                     stack: false
                 },
-                grid: { hoverable: true, 
-                       clickable: true, 
+                grid: { hoverable: true,
+                       clickable: true,
                        tickColor: "#f9f9f9",
                        borderWidth: 0
                     },
                 legend: {
                         // show: false
                         labelBoxBorderColor: "#fff"
-                    },  
+                    },
                 colors: ["#05e727", "#30a0eb"],
                 xaxis: {
-                    ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"], 
+                    ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"],
                            [7,"JUL"], [8,"AUG"], [9,"SEP"], [10,"OCT"], [11,"NOV"], [12,"DEC"]],
                     font: {
                         size: 12,
@@ -100,7 +100,7 @@
                     }
                 },
                 yaxis: {
-                    ticks:3, 
+                    ticks:3,
                     tickDecimals: 0,
                     font: {size:12, color: "#9da3a9"}
                 }
@@ -142,3 +142,12 @@
             }
         });
     </script>
+
+
+<!-- This is our button if we need to import data again -->
+<!-- <h1>This is where dat DATA GONNA GO!</h1> -->
+
+<%=#form_tag import_uploads_path, multipart: true do %>
+  <%=# file_field_tag :file %><br>
+  <%=# submit_tag "Import", class: 'btn btn-info' %>
+<%# end %>
