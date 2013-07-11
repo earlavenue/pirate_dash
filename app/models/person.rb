@@ -2,7 +2,7 @@ class Person < ActiveRecord::Base
   attr_accessible :dev_serial, :km_userid, :omron_userid, :first_name, :last_name, :email, :gender, :country, :city, :state
 
   has_many :events
-
+  has_many :uploads
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|

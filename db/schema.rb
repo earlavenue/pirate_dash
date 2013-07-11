@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711165151) do
+ActiveRecord::Schema.define(:version => 20130711172026) do
 
   create_table "events", :force => true do |t|
     t.string  "action"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130711165151) do
   create_table "uploads", :force => true do |t|
     t.datetime "upload_time"
     t.string   "dev_serial"
+    t.integer  "person_id"
   end
 
   create_table "users", :force => true do |t|
