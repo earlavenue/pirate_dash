@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  attr_accessible :dev_serial, :km_userid, :omron_userid, :first_name, :last_name, :email, :gender, :country, :city, :state
+  attr_accessible :dev_serial, :km_userid, :omron_userid, :first_name, :last_name, :email
 
   has_many :events
   has_many :uploads
@@ -12,6 +12,7 @@ class Person < ActiveRecord::Base
       person.last_name = row_hash["User Name"].split(" ")[1]
       person.email = person.last_name + "@gmail.com"
       person.dev_serial = "HJ" + rand(9383838).to_s
+      person.organization = "Rush Hospital"
         if Person.find_by_last_name(person.last_name)
         else
         person.save!
