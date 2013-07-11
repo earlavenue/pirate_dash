@@ -6,9 +6,21 @@ class Person < ActiveRecord::Base
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      Person.create! row.to_hash
+      row_hash = row.to_hash
+      person = Person.new
+      person.first_name = row_hash["User Name"].split(" ")[0]
+      person.last_name = row_hash["User Name"].split(" ")[1]
+      person.email = person.last_name + "@gmail.com"
+      person.dev_serial = "HJ" + rand(9383838).to_s
+        if Person.find_by_last_name(person.last_name)
+        else
+        person.save!
+        end
     end
   end
+
+
+
 #import method supports importing data from EITHER KM or Omron production db. When you import from BOTH sources, the people table will have duplicates. Use the sync method to resolve this problem by identifying duplicates through identical device serial numbers, saving the KM id to the closer-to-complete Omron person row, and deleting the KM duplicate row.
 
   def self.sync
