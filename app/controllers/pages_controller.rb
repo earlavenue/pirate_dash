@@ -31,7 +31,7 @@ class PagesController < ApplicationController
 
   def import_uploads
     Upload.import(params[:file])
-    redirect_to activations_url
+    redirect_to people_url
   end
 
 end
