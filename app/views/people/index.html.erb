@@ -43,7 +43,7 @@
     <th>Dev Serial</th>
     <th>First Upload</th>
     <th>Last Upload</th>
-    <th>Total Number of Uploads</th>
+    <th>Total Number of Days Uploaded</th>
   </tr>
 
 <% @people.each do |person| %>
@@ -51,8 +51,8 @@
     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
     <td><%= person.email %></td>
     <td><%= person.dev_serial %></td>
-    <td><%#= person.uploads.order("upload_time ASC").first.upload_time %></td>
-    <td></td>
+    <td><%= person.uploads.order("upload_time ASC").first.upload_time.strftime("%b %d, %Y") %></td>
+    <td><%= person.uploads.order("upload_time ASC").last.upload_time.strftime("%b %d, %Y") %></td>
     <td><%= person.uploads.count %></td>
   </tr>
 <% end %>
