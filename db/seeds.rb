@@ -83,4 +83,3 @@ Person.create(
     country: "USA"})
 
 puts 'Six people created'
-puts 'Currently, importing people from KISSmetrics only supports two columns. Make sure the csv only includes "km_userid" and "dev_serial".'
