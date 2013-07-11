@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  attr_accessible :pedserial, :km_userid, :omron_userid, :first_name, :last_name, :email, :gender, :country, :city, :state
+  attr_accessible :dev_serial, :km_userid, :omron_userid, :first_name, :last_name, :email, :gender, :country, :city, :state
 
   has_many :events
 
@@ -17,7 +17,7 @@ class Person < ActiveRecord::Base
 
     people_needing_km_data.each do |person_needing_km_userid|
       unsynced_km_people.each do |person_from_km|
-        if person_needing_km_userid.pedserial == person_from_km.pedserial
+        if person_needing_km_userid.dev_serial == person_from_km.dev_serial
           person_needing_km_userid.km_userid = person_from_km.km_userid
           person_needing_km_userid.save
           person_from_km.destroy
@@ -31,7 +31,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.search_serial_results(query)
-    Person.where pedserial: query
+    Person.where dev_serial: query
   end
 
   # def self.recently_active
