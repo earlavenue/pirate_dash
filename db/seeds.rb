@@ -22,7 +22,7 @@ puts ''
 
 Person.destroy_all
 Person.create(
-    {pedserial: 'HJ72026025380',
+    {dev_serial: 'HJ72026025380',
     km_userid: '700',
     omron_userid: '86301',
     first_name: "Luke",
@@ -33,7 +33,7 @@ Person.create(
     state: "KS",
     country: "USA"})
 Person.create(
-    {pedserial: 'HJ72026071490',
+    {dev_serial: 'HJ72026071490',
     km_userid: '1002',
     omron_userid: '552',
     first_name: "Andrew",
@@ -44,7 +44,7 @@ Person.create(
     state: "FL",
     country: "USA"})
 Person.create(
-    {pedserial: 'HJ72025088790',
+    {dev_serial: 'HJ72025088790',
     km_userid: '1012',
     omron_userid: '1985',
     first_name: "Marty",
@@ -55,7 +55,7 @@ Person.create(
     state: "CA",
     country: "USA"})
 Person.create(
-    {pedserial: 'HJ72027007820',
+    {dev_serial: 'HJ72027007820',
     km_userid: '1075',
     omron_userid: '1998',
     first_name: "Michael",
@@ -66,7 +66,7 @@ Person.create(
     state: "IL",
     country: "USA"})
 Person.create(
-    {pedserial: 'HJ72012066850',
+    {dev_serial: 'HJ72012066850',
     km_userid: '1077',
     omron_userid: '1929084',
     first_name: "Audrey",
@@ -77,7 +77,7 @@ Person.create(
     state: "CA",
     country: "USA"})
 Person.create(
-    {pedserial: 'HJ72026109690',
+    {dev_serial: 'HJ72026109690',
     km_userid: '1123',
     omron_userid: '628200',
     first_name: "Miles",
@@ -89,7 +89,7 @@ Person.create(
     country: "USA"})
 
 puts 'Six people created'
-puts 'Currently, importing people from KISSmetrics only supports two columns. Make sure the csv only includes "km_userid" and "pedserial".'
+puts 'Currently, importing people from KISSmetrics only supports two columns. Make sure the csv only includes "km_userid" and "dev_serial".'
 puts ''
 
 Event.destroy_all
