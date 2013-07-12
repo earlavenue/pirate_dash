@@ -21,9 +21,9 @@
                     <div class="profile-box">
                         <h6>Stats to go in infographics</h6>
                         <p>Steps: <%= @person.lifetime_steps %></p>
-                        <p>Aerobic Steps: </p>
-                        <p>Calories: </p>
-                        <p>Distance: </p>
+                        <p>Aerobic Steps: <%= @person.lifetime_aerobic_steps%></p>
+                        <p>Calories: <%= @person.lifetime_calories%> </p>
+                        <p>Distance in Miles: <%= '%.2f' % @person.lifetime_distance%></p>
 
                         <h6>Recent uploads</h6>
                         <br>

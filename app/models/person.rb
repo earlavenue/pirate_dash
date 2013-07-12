@@ -35,4 +35,29 @@ class Person < ActiveRecord::Base
     end
     p_steps.inject {|sum, n| sum + n}
   end
+
+
+  def lifetime_aerobic_steps
+    p_steps = []
+    self.uploads.each do |upload|
+      p_steps << upload.total_aerobic_steps
+    end
+    p_steps.inject {|sum, n| sum + n}
+  end
+
+  def lifetime_calories
+    p_steps = []
+    self.uploads.each do |upload|
+      p_steps << upload.calories
+    end
+    p_steps.inject {|sum, n| sum + n}
+  end
+
+  def lifetime_distance
+    p_steps = []
+    self.uploads.each do |upload|
+      p_steps << upload.distance
+    end
+    p_steps.inject {|sum, n| sum + n}
+  end
 end
