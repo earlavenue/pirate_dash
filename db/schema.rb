@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711172026) do
+ActiveRecord::Schema.define(:version => 20130712145815) do
 
   create_table "events", :force => true do |t|
     t.string  "action"
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(:version => 20130711172026) do
     t.datetime "upload_time"
     t.string   "dev_serial"
     t.integer  "person_id"
+    t.integer  "total_steps"
+    t.integer  "total_aerobic_steps"
+    t.integer  "calories"
+    t.float    "distance"
   end
 
   create_table "users", :force => true do |t|
