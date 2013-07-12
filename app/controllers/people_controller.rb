@@ -9,8 +9,13 @@ class PeopleController < ApplicationController
     redirect_to people_url, notice: 'People successfully synced.'
   end
 
-  def import
+  def import #importing people
     Person.import(params[:file])
+    redirect_to people_url
+  end
+
+  def import_uploads
+    Upload.import(params[:file])
     redirect_to people_url
   end
 

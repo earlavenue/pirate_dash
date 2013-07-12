@@ -2,17 +2,14 @@ PirateMetricsDashboard::Application.routes.draw do
   resources :people do
     collection { post :import }
   end
-  get '/sync' => 'People#sync', as: 'sync'
+
   get '/operations' => 'People#operations', as: 'operations'
 
-  root to: 'Pages#dashboard'
+  root to: 'People#index'
 
   resources :users
 
-  get '/dashboard' => 'Pages#dashboard', as: 'dashboard'
-  get '/refresh' => 'Pages#refresh', as: 'refresh'
-  get '/activations' => 'Pages#activations', as: 'activations'
-  post '/import_uploads' => 'Pages#import_uploads', as: 'import_uploads'
+  post '/import_uploads' => 'People#import_uploads', as: 'import_uploads'
 
 
 
