@@ -1,0 +1,520 @@
+/*Type	
+---------------------------------------------------*/
+h1,h2,h3,h4{
+font-family: 'AvantGardeGothicITCW01D 731075';	
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html,
+body {
+height: 100%;
+
+}
+
+#wrap {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -60px;
+	
+}
+
+#push,
+#footer {
+height: 60px;
+}
+footer {
+background-color: #f5f5f5;
+}
+@media (max-width: 767px) {
+footer {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+}
+/* Helpers
+-------------------------------------------------- */
+.alpha{
+	margin-left: 0 !important;
+}
+.debug{
+	border: 1px solid red;
+}
+/*Short Footer
+-------------------------------------------------- */
+footer #omron_logo{
+background: url(../img/short_omron_logo.jpg) no-repeat;
+width: 73px; height: 13px;
+display: block;
+}
+footer .container{
+	padding: 20px 0;
+}
+footer ul{
+margin: 0 !important;
+}
+footer ul li{
+display: inline-block;
+border-right: 1px solid #D8DAE2;
+padding: 0 8px;
+margin-bottom: 0;
+}
+footer p{
+color: #D8DAE2 !important;
+font-size: .9em;
+}
+footer ul li:last-child{
+	border: none !important;
+}
+/*NEW DASHBOARD
+-------------------------------------------------- */
+.navbar .brand {
+	padding: 7px 20px 10px;
+}
+#app_container{
+	border: 1px solid silver;
+	border-radius: 4px;
+	border-bottom: 1px solid #fff;
+}
+
+#sidebar .main-menu{
+	height: 100%;
+	border-radius: 4px;
+	margin-bottom: 0;
+	
+
+	
+/*	-webkit-box-shadow: 0px 0px 3px rgba(50, 50, 50, 0.25);
+	-moz-box-shadow:    0px 0px 3px rgba(50, 50, 50, 0.25);
+	box-shadow:         0px 0px 3px rgba(50, 50, 50, 0.25);
+*/
+}
+
+.main-menu li{
+	border-left: none;
+	border-top: none;
+	border-bottom: 2px solid silver;
+	border-right: 1px solid silver;
+background: #f7f7f7;
+background: -moz-linear-gradient(top,  #f7f7f7 0%, #e5e5e5 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#e5e5e5));
+background: -webkit-linear-gradient(top,  #f7f7f7 0%,#e5e5e5 100%);
+background: -o-linear-gradient(top,  #f7f7f7 0%,#e5e5e5 100%);
+background: -ms-linear-gradient(top,  #f7f7f7 0%,#e5e5e5 100%);
+background: linear-gradient(to bottom,  #f7f7f7 0%,#e5e5e5 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#e5e5e5',GradientType=0 );
+
+
+}
+
+.main-menu .active{
+	border-right: none;
+	background: none !important;
+}
+
+.main-menu:first-child{
+	border-top: none !important;
+}
+.main-menu li:last-child{
+	border-bottom: 1px solid #fff;
+}
+
+
+.main-menu li a{
+	border: none !important;
+	display: block;
+	padding: 20px 12px;
+}
+
+.main-menu li:hover a{
+}
+
+.main-menu li i{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-image: url(../img/new_dashboard_sprites.png);
+	background-repeat: no-repeat;
+	background-size: 270px;
+	vertical-align: top;
+}
+
+.main-menu li span{
+	display: inline-block;
+	vertical-align: top;
+	line-height: 50px;
+	margin-left: 10px;
+}
+
+.main-menu li .dashboard{
+	background-position: -56px 0;	
+}
+.main-menu li .activity{
+	background-position: -56px -50px;	
+}
+.main-menu li .weight{
+	background-position: -56px 0;	
+}
+.main-menu li .heart_rate{
+	background-position: -56px -200px;	
+}
+.main-menu li .challenges{
+	background-position: -56px -150px;	
+}
+.main-menu li .achievements{
+	background-position: -56px -100px;	
+}
+.main-menu li .friends{
+	background-position: -56px -300px;	
+}
+.main-menu li .devices{
+	background-position: -56px -250px;	
+}
+.main-menu .active a{
+	border-right: none !important;
+}
+.main-menu:first-child .active a{
+	border-radius: 4px 0px 0px 0px !important;
+}
+
+
+.main-menu .active .activity{
+	background-position: -6px -50px;	
+}
+.main-menu .active .weight, .main-menu li:hover .weight{
+	background-position: -6px 0;	
+}
+.main-menu .active .heart_rate{
+	background-position: -6px -200px;	
+}
+.main-menu .active .challenges{
+	background-position: -6px -150px;	
+}
+.main-menu .active .achievements{
+	background-position: -6px -100px;	
+}
+.main-menu .active .friends{
+	background-position: -6px -300px;	
+}
+.main-menu .active .devices{
+	background-position: -6px -250px;	
+}
+
+
+
+
+.chart_header{
+	border-bottom: 1px solid silver;
+	margin-bottom: 1em;
+	color: #999999;
+}
+.chart_header h2{
+	text-transform: uppercase;
+	font-size: 1.5em;
+}
+.chart_control{
+	margin: 10px 0;
+	line-height: 40px;
+}
+.chart_header .btn-group .btn i{
+	background-size: 170px;
+	background-image: url("../../wp-content/themes/twentyeleven/img/sprt_dashboard.png");
+	background-repeat: no-repeat;
+	height: 20px;
+	width: 22px;
+	display: block;
+}
+.date, .ago{
+	font-size: .8em;
+	color: #1ec1eb;
+}
+.print{
+	background-position: -90px -221px;	
+}
+.download{
+	background-position: -120px -221px;
+}
+.edit{
+	background-position: -147px -221px;
+
+}
+
+.graph{
+	margin-bottom: 1em;
+}
+
+
+
+/*DAILY VIEW
+-------------------------------------------------- */
+
+
+.activity_info{
+	margin: auto;
+	border-top: 1px solid #cacaca;
+	font-family: 'AvantGardeGothicITCW01D 731075';
+}
+.activity_info li{
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #cacaca;
+	margin: 0;
+	min-height: 90px;
+	height: 90px;
+	padding: 5px 0;
+}
+.activity_info li:hover{
+	color: #fff;
+	text-shadow: 0px -1px 0px #006782;
+	-webkit-transition: background-color 570ms linear;
+     -moz-transition: background-color 570ms linear;
+     -o-transition: background-color 570ms linear;
+     -ms-transition: background-color 570ms linear;
+     transition: background-color 170ms linear;
+}
+.activity_info li span{
+	color: #999999;
+	font-size: 1.4em;
+}
+.activity_info li:hover span{
+	color: #fff;
+}
+.activity_info li p {
+	margin-top: 8px;
+	margin-bottom: 0;
+	display: block;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	font-weight: normal;
+
+}
+.activity_info li i{
+display: block;
+width: 80px;
+height: 80px;
+margin: 0 !important;
+background-size: 310px;
+background-image: url("../../wp-content/themes/twentyeleven/img/sprt_dashboard.png");
+background-repeat: no-repeat;
+float: left;
+margin-left: 10px !important;
+ }
+
+.steps, .aerobic { color: #1ec1eb; }.miles { color: #fba703; }.calories { color: #a3c700; }
+
+.steps i{
+	background-position: -148px 2px;
+}
+.aerobic i{
+	background-position: -148px -77px;
+}
+.miles i{
+	background-position: -148px -235px;
+}
+.calories i{
+	background-position: -148px -156px;
+}
+.steps:hover{
+	background-color: #1ec1eb;
+}
+.steps:hover i{
+	background-position: -233px 2px;
+}
+.aerobic:hover{
+	background-color: #1ec1eb;
+}
+.aerobic:hover i{
+	background-position: -233px -77px;
+}
+.miles:hover{
+	background-color: #fba703;
+}
+.miles:hover i{
+	background-position: -233px -235px;
+}
+.calories:hover{
+	background-color: #a3c700;
+}
+.calories:hover i{
+	background-position: -233px -156px;
+}
+
+/*DATEPICKER
+-------------------------------------------------- */
+
+.datepicker {
+  top: 0;
+  left: 0;
+  padding: 4px;
+  margin-top: 1px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  /*.dow {
+    border-top: 1px solid #ddd !important;
+  }*/
+
+}
+.datepicker:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -7px;
+  left: 6px;
+}
+.datepicker:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  position: absolute;
+  top: -6px;
+  left: 7px;
+}
+.datepicker > div {
+  display: none;
+}
+.datepicker table {
+  width: 100%;
+  margin: 0;
+}
+.datepicker td,
+.datepicker th {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.datepicker td.day:hover {
+  background: #eeeeee;
+  cursor: pointer;
+}
+.datepicker td.day.disabled {
+  color: #eeeeee;
+}
+.datepicker td.old,
+.datepicker td.new {
+  color: #999999;
+}
+.datepicker td.active,
+.datepicker td.active:hover {
+  color: #ffffff;
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #0044cc;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker td.active:hover,
+.datepicker td.active:hover:hover,
+.datepicker td.active:focus,
+.datepicker td.active:hover:focus,
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active,
+.datepicker td.active.disabled,
+.datepicker td.active:hover.disabled,
+.datepicker td.active[disabled],
+.datepicker td.active:hover[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active {
+  background-color: #003399 \9;
+}
+.datepicker td span {
+  display: block;
+  width: 47px;
+  height: 54px;
+  line-height: 54px;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.datepicker td span:hover {
+  background: #eeeeee;
+}
+.datepicker td span.active {
+  color: #ffffff;
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #0044cc;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker td span.active:hover,
+.datepicker td span.active:focus,
+.datepicker td span.active:active,
+.datepicker td span.active.active,
+.datepicker td span.active.disabled,
+.datepicker td span.active[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+.datepicker td span.active:active,
+.datepicker td span.active.active {
+  background-color: #003399 \9;
+}
+.datepicker td span.old {
+  color: #999999;
+}
+.datepicker th.switch {
+  width: 145px;
+}
+.datepicker th.next,
+.datepicker th.prev {
+  font-size: 21px;
+}
+.datepicker thead tr:first-child th {
+  cursor: pointer;
+}
+.datepicker thead tr:first-child th:hover {
+  background: #eeeeee;
+}
+.input-append.date .add-on i,
+.input-prepend.date .add-on i {
+  display: block;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
