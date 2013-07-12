@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if u.present? && u.authenticate(params[:password])
       session[:user_id] = u.id
       if u.organization.name == "Omron Fitness"
-        redirect_to organization_url
+        redirect_to organizations_url
       else
         redirect_to people_url
       end
