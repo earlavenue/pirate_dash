@@ -9,8 +9,10 @@
   <%= label_tag :password %>
   <%= password_field_tag :password %>
 
+  <%#= label_tag :organization %>
+  <%#= select_tag(:organization, options_from_collection_for_select(Organization.all)) %>
+
   <br>
   <%= submit_tag "Sign in", class: 'btn btn-success' %>
 <% end %>
 
-<p>Or <%= link_to "Sign up", new_user_url %></p>
