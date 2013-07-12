@@ -3,8 +3,9 @@ class Person < ActiveRecord::Base
 
   has_many :events
   has_many :uploads
+  belongs_to :organization
 
-  def self.import(file)
+  def self.import(file, organization_id)
     CSV.foreach(file.path, headers: true) do |row|
       row_hash = row.to_hash
       person = Person.new
@@ -12,10 +13,10 @@ class Person < ActiveRecord::Base
       person.last_name = row_hash["User Name"].split(" ")[1]
       person.email = person.last_name + "@gmail.com"
       person.dev_serial = "HJ" + rand(9383838).to_s
-      person.organization = "Rush Hospital" #eventually dynamic
+      person.organization_id = organization_id
         if Person.find_by_last_name(person.last_name)
         else
-        person.save!
+          person.save!
         end
     end
   end

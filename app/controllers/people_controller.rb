@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
   end
 
   def import #importing people
-    Person.import(params[:file])
+    Person.import(params[:file], current_user.organization.id)
     redirect_to people_url
   end
 
@@ -25,14 +25,14 @@ class PeopleController < ApplicationController
     elsif params[:search_serial].present?
       @people = Person.search_serial_results(params[:search_serial])
     else
-      if current_user.organization == "omron"
+      if current_user.organization.name == "omron"
         if params[:omron_click].present?
-          @people = Person.where(organization: params[:omron_click])
+          @people = Person.where(organization_id: params[:omron_click])
         else
           @people = Person.all
         end
       else
-        @people = Person.where(organization: current_user.organization)
+        @people = Person.where(organization_id: current_user.organization.id)
       end
     end
   end

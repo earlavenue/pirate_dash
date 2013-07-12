@@ -6,12 +6,11 @@ class SessionsController < ApplicationController
     u = User.find_by_email(params[:email])
     if u.present? && u.authenticate(params[:password])
       session[:user_id] = u.id
-      # if u.organization == "omron"
-        # redirect_to dashboard_url
-      # else
-        # redirect_to people_url
-      # end
-      redirect_to dashboard_url
+      if u.organization.name == "Omron Fitness"
+        redirect_to organization_url
+      else
+        redirect_to people_url
+      end
     else
       redirect_to new_session_url, notice: 'Incorrect login info'
     end
