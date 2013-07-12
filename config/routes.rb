@@ -1,4 +1,7 @@
 PirateMetricsDashboard::Application.routes.draw do
+  resources :organizations
+
+
   resources :people do
     collection { post :import }
   end
