@@ -27,4 +27,12 @@ class Person < ActiveRecord::Base
   def self.search_serial_results(query)
     Person.where dev_serial: query
   end
+
+  def lifetime_steps
+    p_steps = []
+    self.uploads.each do |upload|
+      p_steps << upload.total_steps
+    end
+    p_steps.inject {|sum, n| sum + n}
+  end
 end

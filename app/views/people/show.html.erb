@@ -7,7 +7,7 @@
             <div class="row-fluid header">
                 <div class="span8">
                     <h3 class="name"><%= @person.first_name %> <%= @person.last_name %></h3>
-                    <span class="area">Maybe badges go here, or something?</span>
+                    <span class="area">Device serial number: <%= @person.dev_serial %></span>
                 </div>
                 <a class="btn btn-flat icon pull-right delete-user" data-toggle="tooltip" title="Delete user" data-placement="top">
                     <i class="icon-trash"></i>
@@ -19,15 +19,11 @@
                 <!-- bio, new note & orders column -->
                 <div class="span9 bio">
                     <div class="profile-box">
-                        <!-- biography -->
-                        <div class="span12 section">
-                            <h6>Some attributes</h6>
-                            <ul>
-                              <li>KM UserID: <%= @person.km_userid %></li>
-                              <li>Omron UserID: <%= @person.omron_userid %></li>
-                              <li>Device serial number: <%= @person.dev_serial %></li>
-                            </ul>
-                        </div>
+                        <h6>Stats to go in infographics</h6>
+                        <p>Steps: <%= @person.lifetime_steps %></p>
+                        <p>Aerobic Steps: </p>
+                        <p>Calories: </p>
+                        <p>Distance: </p>
 
                         <h6>Recent uploads</h6>
                         <br>
