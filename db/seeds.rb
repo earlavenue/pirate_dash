@@ -43,4 +43,9 @@ puts ''
 puts 'To log in as Omron Fitness admin Zach Albright, use these credentials:'
 puts 'email: zach@example.com'
 puts 'password: 12345'
+puts ''
+
+Person.destroy_all
+Upload.destroy_all
+puts 'All previous people and uploads have been deleted. You need to re-import people and uploads from the Walking Report csv. Be sure to perform these actions as Flash Gordon, NOT as Zach Albright.'
 
