@@ -11,7 +11,7 @@
 
 <% @organizations.each do |organization| %>
   <tr>
-    <td><%= link_to organization.name, people_url %></td>
+    <td><%= link_to organization.name, "/people?omron_click=#{organization.name}" %></td>
     <td><%= organization.address %></td>
     <td><%= organization.city %></td>
     <td><%= organization.state %></td>

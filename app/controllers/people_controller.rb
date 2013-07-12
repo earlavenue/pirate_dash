@@ -25,7 +25,15 @@ class PeopleController < ApplicationController
     elsif params[:search_serial].present?
       @people = Person.search_serial_results(params[:search_serial])
     else
-      @people = Person.all#.where(organization: current_user.organization)
+      if current_user.organization == "omron"
+        if params[:omron_click].present?
+          @people = Person.where(organization: params[:omron_click])
+        else
+          @people = Person.all
+        end
+      else
+        @people = Person.where(organization: current_user.organization)
+      end
     end
   end
 
