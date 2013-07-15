@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    #@users = User.joins(:user => :organization).order("organization.name")
   end
 
   def show

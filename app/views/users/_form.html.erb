@@ -31,6 +31,10 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
+  <div class="field">
+    <%= f.label :organization %>
+    <%= f.collection_select :organization_id, Organization.all, :id, :name, selected: params[:org] %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
