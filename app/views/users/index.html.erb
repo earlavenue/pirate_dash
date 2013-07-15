@@ -2,12 +2,20 @@
 
 
 <table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Organization</th>
+    <th></th>
+    <th></th>
+  </tr>
+
 <% @users.each do |user| %>
   <tr>
     <td><%= link_to "#{user.first_name} #{user.last_name}", user %></td>
+    <td><%= user.organization.name %> </td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= user.organization.name %> </td>
+
 <% end %>
 </table>
 

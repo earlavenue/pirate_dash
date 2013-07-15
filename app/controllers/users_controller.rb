@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   before_filter :require_omron
 
   def index
-    @users = User.all
-    #@users = User.joins(:user => :organization).order("organization.name")
+    #when using ":order" remember to use the plural when calling a column on a table. STUPID
+    @users = User.all(:joins => :organization, :order => "organizations.name")
   end
 
   def show
