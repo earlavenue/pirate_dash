@@ -1,4 +1,4 @@
-raise "Can't run in #{Rails.env}" unless Rails.env.development?
+# raise "Can't run in #{Rails.env}" unless Rails.env.development?
 
 Organization.destroy_all
 Organization.create({
