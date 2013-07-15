@@ -13,19 +13,22 @@
 <br>
 
 <% if params[:search_last_name].present? %>
-  <h4>Search Results for Last Name = <%= params[:search_last_name].capitalize %></h4>
-  <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
+    <h4>Search Results for Last Name = <%= params[:search_last_name].capitalize %></h4>
+    <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
 <% elsif params[:search_serial].present? %>
-  <h4>Search Results for Device serial number = <%= params[:search_serial] %></h4>
-  <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
+    <h4>Search Results for Device serial number = <%= params[:search_serial] %></h4>
+    <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
 <% else %>
-  <h4>All</h4>
+    <h4>All</h4>
 <% end %>
 
 
 
 <table class="table table-bordered table-striped">
   <tr>
+    <% if current_user.organization.name == "Omron Fitness" %>
+      <th>Organization</th>
+    <% end %>
     <th>Name</th>
     <th>Email</th>
     <th>Dev Serial</th>
@@ -36,6 +39,9 @@
 
 <% @people.each do |person| %>
   <tr>
+    <% if current_user.organization.name == "Omron Fitness" %>
+      <td><%= person.organization.name %></td>
+    <% end %>
     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
     <td><%= person.email %></td>
     <td><%= person.dev_serial %></td>
