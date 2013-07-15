@@ -1,7 +1,10 @@
 class PeopleController < ApplicationController
   before_filter :require_signin
 
+  before_filter :require_omron, only: [:edit, :update, :destroy]
+
   before_filter :protect_show, only: [:show]
+
 
   def protect_show
     @person = Person.find_by_id(params[:id])

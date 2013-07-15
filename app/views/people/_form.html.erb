@@ -12,13 +12,22 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
     <%= f.label :dev_serial %><br>
     <%= f.text_field :dev_serial %>
   </div>
-  <div class="field">
-    <%= f.label :km_userid %><br>
-    <%= f.text_field :km_userid %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
