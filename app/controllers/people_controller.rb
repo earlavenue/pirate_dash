@@ -1,6 +1,15 @@
 class PeopleController < ApplicationController
   before_filter :require_signin
 
+  before_filter :protect_show, only: [:show]
+
+  def protect_show
+    @person = Person.find_by_id(params[:id])
+    if current_user.organization.name != "Omron Fitness" && current_user.organization.name != @person.organization.name
+      redirect_to people_url, :notice => "You cannot view that person"
+    end
+  end
+
   def operations
   end
 
