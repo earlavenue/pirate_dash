@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :require_signin, except: [:new, :create]
+  before_filter :require_signin
+
+  before_filter :require_omron
 
   def index
     @users = User.all

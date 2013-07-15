@@ -1,4 +1,10 @@
 class OrganizationsController < ApplicationController
+
+  before_filter :require_signin
+
+  before_filter :require_omron
+
+
   # GET /organizations
   # GET /organizations.json
   def index

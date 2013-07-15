@@ -1,6 +1,11 @@
 class PeopleController < ApplicationController
   before_filter :require_signin
 
+  # before_filter :require_same_organization
+
+  # def require_same_organization
+  #   if current_user.organization != session[:user_id]
+
   def operations
   end
 
@@ -19,18 +24,24 @@ class PeopleController < ApplicationController
     redirect_to people_url
   end
 
+
+#First we check if someone is Omron. If they are we check if they got to this page from the organizations index (:omron_click). Then we check if they've done a search and give back all results with "last name" or "serial" because the Omron index will have an "organization" column. If the user isn't Omron we check if they've done a search and give back only "last names" etc. at the user's company.
   def index
-    if params[:search_last_name].present?
-      @people = Person.search_last_name_results(params[:search_last_name])
-    elsif params[:search_serial].present?
-      @people = Person.search_serial_results(params[:search_serial])
+    if current_user.organization.name == "Omron Fitness"
+      if params[:omron_click].present?
+        @people = Person.where(organization_id: params[:omron_click])
+      elsif params[:search_last_name].present?
+        @people = Person.search_last_name_results(params[:search_last_name])
+      elsif params[:search_serial].present?
+        @people = Person.search_serial_results(params[:search_serial])
+      else
+        @people = Person.all
+      end
     else
-      if current_user.organization.name == "omron"
-        if params[:omron_click].present?
-          @people = Person.where(organization_id: params[:omron_click])
-        else
-          @people = Person.all
-        end
+      if params[:search_last_name].present?
+        @people = Person.search_last_name_results(params[:search_last_name]).where(organization_id: current_user.organization_id)
+      elsif params[:search_serial].present?
+        @people = Person.search_serial_results(params[:search_serial]).where(organization_id: current_user.organization_id)
       else
         @people = Person.where(organization_id: current_user.organization.id)
       end
