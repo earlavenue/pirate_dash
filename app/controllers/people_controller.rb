@@ -1,11 +1,6 @@
 class PeopleController < ApplicationController
   before_filter :require_signin
 
-  # before_filter :require_same_organization
-
-  # def require_same_organization
-  #   if current_user.organization != session[:user_id]
-
   def operations
   end
 
