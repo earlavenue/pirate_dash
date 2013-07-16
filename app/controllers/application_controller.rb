@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def require_signin
     if current_user.blank?
-      redirect_to new_session_url, notice: "You are not signed"
+      redirect_to new_session_url, notice: "You are not signed in"
     end
   end
 
