@@ -22,7 +22,7 @@ class PeopleController < ApplicationController
   end
 
   def import #importing people
-    Person.import(params[:file], current_user.organization.id)
+    Person.import(params[:file], params[:person][:organization_id])
     redirect_to people_url
   end
 

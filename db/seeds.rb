@@ -64,17 +64,17 @@ puts ''
 
 Person.destroy_all
 Upload.destroy_all
-Person.create({
-    first_name: 'Keith',
-    last_name: 'Jarrett',
-    email: 'keith@example.com',
-    dev_serial: 'HJ819378',
-    organization_id: Organization.find_by_name("Northwestern Hospital").id})
-Person.create({
-    first_name: 'Miles',
-    last_name: 'Davis',
-    email: 'miles@example.com',
-    dev_serial: 'HJ51630294',
-    organization_id: Organization.find_by_name("Northwestern Hospital").id})
+# Person.create({
+#     first_name: 'Keith',
+#     last_name: 'Jarrett',
+#     email: 'keith@example.com',
+#     dev_serial: 'HJ819378',
+#     organization_id: Organization.find_by_name("Northwestern Hospital").id})
+# Person.create({
+#     first_name: 'Miles',
+#     last_name: 'Davis',
+#     email: 'miles@example.com',
+#     dev_serial: 'HJ51630294',
+#     organization_id: Organization.find_by_name("Northwestern Hospital").id})
 
 puts 'Two people from Northwestern Hospital, Keith Jarrett and Miles Davis, have been created. All other people and uploads have been deleted. Log in as Flash Gordon and import people and uploads using the Walking Report csv. Be sure to perform these actions as Flash Gordon, NOT as Zach Albright.'

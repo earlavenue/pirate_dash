@@ -4,6 +4,8 @@
 <h3>Import People</h3>
 <%= form_tag import_people_path, multipart: true do %>
   <%= file_field_tag :file %><br>
+  <%= label_tag :organization %>
+  <%= collection_select(:person, :organization_id, Organization.all, :id, :name) %><br>
   <%= submit_tag "Import", class: 'btn btn-info' %>
 <% end %>
 <br>
