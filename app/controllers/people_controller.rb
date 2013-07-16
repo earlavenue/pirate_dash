@@ -48,6 +48,12 @@ class PeopleController < ApplicationController
         @people = Person.where(organization_id: current_user.organization.id)
       end
     end
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
+
   end
 
   def show

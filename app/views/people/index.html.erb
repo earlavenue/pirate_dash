@@ -7,7 +7,7 @@
 <% end %>
 
 <h4>Search</h4>
-  <p><%= form_tag people_path, :method => :get, class: "form-search" do %>
+  <p><%= form_tag people_path, :method => :get, class: "form-search", remote: true do %>
     Last name: <%= text_field_tag :search_last_name, params[:search_last_name], class: "search-query" %></p>
     <h5>OR</h5>
     <p>Device serial: <%= text_field_tag :search_serial, params[:search_serial], class: "search-query" %></p>
@@ -45,7 +45,7 @@
   </tr>
 
 <% @people.each do |person| %>
-  <tr>
+  <tr class="person_row" id="person_<%= person.id %>">
     <% if current_user.organization.name == "Omron Fitness" %>
       <td><%= person.organization.name %></td>
     <% end %>

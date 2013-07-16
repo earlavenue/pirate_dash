@@ -1,0 +1,23 @@
+<% people.each do |person| %>
+  <tr class="person_row" id="person_<%= person.id %>">
+    <% if current_user.organization.name == "Omron Fitness" %>
+      <td><%= person.organization.name %></td>
+    <% end %>
+    <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
+    <td><%= person.email %></td>
+    <td><%= person.dev_serial %></td>
+    <% if person.uploads.exists? %>
+      <td><%= person.uploads.order("upload_time ASC").first.upload_time.strftime("%b %d, %Y") %></td>
+      <td><%= person.uploads.order("upload_time ASC").last.upload_time.strftime("%b %d, %Y") %></td>
+      <td><%= person.uploads.count %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+      <td></td>
+    <% end %>
+    <% if current_user.organization.name == "Omron Fitness" %>
+      <td><%= link_to 'Edit', edit_person_path(person) %> </td>
+      <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+    <% end %>
+  </tr>
+<% end %>
