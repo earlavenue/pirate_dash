@@ -37,7 +37,7 @@ class PeopleController < ApplicationController
       elsif params[:search_serial].present?
         @people = Person.search_serial_results(params[:search_serial]).joins(:organization).order("organizations.name")
       else
-        @people = Person.all.joins(:organization).order("organizations.name")
+        @people = Person.all(joins: :organization, order: "organizations.name")
       end
     else
       if params[:search_last_name].present?
