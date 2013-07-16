@@ -1,7 +1,7 @@
 /*Type	
 ---------------------------------------------------*/
 h1,h2,h3,h4{
-font-family: 'AvantGardeGothicITCW01D 731075';	
+/*font-family: 'AvantGardeGothicITCW01D 731075';	*/
 }
 
 /* Sticky footer styles
@@ -221,7 +221,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
 }
 .chart_header .btn-group .btn i{
 	background-size: 170px;
-	background-image: url("../../wp-content/themes/twentyeleven/img/sprt_dashboard.png");
+	background-image: url("../img/sprt_dashboard.png");
 	background-repeat: no-repeat;
 	height: 20px;
 	width: 22px;
@@ -255,7 +255,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
 .activity_info{
 	margin: auto;
 	border-top: 1px solid #cacaca;
-	font-family: 'AvantGardeGothicITCW01D 731075';
+/*	font-family: 'AvantGardeGothicITCW01D 731075';*/
 }
 .activity_info li{
 	border-top: 1px solid #fff;
@@ -296,7 +296,7 @@ width: 80px;
 height: 80px;
 margin: 0 !important;
 background-size: 310px;
-background-image: url("../../wp-content/themes/twentyeleven/img/sprt_dashboard.png");
+background-image: url("/assets/new_dashboard_sprites.png");
 background-repeat: no-repeat;
 float: left;
 margin-left: 10px !important;
