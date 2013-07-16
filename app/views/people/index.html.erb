@@ -1,8 +1,10 @@
 <h1>People</h1>
 <p><%= notice %></p>
 <br>
-<h4><%= link_to "Operations", operations_url %></h4>
-<br>
+<% if current_user.organization.name == "Omron Fitness" %>
+  <h4><%= link_to "Import People and Uploads", operations_url %></h4>
+  <br>
+<% end %>
 
 <h4>Search</h4>
   <p><%= form_tag people_path, :method => :get, class: "form-search" do %>

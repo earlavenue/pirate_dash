@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
   before_filter :require_signin
 
-  before_filter :require_omron, only: [:edit, :update, :destroy]
+  before_filter :require_omron, only: [:edit, :update, :destroy, :operations, :import, :import_uploads]
 
   before_filter :protect_show, only: [:show]
 
@@ -14,11 +14,6 @@ class PeopleController < ApplicationController
   end
 
   def operations
-  end
-
-  def sync
-    Person.sync
-    redirect_to people_url, notice: 'People successfully synced.'
   end
 
   def import #importing people
