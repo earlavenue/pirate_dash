@@ -33,11 +33,11 @@ class PeopleController < ApplicationController
       if params[:omron_click].present?
         @people = Person.where(organization_id: params[:omron_click])
       elsif params[:search_last_name].present?
-        @people = Person.search_last_name_results(params[:search_last_name])
+        @people = Person.search_last_name_results(params[:search_last_name]).joins(:organization).order("organizations.name")
       elsif params[:search_serial].present?
-        @people = Person.search_serial_results(params[:search_serial])
+        @people = Person.search_serial_results(params[:search_serial]).joins(:organization).order("organizations.name")
       else
-        @people = Person.all
+        @people = Person.all.joins(:organization).order("organizations.name")
       end
     else
       if params[:search_last_name].present?
