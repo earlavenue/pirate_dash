@@ -29,6 +29,9 @@ class PeopleController < ApplicationController
 
 #First we check if someone is Omron. If they are we check if they got to this page from the organizations index (:omron_click). Then we check if they've done a search and give back all results with "last name" or "serial" because the Omron index will have an "organization" column. If the user isn't Omron we check if they've done a search and give back only "last names" etc. at the user's company.
   def index
+    # @people = Person.joins(:organization).order("organizations.name").all
+    # @people = @people.with_last_name(params[:search_last_name]) if params[:search_last_name].present?
+
     if current_user.organization.name == "Omron Fitness"
       if params[:omron_click].present?
         @people = Person.where(organization_id: params[:omron_click])
@@ -37,7 +40,7 @@ class PeopleController < ApplicationController
       elsif params[:search_serial].present?
         @people = Person.search_serial_results(params[:search_serial]).joins(:organization).order("organizations.name")
       else
-        @people = Person.all(joins: :organization, order: "organizations.name")
+        @people = Person.joins(:organization).order("organizations.name").all
       end
     else
       if params[:search_last_name].present?

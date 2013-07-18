@@ -22,11 +22,13 @@ class Person < ActiveRecord::Base
   end
 
   def self.search_last_name_results(query)
-    Person.where last_name: query
+    where(last_name: query)
   end
 
+  scope :with_last_name, -> { |name| where("last_name = ?", name) }
+
   def self.search_serial_results(query)
-    Person.where dev_serial: query
+    where(dev_serial: query)
   end
 
   def lifetime_steps
