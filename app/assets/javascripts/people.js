@@ -1,5 +1,5 @@
 $(function(){
-  var steps = [[1, 25], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,50],[11,47],[12, 39]];
+  var steps = $("#user_activity_graph").data("y-values");
 
   var plot = $.plot($("#user_activity_graph"),
       [

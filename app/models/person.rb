@@ -25,7 +25,7 @@ class Person < ActiveRecord::Base
     where(last_name: query)
   end
 
-  scope :with_last_name, -> { |name| where("last_name = ?", name) }
+  # scope :with_last_name, -> { |name| where("last_name = ?", name) }
 
   def self.search_serial_results(query)
     where(dev_serial: query)
