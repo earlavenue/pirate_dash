@@ -8,19 +8,19 @@
 			<ul class="row-fluid activity_info">
 				<li class="span6 pull-left steps">
 					<i class="clearfix"></i>
-					<p class="span7"><span><%= @person.lifetime_steps %></span><br/>Total Steps</p>
+					<p class="span7"><span><%= number_with_delimiter(@person.lifetime_steps, :delimiter => ',') %></span><br/>Total Steps</p>
 				</li>
 				<li class="span6 aerobic">
 					<i class="clearfix"></i>
-					<p class="span7"><span><%= @person.lifetime_aerobic_steps%></span><br/>Total Aerobic Steps</p>
+					<p class="span7"><span><%= number_with_delimiter(@person.lifetime_aerobic_steps, :delimiter => ',') %></span><br/>Total Aerobic Steps</p>
 				</li>
 				<li class="alpha span6 miles">
 					<i class="clearfix"></i>
-					<p class="span7"><span><%= '%.2f' % @person.lifetime_distance%></span><br/>Total Miles</p>
+					<p class="span7"><span><%= number_with_delimiter('%.2f' % @person.lifetime_distance, :delimiter => ',') %></span><br/>Total Miles</p>
 				</li>
 				<li class="span6 calories">
 					<i class="clearfix"></i>
-					<p class="span7"><span><%= @person.lifetime_calories%></span><br/>Total Calories Burned</p>
+					<p class="span7"><span><%= number_with_delimiter(@person.lifetime_calories, :delimiter => ',') %></span><br/>Total Calories Burned</p>
 				</li>
 			</ul>
 		</div>
