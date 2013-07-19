@@ -61,6 +61,11 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+    if params[:date].blank?
+      @date = @person.uploads.first.upload_time
+    else
+      @date = params[:date].to_date
+    end
   end
 
   def new
