@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712190204) do
+ActiveRecord::Schema.define(:version => 20130719152839) do
 
   create_table "organizations", :force => true do |t|
     t.string   "name"
@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(:version => 20130712190204) do
   end
 
   create_table "uploads", :force => true do |t|
-    t.datetime "upload_time"
-    t.string   "dev_serial"
-    t.integer  "person_id"
-    t.integer  "total_steps"
-    t.integer  "total_aerobic_steps"
-    t.integer  "calories"
-    t.float    "distance"
+    t.date    "upload_time"
+    t.string  "dev_serial"
+    t.integer "person_id"
+    t.integer "total_steps"
+    t.integer "total_aerobic_steps"
+    t.integer "calories"
+    t.float   "distance"
   end
 
   create_table "users", :force => true do |t|
