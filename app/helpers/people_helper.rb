@@ -11,7 +11,12 @@ module PeopleHelper
     count = 0
     (person.uploads.first.upload_time.to_date..person.uploads.last.upload_time.to_date).map do |date|
       count += 1
-      [count, person.uploads.find_by_upload_time(date)]
+      if person.uploads.find_by_upload_time(date).present?
+        [count, person.uploads.find_by_upload_time(date).total_steps]
+      else
+        [count, 0]
+      end
+
     end.to_json
   end
 end
