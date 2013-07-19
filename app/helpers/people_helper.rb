@@ -4,7 +4,7 @@ module PeopleHelper
     # (person.uploads.first.upload_time.to_date..person.uploads.last.upload_time.to_date).map do |date|
     (date.beginning_of_month..date.end_of_month).map do |date|
         count += 1
-        [count, date.strftime("%b/%d")]
+        [count, date.strftime("%d")]
     end.to_json
   end
 
