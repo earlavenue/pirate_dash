@@ -1,7 +1,6 @@
 module PeopleHelper
   def x_values(person, date)
     count = 0
-    # (person.uploads.first.upload_time.to_date..person.uploads.last.upload_time.to_date).map do |date|
     (date.beginning_of_month..date.end_of_month).map do |date|
         count += 1
         [count, date.strftime("%d")]
@@ -9,16 +8,19 @@ module PeopleHelper
   end
 
   def y_values(person, date)
+    uploads = person.uploads.within_date_range(date.beginning_of_month, date.end_of_month)
+
     count = 0
-    # (person.uploads.first.upload_time.to_date..person.uploads.last.upload_time.to_date).map do |date|
+
     (date.beginning_of_month..date.end_of_month).map do |date|
       count += 1
-      if person.uploads.find_by_upload_time(date).present?
-        [count, person.uploads.find_by_upload_time(date).total_steps]
+      this_upload = uploads.select { |upload| upload.upload_time == date }.first
+      if this_upload.present?
+        [count, this_upload.total_steps]
       else
         [count, 0]
       end
-
     end.to_json
   end
+
 end

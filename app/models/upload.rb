@@ -17,8 +17,6 @@ class Upload< ActiveRecord::Base
     end
   end
 
-  def self.aggregate_activations(time)
-    Upload.where("upload_time < '#{time}'").select("DISTINCT(dev_serial)").count
-  end
+  scope :within_date_range, lambda { |start, finish| where("upload_time >= ? AND upload_time <= ?", start, finish) }
 
 end

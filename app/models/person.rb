@@ -1,7 +1,6 @@
 class Person < ActiveRecord::Base
   attr_accessible :dev_serial, :km_userid, :omron_userid, :first_name, :last_name, :email
 
-  has_many :events
   has_many :uploads
   belongs_to :organization
 
@@ -30,6 +29,8 @@ class Person < ActiveRecord::Base
   def self.search_serial_results(query)
     where(dev_serial: query)
   end
+
+
 
   def lifetime_steps
     p_steps = []
