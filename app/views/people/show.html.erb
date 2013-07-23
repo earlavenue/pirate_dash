@@ -47,21 +47,19 @@
 	</div>
 </div>
 <div class="span12 alpha">
-    <h3>All uploads</h3>
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th class="span2">Steps</th>
                     <th class="span3"><span class="line"></span>Date</th>
-                    <th class="span3"><span class="line"></span>Device</th>
+                    <th class="span2">Steps</th>
                 </tr>
             </thead>
             <tbody>
-                <% @person.uploads.each do |upload| %>
+                <% monthly_uploads = @person.uploads.within_date_range(@date.beginning_of_month, @date.end_of_month) %>
+                <% monthly_uploads.each do |upload| %>
                     <tr class="first">
-                        <td><%= upload.total_steps %></td>
                         <td><%= upload.upload_time.strftime("%b %d, %Y") %></td>
-                        <td><%= upload.person.dev_serial %></td>
+                        <td><%= upload.total_steps %></td>
                     </tr>
                     <% end %>
                 </tbody>
