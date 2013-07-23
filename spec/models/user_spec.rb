@@ -23,7 +23,18 @@ describe User do
     end
   end
 
-  context 'that already exists' do
+  context "Password Testing" do
+    it "authenticates with matching username and password" do
+      #organization = build(:organization)
+      user = create(:user, first_name: "batman", password: "secret")
+      user.authenticate("secret").should be_true#eq(user)
+    end
 
+    it "does not authenticate with incorrect password" do
+      #organization = build(:organization)
+      user = create(:user, first_name: "batman", password: "secret")
+      user.authenticate("incorrect").should be_false
+    end
   end
+
 end
