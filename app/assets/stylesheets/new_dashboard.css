@@ -230,6 +230,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
 .date, .ago{
 	font-size: .8em;
 	color: #1ec1eb;
+  text-align: right;
 }
 .print{
 	background-position: -90px -221px;	
@@ -339,6 +340,49 @@ margin-left: 10px !important;
 }
 .calories:hover i{
 	background-position: -233px -156px;
+}
+
+/*PAGINATION
+---------------------------------------------------*/
+
+.btn_hack{
+padding: 0 !important;
+position: relative;
+}
+.btn_hack input{
+  display: block;
+  width: 100%;
+  height: inherit;
+  padding: 4px 12px;
+  border: none;
+  background: transparent;
+  z-index: 1;
+}
+.btn_hack i{
+  position: absolute;
+  top:7px;
+  z-index: 0;
+}
+.prev input{
+  padding-left: 26px;
+}
+.next input{
+  padding-right: 26px;
+}
+.next i{
+  right: 7px;
+}
+.prev i{
+  left: 7px;
+}
+
+.controls{
+  clear: both;
+}
+
+.controls form{
+  width: 50%;
+  float: left;
 }
 
 /*DATEPICKER
