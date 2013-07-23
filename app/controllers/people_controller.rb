@@ -61,12 +61,15 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
-    if params[:date].blank?
-      @date = @person.uploads.first.upload_time
+    @person_uploads = @person.uploads
+    if params[:date].blank? && @person_uploads.present?
+      @date = @person_uploads.first.upload_time
+    elsif params[:date].blank? && @person_uploads.blank?
+      @date = Date.current
     else
       @date = params[:date].to_date
     end
-    @month_stats = @person.month_stats(@date)
+    @month_stats_hash = @person.month_stats(@person_uploads, @date)
   end
 
   def new

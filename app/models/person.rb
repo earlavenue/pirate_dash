@@ -60,8 +60,8 @@ class Person < ActiveRecord::Base
   #   lifetime_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
   # end
 
-  def month_stats(date)
-    uploads_for_month = self.uploads.where("upload_time >= ? AND upload_time <= ?", date.beginning_of_month, date.end_of_month)
+  def month_stats(person_uploads, date)
+    uploads_for_month = person_uploads.where("upload_time >= ? AND upload_time <= ?", date.beginning_of_month, date.end_of_month)
     steps_array = []
     uploads_for_month.each do |upload|
       steps_array << upload.total_steps
