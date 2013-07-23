@@ -3,7 +3,7 @@
         <h1 class="span8"><%= @person.first_name + " " + @person.last_name %></h1>
         <h2 class="span4 date"><%= @date.strftime('%B %Y') %></h2>
         <div class="controls">
-            
+
         <% unless @date.beginning_of_month <= @person.uploads.first.upload_time %>
             <%= form_tag person_url(@person), :method => :get do  %>
                 <%= hidden_field_tag :date, "#{@date - 1.month}" -%>
@@ -28,19 +28,19 @@
 			<ul class="row-fluid activity_info">
 				<li class="span6 pull-left steps">
 					<i class="clearfix"></i>
-					<p class="span7"><span><%= number_with_delimiter(@person.lifetime_steps, :delimiter => ',') %></span><br/>Total Steps</p>
+					<p class="span7"><span><%= number_with_delimiter(@month_stats[:steps], :delimiter => ',') %></span><br/>Total Steps</p>
 				</li>
 				<li class="span6 aerobic">
 					<i class="clearfix"></i>
-					<p class="span7"><span><%= number_with_delimiter(@person.lifetime_aerobic_steps, :delimiter => ',') %></span><br/>Total Aerobic Steps</p>
+					<p class="span7"><span><%= number_with_delimiter(@month_stats[:aerobic_steps], :delimiter => ',') %></span><br/>Total Aerobic Steps</p>
 				</li>
 				<li class="alpha span6 miles">
 					<i class="clearfix"></i>
-					<p class="span7"><span><%= number_with_delimiter('%.2f' % @person.lifetime_distance, :delimiter => ',') %></span><br/>Total Miles</p>
+					<p class="span7"><span><%= number_with_delimiter('%.2f' % @month_stats[:distance], :delimiter => ',') %></span><br/>Total Miles</p>
 				</li>
 				<li class="span6 calories">
 					<i class="clearfix"></i>
-					<p class="span7"><span><%= number_with_delimiter(@person.lifetime_calories, :delimiter => ',') %></span><br/>Total Calories Burned</p>
+					<p class="span7"><span><%= number_with_delimiter(@month_stats[:calories], :delimiter => ',') %></span><br/>Total Calories Burned</p>
 				</li>
 			</ul>
 		</div>

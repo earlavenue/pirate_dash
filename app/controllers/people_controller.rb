@@ -66,6 +66,7 @@ class PeopleController < ApplicationController
     else
       @date = params[:date].to_date
     end
+    @month_stats = @person.month_stats(@date)
   end
 
   def new

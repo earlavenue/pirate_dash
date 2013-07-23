@@ -31,34 +31,34 @@ class Person < ActiveRecord::Base
   end
 
 
-  def lifetime_stats
-    all_uploads = self.uploads
-    steps_array = []
-    all_uploads.each do |upload|
-      steps_array << upload.total_steps
-    end
-    steps = steps_array.inject {|sum, n| sum + n}
+  # def lifetime_stats
+  #   all_uploads = self.uploads
+  #   steps_array = []
+  #   all_uploads.each do |upload|
+  #     steps_array << upload.total_steps
+  #   end
+  #   steps = steps_array.inject {|sum, n| sum + n}
 
-    aerobic_array = []
-    all_uploads.each do |upload|
-      aerobic_array << upload.total_aerobic_steps
-    end
-    aerobic_steps = aerobic_array.inject {|sum, n| sum + n}
+  #   aerobic_array = []
+  #   all_uploads.each do |upload|
+  #     aerobic_array << upload.total_aerobic_steps
+  #   end
+  #   aerobic_steps = aerobic_array.inject {|sum, n| sum + n}
 
-    calories_array = []
-    all_uploads.each do |upload|
-      calories_array << upload.calories
-    end
-    calories = calories_array.inject {|sum, n| sum + n}
+  #   calories_array = []
+  #   all_uploads.each do |upload|
+  #     calories_array << upload.calories
+  #   end
+  #   calories = calories_array.inject {|sum, n| sum + n}
 
-    distance_array = []
-    all_uploads.each do |upload|
-      distance_array << upload.distance
-    end
-    distance = distance_array.inject {|sum, n| sum + n}
+  #   distance_array = []
+  #   all_uploads.each do |upload|
+  #     distance_array << upload.distance
+  #   end
+  #   distance = distance_array.inject {|sum, n| sum + n}
 
-    lifetime_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
-  end
+  #   lifetime_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
+  # end
 
   def month_stats(date)
     uploads_for_month = self.uploads.where("upload_time >= ? AND upload_time <= ?", date.beginning_of_month, date.end_of_month)
@@ -66,65 +66,32 @@ class Person < ActiveRecord::Base
     uploads_for_month.each do |upload|
       steps_array << upload.total_steps
     end
+
     steps = steps_array.inject {|sum, n| sum + n}
 
     aerobic_array = []
     uploads_for_month.each do |upload|
       aerobic_array << upload.total_aerobic_steps
     end
+
     aerobic_steps = aerobic_array.inject {|sum, n| sum + n}
 
     calories_array = []
     uploads_for_month.each do |upload|
       calories_array << upload.calories
     end
+
     calories = calories_array.inject {|sum, n| sum + n}
 
     distance_array = []
     uploads_for_month.each do |upload|
       distance_array << upload.distance
     end
+
     distance = distance_array.inject {|sum, n| sum + n}
 
-    lifetime_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
+    month_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
 
   end
 
-
-  def lifetime_steps
-    p_steps = []
-    all_uploads = self.uploads
-    all_uploads.each do |upload|
-      p_steps << upload.total_steps
-    end
-    p_steps.inject {|sum, n| sum + n}
-  end
-
-
-  def lifetime_aerobic_steps
-    p_steps = []
-    all_uploads = self.uploads
-    all_uploads.each do |upload|
-      p_steps << upload.total_aerobic_steps
-    end
-    p_steps.inject {|sum, n| sum + n}
-  end
-
-  def lifetime_calories
-    p_steps = []
-    all_uploads = self.uploads
-    all_uploads.each do |upload|
-      p_steps << upload.calories
-    end
-    p_steps.inject {|sum, n| sum + n}
-  end
-
-  def lifetime_distance
-    p_steps = []
-    all_uploads = self.uploads
-    all_uploads.each do |upload|
-      p_steps << upload.distance
-    end
-    p_steps.inject {|sum, n| sum + n}
-  end
 end
