@@ -4,12 +4,20 @@ class PeopleController < ApplicationController
   before_filter :require_omron, only: [:edit, :update, :destroy, :operations, :import, :import_uploads]
 
   before_filter :protect_show, only: [:show]
+  before_filter :has_no_data, only: [:show]
 
 
   def protect_show
     @person = Person.find_by_id(params[:id])
     if current_user.organization.name != "Omron Fitness" && current_user.organization.name != @person.organization.name
       redirect_to people_url, :notice => "You cannot view that person"
+    end
+  end
+
+  def has_no_data
+    @person = Person.find_by_id(params[:id])
+    if @person.uploads.blank?
+      redirect_to people_url, :notice => "There is no data for this person"
     end
   end
 
@@ -62,10 +70,8 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find(params[:id])
     @person_uploads = @person.uploads
-    if params[:date].blank? && @person_uploads.present?
+    if params[:date].blank?
       @date = @person_uploads.first.upload_time
-    elsif params[:date].blank? && @person_uploads.blank?
-      @date = Date.current
     else
       @date = params[:date].to_date
     end
