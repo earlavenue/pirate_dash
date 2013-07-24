@@ -6,9 +6,9 @@ FactoryGirl.define do
     email { "#{first_name}@example.com" }
     organization
 
-     factory :omron do
-       organization "Omron Fitness"
-     end
+    factory :omron_user do
+      association :organization, :factory => [:omron_organization]
+    end
   end
 
   factory :organization do
@@ -18,6 +18,18 @@ FactoryGirl.define do
     state "Up yo mama"
     zip "666"
 
+    factory :omron_organization do
+      name "Omron Fitness"
+    end
+
+  end
+
+  factory :person do
+    first_name "Homer"
+    last_name "Simpson"
+    email "#{first_name}@gmail.com"
+    dev_serial "HJ9393"
+    organization
   end
 end
 
