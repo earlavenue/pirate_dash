@@ -2,11 +2,6 @@ require 'spec_helper'
 
 describe "Users" do
 
-  # it "test factory" do
-  #   omron_user = create(:omron_user)
-  #   omron_user.organization.name.should eq("Omron Fitness")
-  # end
-
   context "logging in" do
     it "should log you in" do
       user = create(:user)

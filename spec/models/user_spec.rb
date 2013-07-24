@@ -12,21 +12,4 @@ describe User do
       user.authenticate("incorrect").should be_false
     end
   end
-
-  # context "that is an Omron Fitness user" do
-  #   it "can visit the Organizations page" do
-  #     @current_user = build(:omron_user)
-  #     session[:user_id] = @current_user.id
-  #     get organizations_url
-  #     response.code.should eq("200")
-  #   end
-  # end
-
-  # context "that is NOT an Omron Fitness user" do
-  #   it "cannot visit the Organizations page" do
-  #     get organizations_path
-  #     response.code.should eq("302")
-  #   end
-  # end
-
 end

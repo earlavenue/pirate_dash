@@ -21,7 +21,6 @@ FactoryGirl.define do
     factory :omron_organization do
       name "Omron Fitness"
     end
-
   end
 
   factory :person do
@@ -32,5 +31,3 @@ FactoryGirl.define do
     organization
   end
 end
-
-
