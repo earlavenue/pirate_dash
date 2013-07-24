@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:first_name) { |n| "foo#{n}" }
-    last_name "Dummy"
+    first_name "Fool"
+    last_name "Barbarian"
     password "foobar"
-    email { "#{first_name}@example.com" }
+    sequence(:email) { |n| "#{first_name}#{n}@example.com" }
     organization
 
     factory :omron_user do
