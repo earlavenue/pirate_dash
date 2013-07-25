@@ -24,9 +24,9 @@ FactoryGirl.define do
   end
 
   factory :person do
-    first_name "Homer"
+    sequence(:first_name) { |n| "Homer#{n}" }
     last_name "Simpson"
-    email "#{first_name}@gmail.com"
+    sequence(:email) { |n| "#{first_name}#{n}@gmail.com" }
     dev_serial "HJ9393"
     organization
   end

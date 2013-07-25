@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
   def protect_show
     @person = Person.find_by_id(params[:id])
     if current_user.organization.name != "Omron Fitness" && current_user.organization.name != @person.organization.name
-      redirect_to people_url, :notice => "You cannot view that person"
+      redirect_to people_url, :notice => "You are not authorized to view that person"
     end
   end
 
