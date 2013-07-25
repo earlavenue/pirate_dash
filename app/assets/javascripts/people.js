@@ -67,10 +67,11 @@ $(function(){
               var x = item.datapoint[0].toFixed(0),
                   y = item.datapoint[1].toFixed(0);
 
-              var month = item.series.xaxis.ticks[item.dataIndex].label;
+              var day = item.series.xaxis.ticks[item.dataIndex].label;
+              var month = $("#user_activity_graph").data("month")
 
               showTooltip(item.pageX, item.pageY,
-                          item.series.label + " of " + month + ": " + y);
+                          item.series.label + " on " + month + "/" + day + ": " + y);
           }
       }
       else {
