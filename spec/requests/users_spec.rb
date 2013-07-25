@@ -40,7 +40,7 @@ describe "Users" do
       end
 
       it "can only search people from within their organization" do
-
+        # WILL
       end
 
       it "can visit their coworkers' show pages" do
