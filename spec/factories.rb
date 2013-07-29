@@ -30,4 +30,14 @@ FactoryGirl.define do
     dev_serial "HJ9393"
     organization
   end
+
+  factory :upload do
+    upload_time Date.current
+    dev_serial "HJ666"
+    association :person
+    total_steps 100
+    total_aerobic_steps 75
+    distance 500
+    calories 50
+  end
 end
