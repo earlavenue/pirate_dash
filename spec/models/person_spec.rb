@@ -22,5 +22,23 @@ describe "Person" do
       upload_2 = create(:upload, total_steps: 10, person: person)
       expect(person.month_stats(person.uploads, Date.current)[:steps]).to eq(20)
     end
+    it "has month total_aerobic_steps" do
+      person = create(:person)
+      upload_1 = create(:upload, total_aerobic_steps: 10, person: person)
+      upload_2 = create(:upload, total_aerobic_steps: 10, person: person)
+      expect(person.month_stats(person.uploads, Date.current)[:aerobic_steps]).to eq(20)
+    end
+    it "has month calories" do
+      person = create(:person)
+      upload_1 = create(:upload, calories: 10, person: person)
+      upload_2 = create(:upload, calories: 10, person: person)
+      expect(person.month_stats(person.uploads, Date.current)[:calories]).to eq(20)
+    end
+    it "has month distance" do
+      person = create(:person)
+      upload_1 = create(:upload, distance: 10, person: person)
+      upload_2 = create(:upload, distance: 10, person: person)
+      expect(person.month_stats(person.uploads, Date.current)[:distance]).to eq(20)
+    end
   end
 end
