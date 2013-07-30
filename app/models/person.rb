@@ -22,11 +22,13 @@ class Person < ActiveRecord::Base
 
   scope :from_organization, lambda { |organization_id| where("organization_id = ?", organization_id)}
 
+  scope :order_by_organization, -> { self.joins(:organization).order("organizations.name") }
+
   scope :with_last_name, lambda { |name| where("last_name = ?", name) }
 
   scope :with_dev_serial, lambda { |dev_serial| where("dev_serial = ?", dev_serial) }
 
-  scope :order_by_organization, -> {self.joins(:organization).order("organizations.name")}
+
 
 
   # def lifetime_stats

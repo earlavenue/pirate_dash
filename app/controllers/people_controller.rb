@@ -41,22 +41,20 @@ class PeopleController < ApplicationController
      #@people = @people.with_last_name(params[:search_last_name]) if params[:search_last_name].present?
 
     if current_user.organization.name == "Omron Fitness"
+      @people = Person.order_by_organization
       if params[:omron_click].present?
-        @people = Person.from_organization(params[:omron_click])
+        @people = @people.from_organization(params[:omron_click])
       elsif params[:search_last_name].present?
-        @people = Person.with_last_name(params[:search_last_name]).order_by_organization
+        @people = @people.with_last_name(params[:search_last_name])
       elsif params[:search_serial].present?
-        @people = Person.with_dev_serial(params[:search_serial]).order_by_organization
-      else
-        @people = Person.order_by_organization.all
+        @people = @people.with_dev_serial(params[:search_serial])
       end
     else
+      @people = Person.from_organization(current_user.organization_id)
       if params[:search_last_name].present?
-        @people = Person.search_last_name_results(params[:search_last_name]).where(organization_id: current_user.organization_id)
+        @people = @people.with_last_name(params[:search_last_name])
       elsif params[:search_serial].present?
-        @people = Person.search_serial_results(params[:search_serial]).where(organization_id: current_user.organization_id)
-      else
-        @people = Person.where(organization_id: current_user.organization.id)
+        @people = @people.with_dev_serial(params[:search_serial])
       end
     end
 
