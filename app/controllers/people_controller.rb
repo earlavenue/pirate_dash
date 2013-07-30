@@ -4,6 +4,7 @@ class PeopleController < ApplicationController
   before_filter :require_omron, only: [:edit, :update, :destroy, :operations, :import, :import_uploads]
 
   before_filter :protect_show, only: [:show]
+
   before_filter :has_no_data, only: [:show]
 
 
@@ -35,11 +36,7 @@ class PeopleController < ApplicationController
   end
 
 
-#First we check if someone is Omron. If they are we check if they got to this page from the organizations index (:omron_click). Then we check if they've done a search and give back all results with "last name" or "serial" because the Omron index will have an "organization" column. If the user isn't Omron we check if they've done a search and give back only "last names" etc. at the user's company.
   def index
-     #@people = Person.joins(:organization).order("organizations.name").all
-     #@people = @people.with_last_name(params[:search_last_name]) if params[:search_last_name].present?
-
     if current_user.organization.name == "Omron Fitness"
       @people = Person.order_by_organization
       if params[:omron_click].present?
@@ -62,7 +59,6 @@ class PeopleController < ApplicationController
       format.js
       format.html
     end
-
   end
 
   def show
