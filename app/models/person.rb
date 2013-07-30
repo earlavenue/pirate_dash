@@ -4,6 +4,15 @@ class Person < ActiveRecord::Base
   has_many :uploads
   belongs_to :organization
 
+  scope :from_organization, lambda { |organization_id| where("organization_id = ?", organization_id)}
+
+  scope :order_by_organization, -> { self.joins(:organization).order("organizations.name") }
+
+  scope :with_last_name, lambda { |name| where("last_name = ?", name) }
+
+  scope :with_dev_serial, lambda { |dev_serial| where("dev_serial = ?", dev_serial) }
+
+
   def self.import(file, org)
     CSV.foreach(file.path, headers: true) do |row|
       row_hash = row.to_hash
@@ -20,45 +29,6 @@ class Person < ActiveRecord::Base
     end
   end
 
-  scope :from_organization, lambda { |organization_id| where("organization_id = ?", organization_id)}
-
-  scope :order_by_organization, -> { self.joins(:organization).order("organizations.name") }
-
-  scope :with_last_name, lambda { |name| where("last_name = ?", name) }
-
-  scope :with_dev_serial, lambda { |dev_serial| where("dev_serial = ?", dev_serial) }
-
-
-
-
-  # def lifetime_stats
-  #   all_uploads = self.uploads
-  #   steps_array = []
-  #   all_uploads.each do |upload|
-  #     steps_array << upload.total_steps
-  #   end
-  #   steps = steps_array.inject {|sum, n| sum + n}
-
-  #   aerobic_array = []
-  #   all_uploads.each do |upload|
-  #     aerobic_array << upload.total_aerobic_steps
-  #   end
-  #   aerobic_steps = aerobic_array.inject {|sum, n| sum + n}
-
-  #   calories_array = []
-  #   all_uploads.each do |upload|
-  #     calories_array << upload.calories
-  #   end
-  #   calories = calories_array.inject {|sum, n| sum + n}
-
-  #   distance_array = []
-  #   all_uploads.each do |upload|
-  #     distance_array << upload.distance
-  #   end
-  #   distance = distance_array.inject {|sum, n| sum + n}
-
-  #   lifetime_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
-  # end
 
   def month_stats(person_uploads, date)
     uploads_for_month = person_uploads.where("upload_time >= ? AND upload_time <= ?", date.beginning_of_month, date.end_of_month)
@@ -66,32 +36,26 @@ class Person < ActiveRecord::Base
     uploads_for_month.each do |upload|
       steps_array << upload.total_steps
     end
-
     steps = steps_array.inject {|sum, n| sum + n}
 
     aerobic_array = []
     uploads_for_month.each do |upload|
       aerobic_array << upload.total_aerobic_steps
     end
-
     aerobic_steps = aerobic_array.inject {|sum, n| sum + n}
 
     calories_array = []
     uploads_for_month.each do |upload|
       calories_array << upload.calories
     end
-
     calories = calories_array.inject {|sum, n| sum + n}
 
     distance_array = []
     uploads_for_month.each do |upload|
       distance_array << upload.distance
     end
-
     distance = distance_array.inject {|sum, n| sum + n}
 
     month_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
-
   end
-
 end
