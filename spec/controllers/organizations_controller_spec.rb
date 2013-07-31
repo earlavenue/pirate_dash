@@ -3,9 +3,49 @@ require 'spec_helper'
 describe OrganizationsController do
 
   context 'guest visitor' do
+    before :each do
+      @organization = create(:organization)
+    end
+
     describe 'GET #index' do
       it "requires login" do
         get :index
+        expect(response).to redirect_to new_session_url
+      end
+    end
+    describe 'GET #show' do
+      it "requires login" do
+        get :show, id: @organization
+        expect(response).to redirect_to new_session_url
+      end
+    end
+    describe 'GET #new' do
+      it "requires login" do
+        get :new
+        expect(response).to redirect_to new_session_url
+      end
+    end
+    describe 'GET #edit' do
+      it "requires login" do
+        get :edit, id: @organization
+        expect(response).to redirect_to new_session_url
+      end
+    end
+    describe 'POST #create' do
+      it "requires login" do
+        post :create
+        expect(response).to redirect_to new_session_url
+      end
+    end
+    describe 'PUT #update' do
+      it "requires login" do
+        put :update, id: @organization
+        expect(response).to redirect_to new_session_url
+      end
+    end
+    describe 'DELETE #destroy' do
+      it "requires login" do
+        delete :destroy, id: @organization
         expect(response).to redirect_to new_session_url
       end
     end
