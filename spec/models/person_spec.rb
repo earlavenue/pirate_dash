@@ -21,16 +21,16 @@ describe "Person" do
 
   context "month stats" do
     it "returns steps for month" do
-      expect(@bob.month_stats(@bob.uploads, Date.current)[:steps]).to eq(20)
+      expect(@bob.month_stats(Date.current)[:steps]).to eq(20)
     end
     it "returns aerobic steps for month" do
-      expect(@bob.month_stats(@bob.uploads, Date.current)[:aerobic_steps]).to eq(30)
+      expect(@bob.month_stats(Date.current)[:aerobic_steps]).to eq(30)
     end
     it "returns calories for month" do
-      expect(@bob.month_stats(@bob.uploads, Date.current)[:calories]).to eq(40)
+      expect(@bob.month_stats(Date.current)[:calories]).to eq(40)
     end
     it "returns distance for month" do
-      expect(@bob.month_stats(@bob.uploads, Date.current)[:distance]).to eq(50)
+      expect(@bob.month_stats(Date.current)[:distance]).to eq(50)
     end
   end
 end

@@ -69,7 +69,7 @@ class PeopleController < ApplicationController
     else
       @date = params[:date].to_date
     end
-    @month_stats_hash = @person.month_stats(@person_uploads, @date)
+    @month_stats_hash = @person.month_stats(@date)
   end
 
   def new
