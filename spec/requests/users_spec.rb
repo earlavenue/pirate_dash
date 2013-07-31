@@ -1,3 +1,4 @@
+=begin
 require 'spec_helper'
 
 describe "Users" do
@@ -91,3 +92,4 @@ describe "Users" do
   end # end context "who are omron users"
 
 end
+=end
