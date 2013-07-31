@@ -165,19 +165,43 @@ describe OrganizationsController do
     end
 
     describe 'POST #create' do
-      it 'creates a new Organization'
-      it 'redirects to the new organization page'
+      it 'creates a new Organization' do
+        expect{
+          post :create, organization: attributes_for(:organization)
+        }.to change(Organization, :count).by(1)
+      end
+      it 'redirects to the new organization page' do
+        post :create, organization: attributes_for(:organization)
+        expect(response).to redirect_to Organization.last
+      end
     end
 
     describe 'PUT #update' do
-      it "identifies the correct organization"
-      it "updates the organization's attributes"
-      it "redirects to the organization's page"
+      it "identifies the correct organization" do
+        put :update, id: @organization, organization: attributes_for(:organization, name: "NewCo")
+        expect(assigns(:organization)).to eq(@organization)
+      end
+      it "updates the organization's attributes" do
+        put :update, id: @organization, organization: attributes_for(:organization, name: "NewCo")
+        @organization.reload
+        expect(@organization.name).to eq("NewCo")
+      end
+      it "redirects to the organization's page" do
+        put :update, id: @organization, organization: attributes_for(:organization, name: "NewCo")
+        expect(response).to redirect_to @organization
+      end
     end
 
     describe 'DELETE #destroy' do
-      it "deletes the organization"
-      it "redirects to the organization index"
+      it "deletes the organization" do
+        expect{
+          delete :destroy, id: @organization
+        }.to change(Organization, :count).by(-1)
+      end
+      it "redirects to the organization index" do
+        delete :destroy, id: @organization
+        expect(response).to redirect_to organizations_url
+      end
     end
   end
 
