@@ -51,19 +51,56 @@ describe OrganizationsController do
     end
   end
 
-  context 'regular user' do
-    before :each do
-      user = create(:user)
-      session[:user_id] = user.id
-    end
+  # context 'regular user' do
+  #   before :each do
+  #     user = create(:user)
+  #     session[:user_id] = user.id
+  #   end
 
-    describe 'GET #index' do
-      it "requires omron" do
-        get :index
-        expect(response).to redirect_to people_url
-      end
-    end
-  end
+  #   describe 'GET #index' do
+  #     it "requires omron" do
+  #       get :index
+  #       expect(response).to redirect_to people_url
+  #     end
+  #   end
+
+  #   describe 'GET #show' do
+  #     it "requires omron" do
+  #       get :show, id: @organization
+  #       expect(response).to redirect_to people_url
+  #     end
+  #   end
+  #   describe 'GET #new' do
+  #     it "requires omron" do
+  #       get :new
+  #       expect(response).to redirect_to people_url
+  #     end
+  #   end
+  #   describe 'GET #edit' do
+  #     it "requires omron" do
+  #       get :edit, id: @organization
+  #       expect(response).to redirect_to people_url
+  #     end
+  #   end
+  #   describe 'POST #create' do
+  #     it "requires omron" do
+  #       post :create
+  #       expect(response).to redirect_to people_url
+  #     end
+  #   end
+  #   describe 'PUT #update' do
+  #     it "requires omron" do
+  #       put :update, id: @organization
+  #       expect(response).to redirect_to people_url
+  #     end
+  #   end
+  #   describe 'DELETE #destroy' do
+  #     it "requires omron" do
+  #       delete :destroy, id: @organization
+  #       expect(response).to redirect_to people_url
+  #     end
+  #   end
+  # end
 
   context 'omron user' do
     before :each do
@@ -83,6 +120,15 @@ describe OrganizationsController do
         expect(response).to render_template :index
       end
     end
+
+    describe 'GET #show' do
+      it 'assigns organization to @organization' do
+        get :show, id: @organization
+        expect(assigns(:organization)).to eq @organization
+      end
+    end
+
+
   end
 
 end
