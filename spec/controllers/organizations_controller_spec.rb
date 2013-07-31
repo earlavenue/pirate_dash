@@ -138,8 +138,46 @@ describe OrganizationsController do
     describe 'GET #show' do
       it 'assigns organization to @organization' do
         get :show, id: @organization
-        expect(assigns(:organization)).to eq @organization
+        expect(assigns(:organization)).to eq(@organization)
       end
+    end
+
+    describe 'GET #new' do
+      it 'assigns a new Organization to @organization' do
+        get :new
+        expect(assigns(:organization)).to be_a_new(Organization)
+      end
+      it 'renders the :new template' do
+        get :new
+        expect(response).to render_template :new
+      end
+    end
+
+    describe 'GET #edit' do
+      it 'assigns the correct organization to @organization' do
+        get :edit, id: @organization
+        expect(assigns(:organization)).to eq(@organization)
+      end
+      it 'renders the :edit template' do
+        get :edit, id: @organization
+        expect(response).to render_template :edit
+      end
+    end
+
+    describe 'POST #create' do
+      it 'creates a new Organization'
+      it 'redirects to the new organization page'
+    end
+
+    describe 'PUT #update' do
+      it "identifies the correct organization"
+      it "updates the organization's attributes"
+      it "redirects to the organization's page"
+    end
+
+    describe 'DELETE #destroy' do
+      it "deletes the organization"
+      it "redirects to the organization index"
     end
   end
 
