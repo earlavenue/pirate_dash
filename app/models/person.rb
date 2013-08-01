@@ -32,30 +32,34 @@ class Person < ActiveRecord::Base
 
   def month_stats(date)
     uploads_for_month = self.uploads.select{ |u| u.upload_time >= date.beginning_of_month && u.upload_time <= date.end_of_month }
-    steps_array = []
-    uploads_for_month.each do |upload|
-      steps_array << upload.total_steps
-    end
-    steps = steps_array.inject {|sum, n| sum + n}
+    if uploads_for_month.count > 0
+      steps_array = []
+      uploads_for_month.each do |upload|
+        steps_array << upload.total_steps
+      end
+      steps = steps_array.inject {|sum, n| sum + n}
 
-    aerobic_array = []
-    uploads_for_month.each do |upload|
-      aerobic_array << upload.total_aerobic_steps
-    end
-    aerobic_steps = aerobic_array.inject {|sum, n| sum + n}
+      aerobic_array = []
+      uploads_for_month.each do |upload|
+        aerobic_array << upload.total_aerobic_steps
+      end
+      aerobic_steps = aerobic_array.inject {|sum, n| sum + n}
 
-    calories_array = []
-    uploads_for_month.each do |upload|
-      calories_array << upload.calories
-    end
-    calories = calories_array.inject {|sum, n| sum + n}
+      calories_array = []
+      uploads_for_month.each do |upload|
+        calories_array << upload.calories
+      end
+      calories = calories_array.inject {|sum, n| sum + n}
 
-    distance_array = []
-    uploads_for_month.each do |upload|
-      distance_array << upload.distance
-    end
-    distance = distance_array.inject {|sum, n| sum + n}
+      distance_array = []
+      uploads_for_month.each do |upload|
+        distance_array << upload.distance
+      end
+      distance = distance_array.inject {|sum, n| sum + n}
 
-    month_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
+      month_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
+    else
+      month_hash = {steps: 0, aerobic_steps: 0, calories: 0, distance: 0}
+    end
   end
 end
