@@ -4,13 +4,13 @@ class Person < ActiveRecord::Base
   has_many :uploads
   belongs_to :organization
 
-  scope :from_organization, lambda { |organization_id| where("organization_id = ?", organization_id)}
-
   scope :order_by_organization, -> { self.joins(:organization).order("organizations.name") }
+
+  scope :from_organization, ->(organization_id) { where("organization_id = ?", organization_id)}
 
   scope :with_last_name, ->(name) { where("last_name = ?", name) }
 
-  scope :with_dev_serial, lambda { |dev_serial| where("dev_serial = ?", dev_serial) }
+  scope :with_dev_serial, ->(dev_serial) { where("dev_serial = ?", dev_serial) }
 
 
   def self.import(file, org)
