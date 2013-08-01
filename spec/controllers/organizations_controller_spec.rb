@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe OrganizationsController do
 
+  render_views
+
   before :each do
     @organization = create(:organization)
   end

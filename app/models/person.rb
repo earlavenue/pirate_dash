@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
 
   scope :order_by_organization, -> { self.joins(:organization).order("organizations.name") }
 
-  scope :with_last_name, lambda { |name| where("last_name = ?", name) }
+  scope :with_last_name, ->(name) { where("last_name = ?", name) }
 
   scope :with_dev_serial, lambda { |dev_serial| where("dev_serial = ?", dev_serial) }
 
@@ -31,7 +31,7 @@ class Person < ActiveRecord::Base
 
 
   def month_stats(date)
-    uploads_for_month = self.uploads.where("upload_time >= ? AND upload_time <= ?", date.beginning_of_month, date.end_of_month)
+    uploads_for_month = self.uploads.select{ |u| u.upload_time >= date.beginning_of_month && u.upload_time <= date.end_of_month }
     steps_array = []
     uploads_for_month.each do |upload|
       steps_array << upload.total_steps

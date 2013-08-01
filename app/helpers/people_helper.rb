@@ -1,4 +1,13 @@
 module PeopleHelper
+
+  # def render_chart
+
+  # end
+
+
+  # private
+
+
   def x_values(person, date)
     count = 0
     (date.beginning_of_month..date.end_of_month).map do |date|

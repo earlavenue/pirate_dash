@@ -10,6 +10,9 @@ gem 'rails', '3.2.13'
 
 group :development do
   gem 'sqlite3'
+  gem 'quiet_assets'
+  gem 'thin'
+  gem 'debugger'
 end
 
 group :production do

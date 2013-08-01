@@ -62,10 +62,11 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find(params[:id])
-    @person_uploads = @person.uploads
+    @person = Person.includes(:uploads).find(params[:id])
     if params[:date].blank?
-      @date = @person_uploads.first.upload_time
+      # scope the uploads so that you're only loading that month's uploads, instead of loading ALL uploads every time
+      # @person = Person.includes(:uploads).where("uploads.upload_time BETWEEN ? AND ?", @date.beginning_of_month, @date.end_of_month).find(params[:id]) #make a scope for this
+      @date = @person.uploads.first.upload_time
     else
       @date = params[:date].to_date
     end
