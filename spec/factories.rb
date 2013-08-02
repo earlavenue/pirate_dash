@@ -1,12 +1,12 @@
 FactoryGirl.define do
-  factory :user do
+  factory :client do
     first_name "Fool"
     last_name "Barbarian"
     password "foobar"
     sequence(:email) { |n| "#{first_name}#{n}@example.com" }
     organization
 
-    factory :omron_user do
+    factory :omron_client do
       association :organization, :factory => [:omron_organization]
     end
   end

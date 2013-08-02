@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(:version => 20130802181446) do
     t.integer  "organization_id"
   end
 
+  create_table "events", :force => true do |t|
+    t.string  "user_id"
+    t.integer "steps"
+    t.integer "calories_burned"
+    t.integer "distance"
+    t.string  "validic_event_id"
+    t.date    "date"
+  end
+
   create_table "organizations", :force => true do |t|
     t.string   "name"
     t.string   "address"

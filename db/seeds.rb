@@ -24,8 +24,8 @@ Organization.create({
   })
 puts 'Three organizations created: Rush Hospital, Northwestern Hospital, and Omron Fitness.'
 
-User.destroy_all
-User.create(
+Client.destroy_all
+Client.create(
     {email: 'flash@example.com',
     first_name: 'Flash',
     last_name: 'Gordon',
@@ -33,7 +33,7 @@ User.create(
     password_confirmation: '12345',
     organization_id: Organization.find_by_name("Rush Hospital").id})
 
-User.create(
+Client.create(
     {email: 'clark@example.com',
     first_name: 'Clark',
     last_name: 'Kent',
@@ -41,7 +41,7 @@ User.create(
     password_confirmation: '12345',
     organization_id: Organization.find_by_name("Northwestern Hospital").id})
 
-User.create(
+Client.create(
     {email: 'zach@example.com',
     first_name: 'Zach',
     last_name: 'Albright',

@@ -62,10 +62,10 @@ describe OrganizationsController do
   end
 
 
-  context 'regular user' do
+  context 'regular client' do
     before :each do
-      user = create(:user)
-      session[:user_id] = user.id
+      client = create(:client)
+      session[:client_id] = client.id
     end
 
     describe 'GET #index' do
@@ -119,11 +119,11 @@ describe OrganizationsController do
   end
 
 
-  context 'omron user' do
+  context 'omron client' do
     before :each do
-      omron_user = create(:omron_user)
-      session[:user_id] = omron_user.id
-      @omron_organization = omron_user.organization
+      omron_client = create(:omron_client)
+      session[:client_id] = omron_client.id
+      @omron_organization = omron_client.organization
     end
 
     describe 'GET #index' do

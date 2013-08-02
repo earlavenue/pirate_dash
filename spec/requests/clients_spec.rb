@@ -1,16 +1,16 @@
 =begin
 require 'spec_helper'
 
-describe "Users" do
+describe "Clients" do
 
-  context "who are regular users" do
+  context "who are regular clients" do
     before(:each) do
-      @user = create(:user)
-      @coworker = create(:person, organization: @user.organization)
+      @client = create(:client)
+      @coworker = create(:person, organization: @client.organization)
       @rival = create(:person)
       visit root_url
-      fill_in "Email", with: @user.email
-      fill_in "Password", with: @user.password
+      fill_in "Email", with: @client.email
+      fill_in "Password", with: @client.password
       click_button "Sign in"
     end
 
@@ -35,8 +35,8 @@ describe "Users" do
         page.should have_content("not authorized")
       end
 
-      it "should not be able to access the users page" do
-        visit users_url
+      it "should not be able to access the clients page" do
+        visit clients_url
         page.should have_content("not authorized")
       end
 
@@ -54,14 +54,14 @@ describe "Users" do
         page.should have_content("not authorized")
       end
     end
-  end # end context "who are regular users"
+  end # end context "who are regular clients"
 
-  context "who are omron users" do
+  context "who are omron clients" do
     before(:each) do
-      user = create(:omron_user)
+      client = create(:omron_client)
       visit root_url
-      fill_in "Email", with: user.email
-      fill_in "Password", with: user.password
+      fill_in "Email", with: client.email
+      fill_in "Password", with: client.password
       click_button "Sign in"
     end
 
@@ -76,9 +76,9 @@ describe "Users" do
     end
 
     context "navigating the site" do
-      it "can access the users page" do
-        click_link "Users"
-        page.should have_content("users")
+      it "can access the clients page" do
+        click_link "Clients"
+        page.should have_content("clients")
       end
 
       it "can see people from all organizations" do
@@ -89,7 +89,7 @@ describe "Users" do
         page.should have_content(person2.organization.name)
       end
     end
-  end # end context "who are omron users"
+  end # end context "who are omron clients"
 
 end
 =end

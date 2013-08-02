@@ -45,16 +45,16 @@
 
             <ul class="nav pull-right">
 
-                <% if current_user %>
-                    <% if current_user.organization.name == "Omron Fitness"  %>
+                <% if current_client %>
+                    <% if current_client.organization.name == "Omron Fitness"  %>
                         <li><%= link_to "Organizations", organizations_url %></li>
-                        <li><%= link_to "Users", users_url %></li>
+                        <li><%= link_to "Clients", clients_url %></li>
                     <% end %>
                   <li><%= link_to "All People", people_url %></li>
                   <li><%= link_to "Sign out", sessions_url, method: :delete %></li>
                 <% else %>
                     <li><%= link_to "Sign in", new_session_url %></li>
-                    <li><%= link_to "Sign up", new_user_url %></li>
+                    <li><%= link_to "Sign up", new_client_url %></li>
                 <% end %>
 <!-- Person logo in navbar. Currently commented out. -->
                   <!-- <li class="dropdown settings" class=" hidden-phone">

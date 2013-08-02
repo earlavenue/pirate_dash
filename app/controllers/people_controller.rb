@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
 
   def protect_show
     @person = Person.find_by_id(params[:id])
-    if current_user.organization.name != "Omron Fitness" && current_user.organization.name != @person.organization.name
+    if current_client.organization.name != "Omron Fitness" && current_client.organization.name != @person.organization.name
       redirect_to people_url, :notice => "You are not authorized to view that person"
     end
   end
@@ -37,7 +37,7 @@ class PeopleController < ApplicationController
 
 
   def index
-    if current_user.organization.name == "Omron Fitness"
+    if current_client.organization.name == "Omron Fitness"
       @people = Person.order_by_organization
       if params[:omron_click].present?
         @people = @people.from_organization(params[:omron_click])
@@ -47,7 +47,7 @@ class PeopleController < ApplicationController
         @people = @people.with_dev_serial(params[:search_serial])
       end
     else
-      @people = Person.from_organization(current_user.organization_id)
+      @people = Person.from_organization(current_client.organization_id)
       if params[:search_last_name].present?
         @people = @people.with_last_name(params[:search_last_name])
       elsif params[:search_serial].present?

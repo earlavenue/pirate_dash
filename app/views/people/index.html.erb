@@ -1,7 +1,7 @@
 <h1>People</h1>
 <p><%= notice %></p>
 <br>
-<% if current_user.organization.name == "Omron Fitness" %>
+<% if current_client.organization.name == "Omron Fitness" %>
   <h4><%= link_to "Import People and Uploads", operations_url %></h4>
   <br>
 <% end %>
@@ -29,7 +29,7 @@
 
 <table class="table table-bordered table-striped">
   <tr>
-    <% if current_user.organization.name == "Omron Fitness" %>
+    <% if current_client.organization.name == "Omron Fitness" %>
       <th>Organization</th>
     <% end %>
     <th>Name</th>
@@ -38,7 +38,7 @@
     <th>First Upload</th>
     <th>Last Upload</th>
     <th>Total Number of Days Uploaded</th>
-    <% if current_user.organization.name == "Omron Fitness" %>
+    <% if current_client.organization.name == "Omron Fitness" %>
       <th></th>
       <th></th>
     <% end %>
@@ -46,7 +46,7 @@
 
 <% @people.each do |person| %>
   <tr class="person_row" id="person_<%= person.id %>">
-    <% if current_user.organization.name == "Omron Fitness" %>
+    <% if current_client.organization.name == "Omron Fitness" %>
       <td><%= person.organization.name %></td>
     <% end %>
     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
@@ -61,7 +61,7 @@
       <td></td>
       <td></td>
     <% end %>
-    <% if current_user.organization.name == "Omron Fitness" %>
+    <% if current_client.organization.name == "Omron Fitness" %>
       <td><%= link_to 'Edit', edit_person_path(person) %> </td>
       <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
     <% end %>

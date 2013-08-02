@@ -10,7 +10,7 @@ PirateMetricsDashboard::Application.routes.draw do
 
   root to: 'People#index'
 
-  resources :users
+  resources :clients
 
   post '/import_uploads' => 'People#import_uploads', as: 'import_uploads'
 

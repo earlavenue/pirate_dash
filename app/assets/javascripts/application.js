@@ -23,5 +23,5 @@
 //= require application
 //= require organizations
 //= require people
-//= require users
+//= require clients
 //= require theme
