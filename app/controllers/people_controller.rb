@@ -1,40 +1,8 @@
 class PeopleController < ApplicationController
   before_filter :require_signin
-
-  before_filter :require_omron, only: [:edit, :update, :destroy, :operations, :import, :import_uploads]
-
+  before_filter :require_omron, only: [:edit, :update, :destroy]
   before_filter :protect_show, only: [:show]
-
   before_filter :has_no_data, only: [:show]
-
-
-  def protect_show
-    @person = Person.find_by_id(params[:id])
-    if current_client.organization.name != "Omron Fitness" && current_client.organization.name != @person.organization.name
-      redirect_to people_url, :notice => "You are not authorized to view that person"
-    end
-  end
-
-  def has_no_data
-    @person = Person.find_by_id(params[:id])
-    if @person.uploads.blank?
-      redirect_to people_url, :notice => "There is no data for this person"
-    end
-  end
-
-  def operations
-  end
-
-  def import #importing people
-    Person.import(params[:file], params[:person][:organization_id])
-    redirect_to people_url
-  end
-
-  def import_uploads
-    Upload.import(params[:file])
-    redirect_to people_url
-  end
-
 
   def index
     if current_client.organization.name == "Omron Fitness"
@@ -43,15 +11,11 @@ class PeopleController < ApplicationController
         @people = @people.from_organization(params[:omron_click])
       elsif params[:search_last_name].present?
         @people = @people.with_last_name(params[:search_last_name])
-      elsif params[:search_serial].present?
-        @people = @people.with_dev_serial(params[:search_serial])
       end
     else
       @people = Person.from_organization(current_client.organization_id)
       if params[:search_last_name].present?
         @people = @people.with_last_name(params[:search_last_name])
-      elsif params[:search_serial].present?
-        @people = @people.with_dev_serial(params[:search_serial])
       end
     end
 
@@ -105,4 +69,22 @@ class PeopleController < ApplicationController
     @person.destroy
     redirect_to people_url
   end
+
+
+  private
+
+  def protect_show
+    @person = Person.find_by_id(params[:id])
+    if current_client.organization.name != "Omron Fitness" && current_client.organization.name != @person.organization.name
+      redirect_to people_url, :notice => "You are not authorized to view that person"
+    end
+  end
+
+  def has_no_data
+    @person = Person.find_by_id(params[:id])
+    if @person.uploads.blank?
+      redirect_to people_url, :notice => "There is no data for this person"
+    end
+  end
+
 end

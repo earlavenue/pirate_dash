@@ -1,11 +1,9 @@
 class ClientsController < ApplicationController
   before_filter :require_signin
-
   before_filter :require_omron
 
   def index
-    #when using ":order" remember to use the plural when calling a column on a table. STUPID
-    @clients = Client.all(:joins => :organization, :order => "organizations.name")
+    @clients = Client.includes(:organizations).order("organizations.name")
   end
 
   def show

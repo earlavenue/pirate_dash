@@ -9,8 +9,6 @@
 <h4>Search</h4>
   <p><%= form_tag people_path, :method => :get, class: "form-search", remote: true do %>
     Last name: <%= text_field_tag :search_last_name, params[:search_last_name], class: "search-query" %></p>
-    <h5>OR</h5>
-    <p>Device serial: <%= text_field_tag :search_serial, params[:search_serial], class: "search-query" %></p>
     <p><%= submit_tag "Search", :name => nil, class: "btn btn-primary" %></p>
   <% end %>
 <br>
@@ -18,11 +16,6 @@
 <% if params[:search_last_name].present? %>
     <h4>Search Results for Last Name = <%= params[:search_last_name].capitalize %></h4>
     <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
-<% elsif params[:search_serial].present? %>
-    <h4>Search Results for Device serial number = <%= params[:search_serial] %></h4>
-    <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
-<% else %>
-    <h4>All</h4>
 <% end %>
 
 
@@ -34,7 +27,6 @@
     <% end %>
     <th>Name</th>
     <th>Email</th>
-    <th>Dev Serial</th>
     <th>First Upload</th>
     <th>Last Upload</th>
     <th>Total Number of Days Uploaded</th>
@@ -51,10 +43,9 @@
     <% end %>
     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
     <td><%= person.email %></td>
-    <td><%= person.dev_serial %></td>
     <% if person.uploads.exists? %>
-      <td><%= person.uploads.order("upload_time ASC").first.upload_time.strftime("%b %d, %Y") %></td>
-      <td><%= person.uploads.order("upload_time ASC").last.upload_time.strftime("%b %d, %Y") %></td>
+      <td><%= person.uploads.order("date ASC").first.date.strftime("%b %d, %Y") %></td>
+      <td><%= person.uploads.order("date ASC").last.date.strftime("%b %d, %Y") %></td>
       <td><%= person.uploads.count %></td>
     <% else %>
       <td></td>
