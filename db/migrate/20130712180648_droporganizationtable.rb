@@ -1,5 +1,0 @@
-class Droporganizationtable < ActiveRecord::Migration
-  def change
-    drop_table :organizations
-  end
-end

@@ -82,6 +82,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.7)
+    mysql2 (0.3.13)
     nokogiri (1.5.9)
     pg (0.15.1)
     polyglot (0.3.3)
@@ -169,6 +170,7 @@ DEPENDENCIES
   debugger
   factory_girl_rails
   jquery-rails
+  mysql2
   pg
   quiet_assets
   rails (= 3.2.13)

@@ -1,5 +1,5 @@
 class Upload< ActiveRecord::Base
-
+  self.table_name = "of_of_measurements"
   belongs_to :person
 
   def self.import(file)

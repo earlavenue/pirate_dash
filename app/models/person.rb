@@ -1,6 +1,6 @@
 class Person < ActiveRecord::Base
-  attr_accessible :dev_serial, :km_userid, :omron_userid, :first_name, :last_name, :email
-
+  # attr_accessible :dev_serial, :km_userid, :omron_userid, :first_name, :last_name, :email
+  self.table_name = "of_of_users"
   has_many :uploads
   belongs_to :organization
 

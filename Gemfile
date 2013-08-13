@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'aws-sdk'
 
-
+gem 'mysql2'
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
