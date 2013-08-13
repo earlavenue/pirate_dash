@@ -26,7 +26,7 @@ module PeopleHelper
 
     (date.beginning_of_month..date.end_of_month).map do |date|
       count += 1
-      this_upload = uploads.select { |upload| upload.upload_time == date }.first
+      this_upload = uploads.select { |upload| upload.date.to_date == date }.first
       if this_upload.present?
         [count, this_upload.total_steps]
       else

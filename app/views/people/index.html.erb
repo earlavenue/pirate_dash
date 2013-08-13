@@ -1,10 +1,6 @@
 <h1>People</h1>
 <p><%= notice %></p>
 <br>
-<% if current_client.organization.name == "Omron Fitness" %>
-  <h4><%= link_to "Import People and Uploads", operations_url %></h4>
-  <br>
-<% end %>
 
 <h4>Search</h4>
   <p><%= form_tag people_path, :method => :get, class: "form-search", remote: true do %>
@@ -43,10 +39,10 @@
     <% end %>
     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
     <td><%= person.email %></td>
-    <% if person.uploads.exists? %>
-      <td><%= person.uploads.order("date ASC").first.date.strftime("%b %d, %Y") %></td>
-      <td><%= person.uploads.order("date ASC").last.date.strftime("%b %d, %Y") %></td>
-      <td><%= person.uploads.count %></td>
+    <% if person.uploads.length != 0 %>
+      <td><%= person.uploads.first.date.strftime("%b %d, %Y") %></td>
+      <td><%= person.uploads.last.date.strftime("%b %d, %Y") %></td>
+      <td><%= person.uploads.length %></td>
     <% else %>
       <td></td>
       <td></td>
