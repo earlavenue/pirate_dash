@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
     if params[:date].blank?
       @date = @person.uploads.last.date.to_date
     else
-      @date = params[:date].to_date.to_date
+      @date = params[:date].to_date
     end
     @month_stats_hash = @person.month_stats(@date)
   end
