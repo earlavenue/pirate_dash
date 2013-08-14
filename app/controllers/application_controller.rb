@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
     @current_client || Client.find_by_id(session[:client_id])
   end
 
+  helper_method :admin
+
+  def admin
+    @admin || true if Client.find_by_id(session[:client_id]).organization.name = "Omron Fitness"
+  end
+
   def require_signin
     if current_client.blank?
       redirect_to new_session_url, notice: "You are not signed in"

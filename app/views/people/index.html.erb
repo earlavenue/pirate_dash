@@ -16,7 +16,7 @@
 <%= paginate @people %>
 <table class="table table-bordered table-striped">
   <tr>
-    <% if current_client.organization.name == "Omron Fitness" %>
+    <% if admin %>
       <th>Organization</th>
     <% end %>
     <th>Name</th>
@@ -24,7 +24,7 @@
     <th>First Upload</th>
     <th>Last Upload</th>
     <th>Total Number of Days Uploaded</th>
-    <% if current_client.organization.name == "Omron Fitness" %>
+    <% if admin %>
       <th></th>
       <th></th>
     <% end %>
@@ -32,7 +32,7 @@
 
 <% @people.each do |person| %>
   <tr class="person_row" id="person_<%= person.user_id %>">
-    <% if current_client.organization.name == "Omron Fitness" %>
+    <% if admin %>
       <td><%= person.organization_name %></td>
     <% end %>
     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
@@ -46,7 +46,7 @@
       <td></td>
       <td></td>
     <% end %>
-    <% if current_client.organization.name == "Omron Fitness" %>
+    <% if admin %>
       <td><%= link_to 'Edit', edit_person_path(person) %> </td>
       <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
     <% end %>
