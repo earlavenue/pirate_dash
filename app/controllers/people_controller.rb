@@ -31,9 +31,9 @@ class PeopleController < ApplicationController
   def show
     @person = Person.includes(:uploads).find(params[:id])
     if params[:date].blank?
-      @date = @person.uploads.last.upload_time
+      @date = @person.uploads.last.date.to_date
     else
-      @date = params[:date].to_date
+      @date = params[:date].to_date.to_date
     end
     @month_stats_hash = @person.month_stats(@date)
   end
@@ -74,14 +74,14 @@ class PeopleController < ApplicationController
   private
 
   def protect_show
-    @person = Person.find_by_id(params[:id])
+    @person = Person.find_by_user_id(params[:id])
     if current_client.organization.name != "Omron Fitness" && current_client.organization.name != @person.organization.name
       redirect_to people_url, :notice => "You are not authorized to view that person"
     end
   end
 
   def has_no_data
-    @person = Person.find_by_id(params[:id])
+    @person = Person.find_by_user_id(params[:id])
     if @person.uploads.blank?
       redirect_to people_url, :notice => "There is no data for this person"
     end
