@@ -6,7 +6,7 @@ class Person < ActiveRecord::Base
   has_one :membership
   has_one :organization, through: :membership
 
-  scope :order_by_organization, -> { self.joins(:organization).order("organizations.name") }
+  scope :order_by_organization, -> { joins(:organization).order("organizations.name") }
 
   scope :from_organization, ->(organization_id) { joins(:organization).where("organization_id = ?", organization_id)}
 

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'aws-sdk'
-
+gem 'kaminari'
 gem 'mysql2'
 gem 'rails', '3.2.13'
 

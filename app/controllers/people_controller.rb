@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
 
   def index
     if current_client.organization.name == "Omron Fitness"
-      @people = Person.order_by_organization
+      @people = Person.select("of_of_users.user_id, of_of_users.first_name, of_of_users.last_name, of_of_users.email, organizations.name as organization_name").includes(:uploads).order_by_organization.page(params[:page])
       if params[:omron_click].present?
         @people = @people.from_organization(params[:omron_click])
       elsif params[:search_last_name].present?

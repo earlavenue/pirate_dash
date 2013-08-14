@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   before_filter :require_omron
 
   def index
-    @clients = Client.includes(:organizations).order("organizations.name")
+    @clients = Client.includes(:organization).order("organizations.name")
   end
 
   def show
