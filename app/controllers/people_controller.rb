@@ -31,7 +31,7 @@ class PeopleController < ApplicationController
   def show
     @person = Person.includes(:uploads).find(params[:id])
     if params[:date].blank?
-      @date = @person.uploads.last.date.to_date
+      @date = Time.zone.now.to_date
     else
       @date = params[:date].to_date
     end

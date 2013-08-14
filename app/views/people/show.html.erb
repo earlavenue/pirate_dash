@@ -11,7 +11,7 @@
 
             <button class="btn"><%= @date.strftime('%B %Y') %></button>
 
-        <% unless @date.end_of_month + 1.day >= @person.uploads.last.date.to_date %>
+        <% unless @date.end_of_month + 1.day >= Time.zone.now.to_date %>
             <div class="btn btn_hack next">
                 <%= link_to content_tag(:i, " ", :class => "icon-arrow-right"),  person_url(@person, date: "#{@date + 1.month}") %>
             </div>
