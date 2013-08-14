@@ -14,7 +14,7 @@ class Person < ActiveRecord::Base
 
 
   def month_stats(date)
-    uploads_for_month = self.uploads.select{ |u| u.date >= date.beginning_of_month && u.date <= date.end_of_month }
+    uploads_for_month = self.uploads.select{ |u| u.date >= date.beginning_of_month && u.date <= date.end_of_month + 1.day }
     if uploads_for_month.count > 0
       steps_array = []
       uploads_for_month.each do |upload|
