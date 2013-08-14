@@ -9,10 +9,8 @@
   <% end %>
 <br>
 
-<% if params[:search_last_name].present? %>
-    <h4>Search Results for Last Name = <%= params[:search_last_name].capitalize %></h4>
-    <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
-<% end %>
+
+<div class="clear_search"></div>
 
 
 <%= paginate @people %>
@@ -33,7 +31,7 @@
   </tr>
 
 <% @people.each do |person| %>
-  <tr class="person_row" id="person_<%= person.id %>">
+  <tr class="person_row" id="person_<%= person.user_id %>">
     <% if current_client.organization.name == "Omron Fitness" %>
       <td><%= person.organization_name %></td>
     <% end %>
