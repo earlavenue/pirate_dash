@@ -6,14 +6,14 @@ class PeopleController < ApplicationController
 
   def index
     if admin
-      @people = Person.select("of_of_users.user_id, of_of_users.first_name, of_of_users.last_name, of_of_users.email, organizations.name as organization_name").includes(:uploads).order_by_organization.page(params[:page])
+      @people = Person.admin_index_view.order_by_organization.page(params[:page])
       if params[:omron_click].present?
         @people = @people.from_organization(params[:omron_click])
       elsif params[:search_last_name].present?
         @people = @people.with_last_name(params[:search_last_name])
       end
     else
-      @people = Person.from_organization(current_client.organization_id).page(params[:page])
+      @people = Person.client_index_view.from_organization(current_client.organization_id).page(params[:page])
       if params[:search_last_name].present?
         @people = @people.with_last_name(params[:search_last_name])
       end
@@ -75,7 +75,7 @@ class PeopleController < ApplicationController
 
   def protect_show
     @person = Person.find_by_user_id(params[:id])
-    if current_client.organization.name != "Omron Fitness" && current_client.organization.name != @person.organization.name
+    if not admin && current_client.organization.name != @person.organization.name
       redirect_to people_url, :notice => "You are not authorized to view that person"
     end
   end

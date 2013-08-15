@@ -12,6 +12,10 @@ class Person < ActiveRecord::Base
 
   scope :with_last_name, ->(name) { where("last_name = ?", name) }
 
+  scope :admin_index_view, -> { select("of_of_users.user_id, of_of_users.first_name, of_of_users.last_name, of_of_users.email, organizations.name as organization_name").includes(:uploads) }
+
+  scope :client_index_view, -> { select("of_of_users.user_id, of_of_users.first_name, of_of_users.last_name, of_of_users.email").includes(:uploads) }
+
 
   def month_stats(date)
     uploads_for_month = self.uploads.select{ |u| u.date >= date.beginning_of_month && u.date <= date.end_of_month + 1.day }
