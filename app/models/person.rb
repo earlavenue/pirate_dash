@@ -16,37 +16,6 @@ class Person < ActiveRecord::Base
 
   scope :client_index_view, -> { select("of_of_users.user_id, of_of_users.first_name, of_of_users.last_name, of_of_users.email").includes(:uploads) }
 
+  scope :show_page_columns, -> { select("of_of_users.user_id, of_of_users.first_name, of_of_users.last_name, of_of_users.date_created") }
 
-  def month_stats(date)
-    uploads_for_month = self.uploads.select{ |u| u.date >= date.beginning_of_month && u.date <= date.end_of_month + 1.day }
-    if uploads_for_month.count > 0
-      steps_array = []
-      uploads_for_month.each do |upload|
-        steps_array << upload.total_steps
-      end
-      steps = steps_array.inject {|sum, n| sum + n}
-
-      aerobic_array = []
-      uploads_for_month.each do |upload|
-        aerobic_array << upload.aerobic_steps
-      end
-      aerobic_steps = aerobic_array.inject {|sum, n| sum + n}
-
-      calories_array = []
-      uploads_for_month.each do |upload|
-        calories_array << upload.calories
-      end
-      calories = calories_array.inject {|sum, n| sum + n}
-
-      distance_array = []
-      uploads_for_month.each do |upload|
-        distance_array << upload.distance
-      end
-      distance = distance_array.inject {|sum, n| sum + n}
-
-      month_hash = {steps: steps, aerobic_steps: aerobic_steps, calories: calories, distance: distance}
-    else
-      month_hash = {steps: 0, aerobic_steps: 0, calories: 0, distance: 0}
-    end
-  end
 end

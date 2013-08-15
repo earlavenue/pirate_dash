@@ -2,7 +2,6 @@ class PeopleController < ApplicationController
   before_filter :require_signin
   before_filter :require_omron, only: [:edit, :update, :destroy]
   before_filter :protect_show, only: [:show]
-  before_filter :has_no_data, only: [:show]
 
   def index
     if admin
@@ -25,17 +24,15 @@ class PeopleController < ApplicationController
     end
   end
 
-  # scope the uploads so that you're only loading that month's uploads, instead of loading ALL uploads every time.
-  #WE WILL DO THIS ONCE WE GO TO PRODUCTION. If params[:date] is blank we'll use Time.zone.now
-  # @person = Person.includes(:uploads).where("uploads.upload_time BETWEEN ? AND ?", @date.beginning_of_month, @date.end_of_month).find(params[:id]) #make a scope for this
   def show
-    @person = Person.includes(:uploads).find(params[:id])
     if params[:date].blank?
       @date = Time.zone.now.to_date
     else
       @date = params[:date].to_date
     end
-    @month_stats_hash = @person.month_stats(@date)
+    @person = Person.show_page_columns.find(params[:id])
+    @uploads = Upload.show_page_columns.belonging_to_person(@person).within_date_range(@date.beginning_of_month, @date.end_of_month + 1.day)
+    @month_stats_hash = Upload.month_stats(@uploads)
   end
 
   def new
@@ -80,11 +77,5 @@ class PeopleController < ApplicationController
     end
   end
 
-  def has_no_data
-    @person = Person.find_by_user_id(params[:id])
-    if @person.uploads.blank?
-      redirect_to people_url, :notice => "There is no data for this person"
-    end
-  end
 
 end
