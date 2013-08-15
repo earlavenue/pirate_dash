@@ -9,7 +9,7 @@ class Upload < ActiveRecord::Base
   scope :show_page_columns, -> { select("of_of_measurements.user_id, of_of_measurements.date, of_of_measurements.total_steps, of_of_measurements.aerobic_steps, of_of_measurements.calories, of_of_measurements.distance") }
 
   def self.month_stats(uploads)
-    if uploads
+    if uploads.length != 0
       steps_array = []
       uploads.each do |upload|
         steps_array << upload.total_steps

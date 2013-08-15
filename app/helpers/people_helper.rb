@@ -1,7 +1,7 @@
 module PeopleHelper
 
   def render_chart
-    if @uploads
+    if @month_stats_hash[:steps] != 0
       content_tag(:div, "", id: "user_activity_graph", class: "graph", style: "width:100%;height:300px;", data: {x_values: x_values(@date), y_values: y_values(@uploads, @date), month: @date.month})
     else
       image_tag("http://space-env.esa.int/Data_Plots/SREM/noData.png")
