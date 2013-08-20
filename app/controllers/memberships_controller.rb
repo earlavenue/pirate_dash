@@ -1,8 +1,26 @@
 class MembershipsController < ApplicationController
 
   def handshake
-    @person = Person.find(params[:user_id])
-    @membership = Membership.find_by_person_id(params[:user_id]) || Membership.new
+    require 'openssl'
+    decipher = OpenSSL::Cipher::AES.new(256, :CBC)
+    decipher.decrypt
+    decipher.key = params[:key]
+    decipher.iv = params[:iv]
+
+    @plain_data = decipher.update(params[:encrypted_data]) + decipher.final
+    @user_id = @plain_data.split('|')[0]
+    @password = @plain_data.split('|')[1]
+
+    # user_id = user_id_string.to_i
+
+    # decipher = OpenSSL::Cipher::AES.new(256, :CBC)
+    # decipher.decrypt
+    # decipher.key = params[:key]
+    # decipher.iv = params[:iv]
+    # @password = decipher.update(params[:encrypted_password]) + decipher.final
+
+    # @person = Person.find(user_id)
+    # @membership = Membership.find_by_person_id(user_id) || Membership.new
   end
 
   def create

@@ -4,6 +4,18 @@ class OrganizationsController < ApplicationController
   before_filter :require_omron
 
   def index
+    require 'openssl'
+    userid = "3663"
+    password = "password"
+
+    cipher = OpenSSL::Cipher::AES.new(256, :CBC)
+    cipher.encrypt
+    key = cipher.random_key
+    @key = key
+    iv = cipher.random_iv
+    @iv = iv
+    @encrypted_data = cipher.update(userid) + cipher.update("|") + cipher.update(password) + cipher.final
+
     @organizations = Organization.all
   end
 
