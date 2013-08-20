@@ -9,14 +9,12 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'sqlite3'
   gem 'quiet_assets'
   gem 'thin'
   gem 'debugger'
 end
 
 group :production do
-  gem 'pg'
 end
 
 
