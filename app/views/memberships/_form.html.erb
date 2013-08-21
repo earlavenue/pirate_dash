@@ -1,5 +1,3 @@
-<p>Hi, <%= @person.first_name %>! To connect to CW Dash, choose the organization to which you belong and click 'Submit'.</p>
-
 <%= form_for(@membership) do |f| %>
   <% if @membership.errors.any? %>
     <div id="error_explanation">
@@ -17,10 +15,11 @@
     <%= f.hidden_field :person_id, value: @person.user_id %>
   </div>
   <div class="field">
-    <%= f.label :organization_id %><br>
-    <%= f.collection_select :organization_id, Organization.all, :id, :name %>
+  <!--  We pass the organization code in here instead of the organization_id. It gets parsed in the controller. -->
+    <%= f.label :organization_id, "Organization Code:" %><br>
+    <%= f.text_field :organization_id, value: nil %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Connect", class: "btn btn-success" %>
   </div>
 <% end %>
