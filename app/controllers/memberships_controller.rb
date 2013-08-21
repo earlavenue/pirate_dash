@@ -19,14 +19,14 @@ class MembershipsController < ApplicationController
     # decipher.iv = params[:iv]
     # @password = decipher.update(params[:encrypted_password]) + decipher.final
 
-    # @person = Person.find(user_id)
-    # @membership = Membership.find_by_person_id(user_id) || Membership.new
+    @person = Person.find(@user_id)
+    @membership = Membership.find_by_person_id(@user_id) || Membership.new
   end
 
   def create
     @membership = Membership.new
     @membership.person_id = params[:membership][:person_id]
-    @membership.organization_id = params[:membership][:person_id]
+    @membership.organization_id = params[:membership][:organization_id]
     @membership.save
     if @membership.save
       redirect_to people_url, notice: "You've successfully connected to CW Dash!"
@@ -38,7 +38,7 @@ class MembershipsController < ApplicationController
   def update
     @membership = Membership.find(params[:id])
     @membership.person_id = params[:membership][:person_id]
-    @membership.organization_id = params[:membership][:person_id]
+    @membership.organization_id = params[:membership][:organization_id]
     @membership.save
     if @membership.save
       redirect_to people_url, notice: "You've successfully connected to CW Dash!"
