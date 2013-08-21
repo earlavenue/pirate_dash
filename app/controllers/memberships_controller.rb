@@ -4,8 +4,8 @@ class MembershipsController < ApplicationController
     require 'openssl'
     decipher = OpenSSL::Cipher::AES.new(256, :CBC)
     decipher.decrypt
-    decipher.key = params[:key]
-    decipher.iv = params[:iv]
+    decipher.key = "x04xD4xA7xB4sTx12xF3x1Ax9DxD1xC9xA0Hx9Ex86x1Cf1x05VMnxDFMxA3xA9ixDCsxA6"
+    decipher.iv = "x11x8Dx02x1A[xCA'xF9xE8.JxADbx06x95x02"
 
     @plain_data = decipher.update(params[:encrypted_data]) + decipher.final
     @user_id = @plain_data.split('|')[0]
