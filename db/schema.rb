@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130821151756) do
+ActiveRecord::Schema.define(:version => 20130821171843) do
 
   create_table "clients", :force => true do |t|
     t.string   "email"
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(:version => 20130821151756) do
     t.integer "organization_id"
     t.integer "person_id"
     t.date    "first_upload_date"
-    t.date    "latest_upload_date"
-    t.integer "upload_count"
   end
 
   create_table "of_allowPHP_functions", :force => true do |t|
