@@ -1,4 +1,5 @@
 class Membership < ActiveRecord::Base
+  attr_accessible :person_id, :organization_id
   belongs_to :person
   belongs_to :organization
   validates :organization_id, :presence => true

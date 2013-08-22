@@ -1,6 +1,6 @@
 class Upload < ActiveRecord::Base
   self.table_name = "of_of_measurements"
-  belongs_to :person
+  belongs_to :person, foreign_key: :user_id
 
   scope :within_date_range, ->(start, finish) { where("date >= ? AND date <= ?", start, finish) }
 
