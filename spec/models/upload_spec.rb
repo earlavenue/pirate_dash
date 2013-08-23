@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Upload" do
+describe Upload do
   before :each do
     @ww = create(:person, first_name: "Walter", last_name: "White")
     @ww_upload_1 = create(:upload, total_steps: 10, aerobic_steps: 15, calories: 20, distance: 25, person: @ww)

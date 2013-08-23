@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Person" do
+describe Person do
   before :each do
     @zebra = create(:organization, name: "Zebra Industries")
     @aardvark = create(:organization, name: "Aardvark Corporation")
