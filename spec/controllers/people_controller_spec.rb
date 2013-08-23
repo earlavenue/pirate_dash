@@ -60,10 +60,17 @@ describe PeopleController do
     end
 
     describe 'GET #show' do
-      it "doesn't allow through a client if client and person don't have the same organization" do
+      it 'assigns person to @person' do
+        get :show, id: @person_good
+        expect(assigns(:person)).to eq(@person_good)
+      end
+      it "doesn't allow through client if client and person don't have the same organization" do
         get :show, id: @person_evil
         expect(response).to redirect_to people_url
       end
+      it "assigns Time.now to date if date is blank" do
+      get :show, id: @person_evil
+      expect(assigns(:person)
     end
   end
 end

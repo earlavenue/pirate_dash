@@ -24,10 +24,6 @@
     <th>First Upload</th>
     <th>Last Upload</th>
     <th>Total Number of Days Uploaded</th>
-    <% if admin %>
-      <th></th>
-      <th></th>
-    <% end %>
   </tr>
 
 <% @people.each do |person| %>
@@ -45,10 +41,6 @@
       <td></td>
       <td></td>
       <td></td>
-    <% end %>
-    <% if admin %>
-      <td><%= link_to 'Edit', edit_person_path(person) %> </td>
-      <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
     <% end %>
   </tr>
 <% end %>
