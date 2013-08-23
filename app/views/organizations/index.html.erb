@@ -32,8 +32,4 @@
 
 <%= link_to 'New Organization', new_organization_path %>
 
-
-<% cipher =  %>
-
-
-<%= link_to "Create a handshake", handshake_url(encrypted_data: @encrypted_data), class: 'btn btn-danger' %>
+<%= link_to "Create a handshake", handshake_url(encoded: @encoded), class: 'btn btn-danger' %>
