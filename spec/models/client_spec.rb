@@ -20,4 +20,11 @@ describe Client do
     client = build(:client, email: "duke@ellington.com")
     expect(client).to have(1).errors_on(:email)
   end
+
+  it "must have an email address" do
+    client = build(:client, email: nil)
+    expect(client).to have(1).errors_on(:email)
+  end
+
+  it { should belong_to(:organization) }
 end

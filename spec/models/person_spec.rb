@@ -27,25 +27,9 @@ describe "Person" do
     it "returns correct last names" do
       expect(Person.with_last_name("Bob")).to match_array [@bob]
     end
+
+    it "does not return an incorrect last name" do
+      expect(Person.with_last_name("Bob")).to_not include(@don)
+    end
   end
-
-
-  # context "month stats" do
-
-  #   it "returns steps for month" do
-  #     expect(@bob.month_stats(Date.current)[:steps]).to eq(20)
-  #   end
-
-  #   it "returns aerobic steps for month" do
-  #     expect(@bob.month_stats(Date.current)[:aerobic_steps]).to eq(30)
-  #   end
-
-  #   it "returns calories for month" do
-  #     expect(@bob.month_stats(Date.current)[:calories]).to eq(40)
-  #   end
-
-  #   it "returns distance for month" do
-  #     expect(@bob.month_stats(Date.current)[:distance]).to eq(50)
-  #   end
-  # end
 end

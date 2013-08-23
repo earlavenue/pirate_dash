@@ -1,141 +1,141 @@
-# require 'spec_helper'
+require 'spec_helper'
 
-# describe OrganizationsController do
+describe OrganizationsController do
 
-#   render_views
+  render_views
 
-#   before :each do
-#     @organization = create(:organization)
-#   end
+  before :each do
+    @organization = create(:organization)
+  end
 
+  context 'guest visitor' do
 
-#   context 'guest visitor' do
+    describe 'GET #index' do
+      it "requires login" do
+        get :index
+        expect(response).to redirect_to new_session_url
+      end
+    end
 
-#     describe 'GET #index' do
-#       it "requires login" do
-#         get :index
-#         expect(response).to redirect_to new_session_url
-#       end
-#     end
+    describe 'GET #show' do
+      it "requires login" do
+        get :show, id: @organization
+        expect(response).to redirect_to new_session_url
+      end
+    end
 
-#     describe 'GET #show' do
-#       it "requires login" do
-#         get :show, id: @organization
-#         expect(response).to redirect_to new_session_url
-#       end
-#     end
+    describe 'GET #new' do
+      it "requires login" do
+        get :new
+        expect(response).to redirect_to new_session_url
+      end
+    end
 
-#     describe 'GET #new' do
-#       it "requires login" do
-#         get :new
-#         expect(response).to redirect_to new_session_url
-#       end
-#     end
+    describe 'GET #edit' do
+      it "requires login" do
+        get :edit, id: @organization
+        expect(response).to redirect_to new_session_url
+      end
+    end
 
-#     describe 'GET #edit' do
-#       it "requires login" do
-#         get :edit, id: @organization
-#         expect(response).to redirect_to new_session_url
-#       end
-#     end
+    describe 'POST #create' do
+      it "requires login" do
+        post :create
+        expect(response).to redirect_to new_session_url
+      end
+    end
 
-#     describe 'POST #create' do
-#       it "requires login" do
-#         post :create
-#         expect(response).to redirect_to new_session_url
-#       end
-#     end
+    describe 'PUT #update' do
+      it "requires login" do
+        put :update, id: @organization
+        expect(response).to redirect_to new_session_url
+      end
+    end
 
-#     describe 'PUT #update' do
-#       it "requires login" do
-#         put :update, id: @organization
-#         expect(response).to redirect_to new_session_url
-#       end
-#     end
-
-#     describe 'DELETE #destroy' do
-#       it "requires login" do
-#         delete :destroy, id: @organization
-#         expect(response).to redirect_to new_session_url
-#       end
-#     end
-#   end
-
-
-#   context 'regular client' do
-#     before :each do
-#       client = create(:client)
-#       session[:client_id] = client.id
-#     end
-
-#     describe 'GET #index' do
-#       it "requires omron" do
-#         get :index
-#         expect(response).to redirect_to people_url
-#       end
-#     end
-
-#     describe 'GET #show' do
-#       it "requires omron" do
-#         get :show, id: @organization
-#         expect(response).to redirect_to people_url
-#       end
-#     end
-
-#     describe 'GET #new' do
-#       it "requires omron" do
-#         get :new
-#         expect(response).to redirect_to people_url
-#       end
-#     end
-
-#     describe 'GET #edit' do
-#       it "requires omron" do
-#         get :edit, id: @organization
-#         expect(response).to redirect_to people_url
-#       end
-#     end
-
-#     describe 'POST #create' do
-#       it "requires omron" do
-#         post :create
-#         expect(response).to redirect_to people_url
-#       end
-#     end
-
-#     describe 'PUT #update' do
-#       it "requires omron" do
-#         put :update, id: @organization
-#         expect(response).to redirect_to people_url
-#       end
-#     end
-
-#     describe 'DELETE #destroy' do
-#       it "requires omron" do
-#         delete :destroy, id: @organization
-#         expect(response).to redirect_to people_url
-#       end
-#     end
-#   end
+    describe 'DELETE #destroy' do
+      it "requires login" do
+        delete :destroy, id: @organization
+        expect(response).to redirect_to new_session_url
+      end
+    end
+  end
 
 
-#   context 'omron client' do
-#     before :each do
-#       omron_client = create(:omron_client)
-#       session[:client_id] = omron_client.id
-#       @omron_organization = omron_client.organization
-#     end
+  context 'regular client' do
+    before :each do
+      client = create(:client)
+      session[:client_id] = client.id
+    end
 
-#     describe 'GET #index' do
-#       it "assigns all organizations to @organizations" do
-#         get :index
-#         expect(assigns(:organizations)).to match_array [@organization, @omron_organization]
-#       end
+    describe 'GET #index' do
+      it "requires omron" do
+        get :index
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'GET #show' do
+      it "requires omron" do
+        get :show, id: @organization
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'GET #new' do
+      it "requires omron" do
+        get :new
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'GET #edit' do
+      it "requires omron" do
+        get :edit, id: @organization
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'POST #create' do
+      it "requires omron" do
+        post :create
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'PUT #update' do
+      it "requires omron" do
+        put :update, id: @organization
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'DELETE #destroy' do
+      it "requires omron" do
+        delete :destroy, id: @organization
+        expect(response).to redirect_to people_url
+      end
+    end
+  end
+
+
+  context 'omron client' do
+    before :each do
+      omron_client = create(:omron_client)
+      session[:client_id] = omron_client.id
+      @omron_organization = omron_client.organization
+    end
+
+    describe 'GET #index' do
+      it "assigns all organizations to @organizations" do
+        get :index
+        expect(assigns(:organizations)).to match_array [@organization, @omron_organization]
+      end
+
 #       it "renders the :index template" do
 #         get :index
 #         expect(response).to render_template :index
 #       end
-#     end
+     end
 
 #     describe 'GET #show' do
 #       it 'assigns organization to @organization' do
@@ -209,6 +209,6 @@
 #         expect(response).to redirect_to organizations_url
 #       end
 #     end
-#   end
+   end
 
-# end
+ end
