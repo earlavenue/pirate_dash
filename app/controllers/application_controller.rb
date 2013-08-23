@@ -3,11 +3,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_client
 
+  helper_method :admin
+
+  private
+
   def current_client
     @current_client ||= Client.find_by_id(session[:client_id])
   end
-
-  helper_method :admin
 
   def admin
     @admin ||= true if current_client.organization.name == "Omron Fitness"
