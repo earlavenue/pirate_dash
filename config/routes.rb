@@ -4,7 +4,7 @@ PirateMetricsDashboard::Application.routes.draw do
 
   resources :organizations
   resources :clients
-  resources :people
+  resources :people,:only => [:index, :show]
 
   get '/sessions/new' => 'Sessions#new', as: 'new_session'
   post '/sessions' => 'Sessions#create', as: 'sessions'
