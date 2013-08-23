@@ -3,7 +3,8 @@ class MembershipsController < ApplicationController
 
   def handshake
     @membership = Membership.new
-    session[:secret_data] = params[:secret_data]
+    encrypted_and_encoded = Base64.encode64(params[:secret_data]).encode('utf-8')
+    session[:secret_data] = encrypted_and_encoded
   end
 
   def handshake_retake

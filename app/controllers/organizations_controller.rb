@@ -12,8 +12,7 @@ class OrganizationsController < ApplicationController
     cipher.key = "x04xD4xA7xB4sTx12xF3x1Ax9DxD1xC9xA0Hx9Ex86x1Cf1x05VMnxDFMxA3xA9ixDCsxA6"
     cipher.iv = "x11x8Dx02x1A[xCA'xF9xE8.JxADbx06x95x02"
 
-    encrypted_data = cipher.update(user_id) + cipher.final
-    @encrypted_and_encoded = Base64.encode64(encrypted_data).encode('utf-8')
+    @encrypted_data = cipher.update(user_id) + cipher.final
 
     @organizations = Organization.all
   end
