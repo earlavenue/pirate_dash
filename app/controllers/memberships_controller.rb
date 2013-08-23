@@ -19,7 +19,9 @@ class MembershipsController < ApplicationController
     @person = Person.find(user_id)
     @membership = Membership.find_by_person_id(user_id) || Membership.new
     @membership.person_id = user_id
-    @membership.organization_id = Organization.find_by_code(params[:membership][:organization_id]).id
+
+    correct_organization = Organization.find_by_code(params[:membership][:organization_id])
+    @membership.organization_id = correct_organization.id
 
     if @membership.save
       redirect_to people_url, notice: "Thanks for connecting to CW Dash, #{@person.first_name}!"
