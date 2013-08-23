@@ -172,17 +172,17 @@ describe ClientsController do
       end
     end
 
-    # describe 'POST #create' do
-    #   it 'creates a new client' do
-    #     expect{
-    #       post :create, client: attributes_for(:client)
-    #     }.to change(Client, :count).by(1)
-    #   end
-    #   it 'redirects to the new client page' do
-    #     post :create, client: attributes_for(:client)
-    #     expect(response).to redirect_to Client.last
-    #   end
-    # end
+    describe 'POST #create' do
+      it 'creates a new client' do
+        expect{
+          post :create, client: attributes_for(:client, organization_id: 6)
+        }.to change(Client, :count).by(1)
+      end
+      it 'redirects to the new client page' do
+        post :create, client: attributes_for(:client, organization_id: 6)
+        expect(response).to redirect_to Client.last
+      end
+    end
 
     describe 'PUT #update' do
       it "identifies the correct client" do
