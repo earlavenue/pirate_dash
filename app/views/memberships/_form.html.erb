@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.hidden_field :person_id, value: params[:encoded] %>
+    <%= f.hidden_field :person_id, value: session[:secret_data] %>
   </div>
   <div class="field">
   <!--  We pass the organization code in here instead of the organization_id. It gets parsed in the controller. -->

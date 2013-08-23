@@ -11,6 +11,8 @@ PirateMetricsDashboard::Application.routes.draw do
   delete '/sessions' => 'sessions#destroy', as: 'session'
 
   get '/memberships/handshake' => 'memberships#handshake', as: 'handshake'
+  get '/memberships/handshake_retake' => 'memberships#handshake_retake', as: 'handshake_retake'
   post '/memberships' => 'memberships#create'
+  put '/memberships/:id' => 'memberships#update', as: 'membership'
 
 end
