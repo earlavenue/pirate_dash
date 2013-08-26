@@ -3,8 +3,8 @@ class MembershipsController < ApplicationController
 
   def handshake
     @membership = Membership.new
-    encrypted_and_encoded = Base64.encode64(params[:secret_data]).encode('utf-8')
-    session[:secret_data] = encrypted_and_encoded
+    encrypted_and_encoded = Base64.encode64(params[:secret_user_id]).encode('utf-8')
+    session[:secret_user_id] = encrypted_and_encoded
   end
 
   def handshake_retake
@@ -32,8 +32,7 @@ class MembershipsController < ApplicationController
   def update
     correct_organization = Organization.find_by_code(params[:membership][:organization_id])
     if correct_organization
-      user_id = Membership.decode_user_id(params)
-
+      user_id = Membership.decode_user_id(params[:membership][:person_id])
       @person = Person.find(user_id)
       @membership = Membership.find_by_person_id(user_id) || Membership.new
       @membership.person_id = user_id
