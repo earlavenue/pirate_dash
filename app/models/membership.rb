@@ -12,8 +12,7 @@ class Membership < ActiveRecord::Base
     return m.first_upload_date
   end
 
-  def self.decode_user_id(params)
-    encrypted_and_encoded = params[:membership][:person_id]
+  def self.decode_user_id(encrypted_and_encoded)
     decoded = Base64.decode64 encrypted_and_encoded.encode('ascii-8bit')
 
     decipher = OpenSSL::Cipher::AES.new(256, :CBC)

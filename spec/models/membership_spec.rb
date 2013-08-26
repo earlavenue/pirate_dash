@@ -44,11 +44,7 @@ describe Membership do
     encrypted_string = cipher.update(string) + cipher.final
     encoded_and_encrypted = Base64.encode64(encrypted_string).encode('utf-8')
 
-    params = {}
-    params[:membership] = {}
-    params[:membership][:person_id] = encoded_and_encrypted
-
-    expect(Membership.decode_user_id(params)).to eq("Bonjour, mon amie!")
+    expect(Membership.decode_user_id(encoded_and_encrypted)).to eq("Bonjour, mon amie!")
   end
 
 end

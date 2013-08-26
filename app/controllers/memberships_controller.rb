@@ -14,7 +14,7 @@ class MembershipsController < ApplicationController
   def create
     correct_organization = Organization.find_by_code(params[:membership][:organization_id])
     if correct_organization
-      user_id = Membership.decode_user_id(params)
+      user_id = Membership.decode_user_id(params[:membership][:person_id])
       @person = Person.find(user_id)
       @membership = Membership.find_by_person_id(user_id) || Membership.new
       @membership.person_id = user_id
