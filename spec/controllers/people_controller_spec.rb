@@ -11,6 +11,7 @@ describe PeopleController do
     @person_good2 = create(:person, organization: @organization_good)
     @person_evil = create(:person, first_name: "Evil", last_name: "Lolly", organization: @organization_evil)
     @person_evil2 = create(:person, organization: @organization_evil)
+    #@membership_person_good = create(:membership, person: @person_good, organization: @organization_good, first_upload_date: (Time.zone.now - 1.month))
   end
 
   context 'guest visitor' do
@@ -68,9 +69,18 @@ describe PeopleController do
         get :show, id: @person_evil
         expect(response).to redirect_to people_url
       end
-      it "assigns Time.now to date if date is blank" do
-      get :show, id: @person_evil
-      expect(assigns(:person)
+      # it "returns a person's show page if the client and person have same organization" do
+      #   get :show, id: @person_good, date: (Time.zone.now.to_date - 1.month)
+      #   expect(response).to render_template :show
+      # end
+      # it "assigns Time.now to date if date is blank" do
+      #   get :show, id: @person_evil
+      #   expect(assigns(:date)).to eq(Time.zone.now.to_date)
+      # end
+      # it "assigns date to date" do
+      #   get :show, id: @person_evil, date: (Time.zone.now.to_date - 1.month)
+      #   expect(:date).to eq(Time.zone.now.to_date - 1.month)
+      # end
     end
   end
 end
