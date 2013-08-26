@@ -7,12 +7,12 @@ describe MembershipsController do
 
   describe "GET #handshake" do
     it "assigns a new Membership to @membership" do
-      get :handshake, secret_data: rand(36**15).to_s(36)
+      get :handshake, secret_user_id: rand(36**15).to_s(36)
       expect(assigns(:membership)).to be_a_new(Membership)
     end
 
     it "renders the :handshake view and form" do
-      get :handshake, secret_data: rand(36**15).to_s(36)
+      get :handshake, secret_user_id: rand(36**15).to_s(36)
       expect(response).to render_template :handshake
     end
   end
