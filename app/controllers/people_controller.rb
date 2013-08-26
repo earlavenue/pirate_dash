@@ -43,7 +43,7 @@ class PeopleController < ApplicationController
 
   def protect_show
     @person = Person.find_by_user_id(params[:id])
-    if not admin && current_client.organization.name != @person.organization.name
+    unless admin || current_client.organization.name == @person.organization.name
       redirect_to people_url, :notice => "You are not authorized to view that person"
     end
   end

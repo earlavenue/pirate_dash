@@ -7,15 +7,21 @@ describe PeopleController do
   before :each do
     @organization_good = create(:organization, name: "GoodVille")
     @organization_evil = create(:organization, name: "EvilCity")
-    @person_good = create(:person, first_name: "Good", last_name: "Lolly", organization: @organization_good)
-    @person_good2 = create(:person, organization: @organization_good)
-    @person_evil = create(:person, first_name: "Evil", last_name: "Lolly", organization: @organization_evil)
-    @person_evil2 = create(:person, organization: @organization_evil)
-    #@membership_person_good = create(:membership, person: @person_good, organization: @organization_good, first_upload_date: (Time.zone.now - 1.month))
+
+    @person_good = create(:person, first_name: "Good", last_name: "Lolly")
+    @membership_good = create(:membership, person_id: @person_good.user_id, organization_id: @organization_good.id)
+
+    @person_good2 = create(:person)
+    @membership_good_2 = create(:membership, person_id: @person_good2.user_id, organization_id: @organization_good.id)
+
+    @person_evil = create(:person, first_name: "Evil", last_name: "Lolly")
+    @membership_evil = create(:membership, person_id: @person_evil.user_id, organization_id: @organization_evil.id)
+
+    @person_evil2 = create(:person)
+    @membership_evil2 = create(:membership, person_id: @person_evil2.user_id, organization_id: @organization_evil.id)
   end
 
   context 'guest visitor' do
-
     describe 'GET #index' do
       it "requires login" do
         get :index
@@ -33,8 +39,8 @@ describe PeopleController do
 
   context 'regular client' do
     before :each do
-      client = create(:client, organization: @organization_good)
-      session[:client_id] = client.id
+      @client = create(:client, organization: @organization_good)
+      session[:client_id] = @client.id
     end
 
     describe 'GET #index' do
@@ -51,7 +57,6 @@ describe PeopleController do
         expect(response).to render_template :index
       end
 
-      #COME BACK TO THIS SEARCH
       # it "renders only a person with the correct last name on a search" do
       #   visit people_url
       #   fill_in "search-query", with: "Lolly"
@@ -69,10 +74,13 @@ describe PeopleController do
         get :show, id: @person_evil
         expect(response).to redirect_to people_url
       end
-      # it "returns a person's show page if the client and person have same organization" do
-      #   get :show, id: @person_good, date: (Time.zone.now.to_date - 1.month)
-      #   expect(response).to render_template :show
-      # end
+
+      it "returns a person's show page if the client and person have same organization" do
+        get :show, id: @person_good
+        expect(response).to render_template :show
+      end
+
+
       # it "assigns Time.now to date if date is blank" do
       #   get :show, id: @person_evil
       #   expect(assigns(:date)).to eq(Time.zone.now.to_date)

@@ -12,6 +12,7 @@ FactoryGirl.define do
   end
 
   factory :organization do
+    sequence(:id) { |n| n }
     sequence(:name) { |n| "org#{n}"}
     address "Somewherez"
     city "Hellzville"
@@ -38,13 +39,14 @@ FactoryGirl.define do
     date_created Time.now
     last_upload Time.now
     pw_reset ""
-    organization
+    # organization
+    # membership
   end
 
   factory :membership do
-    person
-    organization
-    first_upload_date nil
+    person_id 54321
+    organization_id 98765
+    first_upload_date (Time.zone.now.to_date - 3.months)
   end
 
   factory :upload do
