@@ -11,13 +11,13 @@ describe PeopleController do
     @person_good = create(:person, first_name: "Good", last_name: "Lolly")
     @membership_good = create(:membership, person_id: @person_good.user_id, organization_id: @organization_good.id)
 
-    @person_good2 = create(:person)
+    @person_good2 = create(:person, last_name: "Pop")
     @membership_good_2 = create(:membership, person_id: @person_good2.user_id, organization_id: @organization_good.id)
 
     @person_evil = create(:person, first_name: "Evil", last_name: "Lolly")
     @membership_evil = create(:membership, person_id: @person_evil.user_id, organization_id: @organization_evil.id)
 
-    @person_evil2 = create(:person)
+    @person_evil2 = create(:person, last_name: "Pop")
     @membership_evil2 = create(:membership, person_id: @person_evil2.user_id, organization_id: @organization_evil.id)
   end
 
@@ -56,13 +56,10 @@ describe PeopleController do
         get :index
         expect(response).to render_template :index
       end
-
-      # it "renders only a person with the correct last name on a search" do
-      #   visit people_url
-      #   fill_in "search-query", with: "Lolly"
-      #   click_button "Search"
-      #   page.should have_content "Good"
-      # end
+      it "returns only people with the last name searched in client's organization" do
+        get :index, search_last_name: "Lolly"
+        expect(assigns(:people)).to match_array [@person_good]
+      end
     end
 
     describe 'GET #show' do
@@ -79,16 +76,32 @@ describe PeopleController do
         get :show, id: @person_good
         expect(response).to render_template :show
       end
+    end
+  end
 
+  context 'omron client' do
+    before :each do
+      @omron_client = create(:omron_client)
+      session[:client_id] = @omron_client.id
+    end
 
-      # it "assigns Time.now to date if date is blank" do
-      #   get :show, id: @person_evil
-      #   expect(assigns(:date)).to eq(Time.zone.now.to_date)
-      # end
-      # it "assigns date to date" do
-      #   get :show, id: @person_evil, date: (Time.zone.now.to_date - 1.month)
-      #   expect(:date).to eq(Time.zone.now.to_date - 1.month)
-      # end
+    describe 'GET #index' do
+      it "shows all people from all organizations" do
+        get :index
+        expect(assigns(:people)).to match_array [@person_good, @person_good2, @person_evil, @person_evil2]
+      end
+      it "renders the :index template" do
+        get :index
+        expect(response).to render_template :index
+      end
+      it "only renders people from omron_click organization if there is an omron click" do
+        get :index, omron_click: @organization_good.id
+        expect(assigns(:people)).to match_array [@person_good, @person_good2]
+      end
+      it "returns all people with the last name searched regardless of organization" do
+        get :index, search_last_name: "Lolly"
+        expect(assigns(:people)).to match_array [@person_good, @person_evil]
+      end
     end
   end
 end
