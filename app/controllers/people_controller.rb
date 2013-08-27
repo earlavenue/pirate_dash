@@ -30,7 +30,7 @@ class PeopleController < ApplicationController
       @date = params[:date].to_date
     end
     @person = Person.show_page_columns.find(params[:id])
-    @uploads = Upload.show_page_columns.belonging_to_person(@person).within_date_range(@date.beginning_of_month, @date.end_of_month + 1.day) || []
+    @uploads = Upload.show_page_columns.belonging_to_person(@person).within_date_range(@date.beginning_of_month, @date.end_of_month + 1.day).order("date ASC") || []
     @month_stats_hash = Upload.month_stats(@uploads)
     if @person.membership.first_upload_date == "0000-00-00" || @person.membership.first_upload_date == nil
       @first_upload_date = Membership.set_first_upload_date(@person)

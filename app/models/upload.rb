@@ -6,7 +6,7 @@ class Upload < ActiveRecord::Base
 
   scope :belonging_to_person, ->(person) { where("user_id = ?", person.user_id )}
 
-  scope :show_page_columns, -> { select("of_of_measurements.user_id, of_of_measurements.date, of_of_measurements.total_steps, of_of_measurements.aerobic_steps, of_of_measurements.calories, of_of_measurements.distance") }
+  scope :show_page_columns, -> { select("of_of_measurements.user_id, of_of_measurements.date, of_of_measurements.total_steps, of_of_measurements.aerobic_steps, of_of_measurements.calories, of_of_measurements.distance, of_of_measurements.device_serial") }
 
   def self.month_stats(uploads)
     if uploads.length != 0

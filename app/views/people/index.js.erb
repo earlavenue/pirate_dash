@@ -1,4 +1,5 @@
 $(".person_row").hide();
 $(".table").append("<%= j(render 'one_person_row', people: @people) %>");
+$(".search_input").hide();
 $(".clear_search").append("<%= j(render 'clear_search', last_name: params[:search_last_name]) %>").show();
 $(".pagination").hide();

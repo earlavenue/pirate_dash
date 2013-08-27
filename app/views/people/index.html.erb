@@ -2,12 +2,14 @@
 <p><%= notice %></p>
 <br>
 
+<div class="search_input">
 <h4>Search</h4>
   <p><%= form_tag people_path, :method => :get, class: "form-search", remote: true do %>
     Last name: <%= text_field_tag :search_last_name, params[:search_last_name], class: "search-query" %></p>
     <p><%= submit_tag "Search", :name => nil, class: "btn btn-primary" %></p>
   <% end %>
 <br>
+</div>
 
 
 <div class="clear_search"></div>
