@@ -20,7 +20,7 @@ class MembershipsController < ApplicationController
       @membership.person_id = user_id
       @membership.organization_id = correct_organization.id
       if @membership.save
-        redirect_to people_url, notice: "Thanks for connecting to CW Dash, #{@person.first_name}!"
+        redirect_to 'http://www.omronfitness.com/my-profile/', notice: "Thanks for connecting to CW Dash, #{@person.first_name}!"
       else
         redirect_to(handshake_retake_path)
       end
@@ -38,7 +38,7 @@ class MembershipsController < ApplicationController
       @membership.person_id = user_id
       @membership.organization_id = correct_organization.id
       if @membership.save
-        redirect_to people_url, notice: "Thanks for connecting to CW Dash, #{@person.first_name}!"
+        redirect_to 'http://www.omronfitness.com/my-profile/', notice: "Thanks for connecting to CW Dash, #{@person.first_name}!"
       else
         redirect_to(handshake_retake_path)
       end
