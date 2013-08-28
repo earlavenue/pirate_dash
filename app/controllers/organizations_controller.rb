@@ -9,8 +9,8 @@ class OrganizationsController < ApplicationController
 
     cipher = OpenSSL::Cipher::AES.new(256, :CBC)
     cipher.encrypt
-    cipher.key = "x04xD4xA7xB4sTx12xF3x1Ax9DxD1xC9xA0Hx9Ex86x1Cf1x05VMnxDFMxA3xA9ixDCsxA6"
-    cipher.iv = "x11x8Dx02x1A[xCA'xF9xE8.JxADbx06x95x02"
+    cipher.key = ENV['CW_DASH_KEY']
+    cipher.iv = ENV['CW_DASH_IV']
 
     @encrypted_data = cipher.update(user_id) + cipher.final
 
