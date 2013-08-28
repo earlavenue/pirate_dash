@@ -8,9 +8,14 @@ class Membership < ActiveRecord::Base
 
   def self.set_first_upload_date(person)
     m = Membership.find_by_person_id(person.user_id)
-    m.first_upload_date = person.uploads.first.date.to_date
-    m.save
-    return m.first_upload_date
+    uploads = person.uploads
+    if uploads != []
+      m.first_upload_date = uploads.first.date.to_date
+      m.save
+      return m.first_upload_date
+    else
+      return nil
+    end
   end
 
   def self.decode_user_id(encrypted_and_encoded)
