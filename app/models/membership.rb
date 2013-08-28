@@ -4,6 +4,7 @@ class Membership < ActiveRecord::Base
   belongs_to :organization
   validates :organization_id, :presence => true
   validates :person_id, :presence => true
+  validates :person_id, :uniqueness => true
 
   def self.set_first_upload_date(person)
     m = Membership.find_by_person_id(person.user_id)

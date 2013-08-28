@@ -10,6 +10,7 @@ describe Membership do
   context "validations - shoulda syntax" do
     it { should validate_presence_of(:person_id) }
     it { should validate_presence_of(:organization_id) }
+    it { should validate_uniqueness_of(:person_id) }
   end
 
   context "validations - rspec syntax" do
@@ -38,8 +39,8 @@ describe Membership do
     string = "Bonjour, mon amie!"
     cipher = OpenSSL::Cipher::AES.new(256, :CBC)
     cipher.encrypt
-    cipher.key = "x04xD4xA7xB4sTx12xF3x1Ax9DxD1xC9xA0Hx9Ex86x1Cf1x05VMnxDFMxA3xA9ixDCsxA6"
-    cipher.iv = "x11x8Dx02x1A[xCA'xF9xE8.JxADbx06x95x02"
+    cipher.key = ENV['CW_DASH_KEY']
+    cipher.iv = ENV['CW_DASH_IV']
 
     encrypted_string = cipher.update(string) + cipher.final
     encoded_and_encrypted = Base64.encode64(encrypted_string).encode('utf-8')
