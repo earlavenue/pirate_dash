@@ -19,14 +19,20 @@ class MembershipsController < ApplicationController
       @membership = Membership.find_by_person_id(user_id) || Membership.new
       @membership.person_id = user_id
       @membership.organization_id = correct_organization.id
-      if @membership.save
-        redirect_to people_url, notice: "Thanks for connecting to CW Dash, #{@person.first_name}!"
-       # redirect_to 'http://www.omronfitness.com/my-profile/', notice: "Thanks for connecting to CW Dash, #{@person.first_name}!"
-      else
-        redirect_to(handshake_retake_path)
+      respond_to do |format|
+        if @membership.save
+          format.js
+          format.html { redirect_to people_url, notice: "Thanks for connecting to CW Dash! We're sending you back to your Omron Fitness profile now." }
+        else
+          format.js { render :js => "window.location.href='#{handshake_retake_path}'" }
+          format.html { redirect_to(handshake_retake_path) }
+        end
       end
     else
-      redirect_to(handshake_retake_path)
+      respond_to do |format|
+        format.js { render :js => "window.location.href='#{handshake_retake_path}'" }
+        format.html { redirect_to(handshake_retake_path) }
+      end
     end
   end
 
@@ -38,14 +44,20 @@ class MembershipsController < ApplicationController
       @membership = Membership.find_by_person_id(user_id) || Membership.new
       @membership.person_id = user_id
       @membership.organization_id = correct_organization.id
-      if @membership.save
-        redirect_to people_url, notice: "Thanks for connecting to CW Dash, #{@person.first_name}!"
-        #redirect_to 'http://www.omronfitness.com/my-profile/', notice: "Thanks for connecting to CW Dash, #{@person.first_name}!"
-      else
-        redirect_to(handshake_retake_path)
+      respond_to do |format|
+        if @membership.save
+          format.js
+          format.html { redirect_to people_url, notice: "Thanks for connecting to CW Dash! We're sending you back to your Omron Fitness profile now." }
+        else
+          format.js { render :js => "window.location.href='#{handshake_retake_path}'" }
+          format.html { redirect_to(handshake_retake_path) }
+        end
       end
     else
-      redirect_to(handshake_retake_path)
+      respond_to do |format|
+        format.js { render :js => "window.location.href='#{handshake_retake_path}'" }
+        format.html { redirect_to(handshake_retake_path) }
+      end
     end
   end
 
