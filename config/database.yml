@@ -11,7 +11,9 @@ test:
   database: cw_omron_merge_test
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  host: ENV['OMRON_DB_HOST']
+  database: ENV['OMRON_DB_DBNAME']
+  username: ENV['OMRON_DB_USERNAME']
+  password: ENV['OMRON_DB_PASSWORD']
