@@ -10,7 +10,7 @@
   </tr>
 
 <% @clients.each do |client| %>
-  <tr>
+  <tr id = "<%= dom_id(client) %>">
     <td><%= link_to "#{client.first_name} #{client.last_name}", client %></td>
     <td><%= client.organization.name %> </td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>
