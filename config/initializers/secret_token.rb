@@ -5,3 +5,5 @@
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
 PirateMetricsDashboard::Application.config.secret_token = ENV['CW_DASH_TOKEN']
+PirateMetricsDashboard::Application.config.secret_key_base = ENV['CW_DASH_SECRET_KEY_BASE']
+
