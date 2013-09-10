@@ -1,1 +1,1 @@
-web: bundle exec rainbows -p $PORT -E $RACK_ENV -c ./config/rainbows.rb
+web: bundle exec puma -p $PORT -e $RACK_ENV -C ./config/puma.rb
