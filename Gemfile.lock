@@ -91,6 +91,7 @@ GEM
     mime-types (1.23)
     multi_json (1.7.7)
     mysql2 (0.3.13)
+    newrelic_rpm (3.6.7.152)
     nokogiri (1.5.9)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
@@ -191,6 +192,7 @@ DEPENDENCIES
   kaminari
   launchy (~> 2.3.0)
   mysql2
+  newrelic_rpm
   quiet_assets
   rails (= 3.2.13)
   rainbows
