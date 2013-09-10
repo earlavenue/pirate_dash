@@ -39,6 +39,8 @@ PirateMetricsDashboard::Application.configure do
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
+  config.logger = Logger.new(STDOUT)
+  config.logger.level = Logger.const_get('INFO')
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
 
@@ -65,3 +67,4 @@ PirateMetricsDashboard::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
+
