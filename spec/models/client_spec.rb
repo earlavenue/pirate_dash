@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Client do
   context "that exists" do
     before :each do
-      @client = create(:client, first_name: "batman", password: "gotham")
+      @client = create(:client, first_name: "batman", password: "gotham", password_confirmation: "gotham")
     end
 
     it "authenticates with matching clientname and password" do

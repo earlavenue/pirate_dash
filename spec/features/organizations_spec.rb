@@ -40,7 +40,6 @@ feature "Work with Javascript" do
     scenario 'Shows correct Javascript data?' do
       client2 = create(:client)
       click_link 'Clients'
-      save_and_open_page
       within "#client_#{client2.id}" do
         expect(page).to have_content 'Edit'
       end
