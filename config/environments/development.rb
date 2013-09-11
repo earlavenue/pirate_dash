@@ -33,6 +33,11 @@ PirateMetricsDashboard::Application.configure do
   # # Do not compress assets
   # config.assets.compress = false
 
+  # Added by comparing our app to rails new (rails 4)
+  config.active_record.migration_error = :page_load
+
   # Expands the lines which load the assets
   config.assets.debug = true
+
+
 end
