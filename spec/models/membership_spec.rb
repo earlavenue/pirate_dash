@@ -30,22 +30,8 @@ describe Membership do
     charlie = create(:person)
     membership = create(:membership, person_id: charlie.id)
     first_upload = create(:upload, person: charlie, date: Time.zone.now - 4.months)
+    debugger
     second_upload = create(:upload, person: charlie, date: Time.zone.now - 2.months)
     expect(Membership.set_first_upload_date(charlie)).to eq((Time.zone.now - 4.months).to_date)
   end
-
-  it "decodes an encrypted and encoded string" do
-    require 'openssl'
-    string = "Bonjour, mon amie!"
-    cipher = OpenSSL::Cipher::AES.new(256, :CBC)
-    cipher.encrypt
-    cipher.key = ENV['CW_DASH_KEY']
-    cipher.iv = ENV['CW_DASH_IV']
-
-    encrypted_string = cipher.update(string) + cipher.final
-    encoded_and_encrypted = Base64.encode64(encrypted_string).encode('utf-8')
-
-    expect(Membership.decode_user_id(encoded_and_encrypted)).to eq("Bonjour, mon amie!")
-  end
-
 end

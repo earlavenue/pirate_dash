@@ -41,8 +41,6 @@ FactoryGirl.define do
     last_upload Time.now
     password "password123"
     pw_reset ""
-    # organization
-    # membership
   end
 
   factory :membership do
