@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'protected_attributes'
 gem 'kaminari'
 gem 'mysql2'
 gem 'rails', '4.0.0'

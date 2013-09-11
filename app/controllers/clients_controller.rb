@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
-  before_filter :require_signin
-  before_filter :require_omron
+  before_action :require_signin
+  before_action :require_omron
 
   def index
     @clients = Client.includes(:organization).order("organizations.name")

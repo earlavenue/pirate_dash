@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :address, :city, :name, :state, :zip, :code
+
   validates :name, :presence => true
   validates :name, :uniqueness => true
   validates :code, :presence => true
