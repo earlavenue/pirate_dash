@@ -4,16 +4,6 @@ class OrganizationsController < ApplicationController
   before_filter :require_omron
 
   def index
-    require 'openssl'
-    user_id = "3663"
-
-    cipher = OpenSSL::Cipher::AES.new(256, :CBC)
-    cipher.encrypt
-    cipher.key = ENV['CW_DASH_KEY']
-    cipher.iv = ENV['CW_DASH_IV']
-
-    @encrypted_data = cipher.update(user_id) + cipher.final
-
     @organizations = Organization.all
   end
 
@@ -30,7 +20,7 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = Organization.new(params[:organization])
+    @organization = Organization.new(organization_params)
     if @organization.save
       redirect_to @organization, notice: 'Organization was successfully created.'
     else
@@ -40,7 +30,7 @@ class OrganizationsController < ApplicationController
 
   def update
     @organization = Organization.find(params[:id])
-    if @organization.update_attributes(params[:organization])
+    if @organization.update_attributes(organization_params)
       redirect_to @organization, notice: 'Organization was successfully updated.'
     else
       render action: "edit"
@@ -52,4 +42,11 @@ class OrganizationsController < ApplicationController
     @organization.destroy
     redirect_to organizations_url
   end
+
+  private
+
+  def organization_params
+    params.require(:organization).permit(:address, :city, :name, :state, :zip, :code)
+  end
+
 end

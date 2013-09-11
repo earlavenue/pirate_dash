@@ -25,12 +25,10 @@ describe Membership do
     end
   end
 
-
   it "sets a person's upload date" do
     charlie = create(:person)
     membership = create(:membership, person_id: charlie.id)
     first_upload = create(:upload, person: charlie, date: Time.zone.now - 4.months)
-    debugger
     second_upload = create(:upload, person: charlie, date: Time.zone.now - 2.months)
     expect(Membership.set_first_upload_date(charlie)).to eq((Time.zone.now - 4.months).to_date)
   end
