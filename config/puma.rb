@@ -1,7 +1,7 @@
 # THREAD_POOL = ENV['THREAD_POOL'] || 4
 THREAD_POOL = 4
 
-workers 3
+workers 4
 threads THREAD_POOL,THREAD_POOL
 preload_app!
 
