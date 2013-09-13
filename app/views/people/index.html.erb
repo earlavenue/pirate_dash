@@ -37,12 +37,12 @@
     <td><%= person.email %></td>
     <% if person.uploads.length != 0 %>
       <% if person.uploads.first.date == nil %>
-        <td>Bad Data First</td>
+        <td>N/A</td>
       <% else %>
         <td><%= person.uploads.first.date.strftime("%b %d, %Y") %></td>
       <% end %>
       <% if person.uploads.last.date == nil %>
-        <td>Bad Data Last</td>
+        <td>N/A</td>
       <% else %>
         <td><%= person.uploads.last.date.strftime("%b %d, %Y") %></td>
       <% end %>
