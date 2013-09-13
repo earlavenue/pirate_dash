@@ -3,6 +3,7 @@ FactoryGirl.define do
     first_name "Fool"
     last_name "Barbarian"
     password "foobar"
+    password_confirmation "foobar"
     sequence(:email) { |n| "#{first_name}#{n}@example.com" }
     organization
 
@@ -12,7 +13,6 @@ FactoryGirl.define do
   end
 
   factory :organization do
-    sequence(:id) { |n| n }
     sequence(:name) { |n| "org#{n}"}
     address "Somewherez"
     city "Hellzville"
@@ -38,9 +38,8 @@ FactoryGirl.define do
     sequence(:email) { |n| "#{first_name}#{n}@gmail.com" }
     date_created Time.now
     last_upload Time.now
+    password "password123"
     pw_reset ""
-    # organization
-    # membership
   end
 
   factory :membership do

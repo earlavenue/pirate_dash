@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
-  before_filter :require_signin
-  before_filter :protect_show, only: [:show]
+  before_action :require_signin
+  before_action :protect_show, only: [:show]
 
   def index
     if admin

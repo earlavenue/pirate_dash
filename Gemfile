@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
-
 gem 'kaminari'
 gem 'mysql2'
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
+
+# Merging rails 4 branch to master
+# rdoc (~> 3.4)
 
 gem 'newrelic_rpm'
 
@@ -33,19 +35,19 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
-end
+  gem 'uglifier', '>= 2.2.1'
+
 
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
+
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
@@ -59,3 +61,10 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
+
+#RAILS 4 NOTES:
+#BUILDER - Ryan Bates uses the version we're on (3.1.4) even though its at 3.2.2.
+#FOR MINITEST - should work in version 4.7.5 as it is now. The newest version of minitest is 5.0.7
+#FOR TZINFO - should work in version 0.3.37 but the newest version is 1.0.1
+#BCRYPT RUBY - later we need to update to newest version when its compatable with Rails 4.0
+#Check later on these gems. Check in with bundle outdated

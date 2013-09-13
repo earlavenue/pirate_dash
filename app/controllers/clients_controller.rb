@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
-  before_filter :require_signin
-  before_filter :require_omron
+  before_action :require_signin
+  before_action :require_omron
 
   def index
     @clients = Client.includes(:organization).order("organizations.name")
@@ -19,7 +19,7 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = Client.new(params[:client])
+    @client = Client.new(client_params)
     if @client.save
       redirect_to @client, notice: 'Client was successfully created.'
     else
@@ -29,7 +29,7 @@ class ClientsController < ApplicationController
 
   def update
     @client = Client.find(params[:id])
-    if @client.update_attributes(params[:client])
+    if @client.update_attributes(client_params)
       redirect_to @client, notice: 'Client was successfully updated.'
     else
       render action: "edit"
@@ -40,5 +40,11 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
     @client.destroy
     redirect_to clients_url
+  end
+
+  private
+
+  def client_params
+    params.require(:client).permit(:email, :password_digest, :password, :password_confirmation, :first_name, :last_name, :organization_id)
   end
 end
