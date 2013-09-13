@@ -36,8 +36,8 @@
     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
     <td><%= person.email %></td>
     <% if person.uploads.length != 0 %>
-      <td><%= person.uploads.first.try(date.strftime("%b %d, %Y")) || 'No Data' %></td>
-      <td><%= person.uploads.last.try(date.strftime("%b %d, %Y")) || 'No Data' %></td>
+      <td><%= person.uploads.first.date.try(strftime("%b %d, %Y")) %></td>
+      <td><%= person.uploads.last.date.try(strftime("%b %d, %Y"))  %></td>
       <td><%= person.uploads.length %></td>
     <% else %>
       <td></td>
