@@ -1,4 +1,5 @@
 class Upload < ActiveRecord::Base
+  self.primary_key = "id"
   self.table_name = "of_of_measurements"
   belongs_to :person, foreign_key: :user_id
 

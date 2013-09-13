@@ -13,7 +13,6 @@ FactoryGirl.define do
   end
 
   factory :organization do
-    sequence(:id) { |n| n }
     sequence(:name) { |n| "org#{n}"}
     address "Somewherez"
     city "Hellzville"
