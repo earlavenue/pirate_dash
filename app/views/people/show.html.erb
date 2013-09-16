@@ -58,6 +58,7 @@
                     <th class="span3"><h4>Date</h4></th>
                     <th class="span2"><h4>Steps<h4></th>
                     <th class="span2"><h4>Device Serial<h4></th>
+                    <th class="span2"><h4>Input Method<h4></th>
                 </tr>
             </thead>
             <tbody>
@@ -66,7 +67,12 @@
                     <tr class="first">
                         <td><%= upload.date.strftime("%b %d, %Y") %></td>
                         <td><%= upload.total_steps %></td>
-                        <td><%= upload.device_serial %></td>
+                        <td><%= upload.device_serial || "N/A" %></td>
+                        <% if upload.is_device_input == 1 %>
+                            <td>Synced from Device</td>
+                        <% else %>
+                            <td>Manually Uploaded</td>
+                        <% end %>
                     </tr>
                 <% end %>
                 <% end %>
