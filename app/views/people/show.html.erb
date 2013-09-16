@@ -1,6 +1,12 @@
 <div class="span12 alpha">
     <div class="row-fluid chart_header">
-        <h1 class="span9"><%= @person.first_name + " " + @person.last_name %></h1>
+        <h1 class="span9">
+            <% if @person.first_name == "" && @person.last_name == "" %>
+                <%= "No Name Provided" %>
+            <% else %>
+                <%= @person.first_name + " " + @person.last_name %>
+            <% end %>
+        </h1>
 
         <div class="btn-group span3 controls">
         <% unless @date.beginning_of_month <= @first_upload_date%>

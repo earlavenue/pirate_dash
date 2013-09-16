@@ -33,7 +33,11 @@
     <% if admin %>
       <td><%= person.organization_name %></td>
     <% end %>
-    <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
+    <% if person.first_name == "" && person.last_name == "" %>
+      <td><%= link_to "No Name Provided", person %></td>
+    <% else %>
+      <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
+    <% end %>
     <td><%= person.email %></td>
     <% if person.uploads.length != 0 %>
       <% if person.uploads.first.date == nil %>
