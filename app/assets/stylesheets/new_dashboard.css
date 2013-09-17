@@ -1,4 +1,4 @@
-/*Type	
+/*Type
 ---------------------------------------------------*/
 h1,h2,h3,h4{
 /*font-family: 'AvantGardeGothicITCW01D 731075';	*/
@@ -17,7 +17,7 @@ min-height: 100%;
 height: auto !important;
 height: 100%;
 margin: 0 auto -60px;
-	
+
 }
 
 #pad-wrapper {
@@ -90,9 +90,9 @@ footer ul li:last-child{
 	height: 100%;
 	border-radius: 4px;
 	margin-bottom: 0;
-	
 
-	
+
+
 /*	-webkit-box-shadow: 0px 0px 3px rgba(50, 50, 50, 0.25);
 	-moz-box-shadow:    0px 0px 3px rgba(50, 50, 50, 0.25);
 	box-shadow:         0px 0px 3px rgba(50, 50, 50, 0.25);
@@ -156,28 +156,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
 }
 
 .main-menu li .dashboard{
-	background-position: -56px 0;	
+	background-position: -56px 0;
 }
 .main-menu li .activity{
-	background-position: -56px -50px;	
+	background-position: -56px -50px;
 }
 .main-menu li .weight{
-	background-position: -56px 0;	
+	background-position: -56px 0;
 }
 .main-menu li .heart_rate{
-	background-position: -56px -200px;	
+	background-position: -56px -200px;
 }
 .main-menu li .challenges{
-	background-position: -56px -150px;	
+	background-position: -56px -150px;
 }
 .main-menu li .achievements{
-	background-position: -56px -100px;	
+	background-position: -56px -100px;
 }
 .main-menu li .friends{
-	background-position: -56px -300px;	
+	background-position: -56px -300px;
 }
 .main-menu li .devices{
-	background-position: -56px -250px;	
+	background-position: -56px -250px;
 }
 .main-menu .active a{
 	border-right: none !important;
@@ -188,25 +188,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
 
 
 .main-menu .active .activity{
-	background-position: -6px -50px;	
+	background-position: -6px -50px;
 }
 .main-menu .active .weight, .main-menu li:hover .weight{
-	background-position: -6px 0;	
+	background-position: -6px 0;
 }
 .main-menu .active .heart_rate{
-	background-position: -6px -200px;	
+	background-position: -6px -200px;
 }
 .main-menu .active .challenges{
-	background-position: -6px -150px;	
+	background-position: -6px -150px;
 }
 .main-menu .active .achievements{
-	background-position: -6px -100px;	
+	background-position: -6px -100px;
 }
 .main-menu .active .friends{
-	background-position: -6px -300px;	
+	background-position: -6px -300px;
 }
 .main-menu .active .devices{
-	background-position: -6px -250px;	
+	background-position: -6px -250px;
 }
 
 
@@ -232,7 +232,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
   text-align: right;
 }
 .print{
-	background-position: -90px -221px;	
+	background-position: -90px -221px;
 }
 .download{
 	background-position: -120px -221px;
@@ -296,7 +296,7 @@ width: 80px;
 height: 80px;
 margin: 0 !important;
 background-size: 310px;
-background-image: url("/assets/new_dashboard_sprites.png");
+background-image: url(../img/new_dashboard_sprites.png);
 background-repeat: no-repeat;
 float: left;
 margin-left: 10px !important;
