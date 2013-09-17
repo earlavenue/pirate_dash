@@ -18,4 +18,12 @@ class Person < ActiveRecord::Base
 
   scope :show_page_columns, -> { select("of_of_users.user_id, of_of_users.first_name, of_of_users.last_name, of_of_users.date_created") }
 
+  # def self.to_csv
+  #   CSV.generate do |csv|
+  #     csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Upload", "Input Method"]
+  #     all.each do |person|
+  #       csv << [person.first_name, 0, 0, 0, 0, 0, 0, 0]
+  #     end
+  #   end
+  # end
 end

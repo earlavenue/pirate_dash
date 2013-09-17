@@ -20,6 +20,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       format.js
       format.html
+      # format.csv { send_data @people.to_csv}
     end
   end
 
