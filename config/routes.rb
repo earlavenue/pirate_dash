@@ -1,5 +1,7 @@
 PirateMetricsDashboard::Application.routes.draw do
 
+  get '/people/export_to_csv' => 'people#export_to_csv', as: 'export'
+
   root to: 'people#index'
 
   resources :organizations

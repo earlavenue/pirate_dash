@@ -2,6 +2,33 @@ class PeopleController < ApplicationController
   before_action :require_signin
   before_action :protect_show, only: [:show]
 
+  def export_to_csv
+    if admin && @omron_click
+      @export_people = Person.from_organization(@omron_click)
+    elsif admin
+      @export_people = Person.all
+
+    else
+     @export_people = Person.from_organization(current_client.organization.id)
+    end
+    csv_string = CSV.generate do |csv|
+      csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Device Serial", "Input Method"]
+      @export_people.each do |person|
+        person.uploads.each do |upload|
+          if upload.is_device_input == 1
+            input_method = "Synced from Device"
+          else
+            input_method = "Manually Uploaded"
+          end
+          csv << ["#{person.first_name} #{person.last_name}",  upload.date.strftime("%b %d, %Y"),upload.total_steps,upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
+       end
+      end
+    end
+    send_data csv_string,
+      :type => 'text/csv; charset=iso-8859-1; header=present',
+      :disposition => "attachment; filename=test.csv"
+  end
+
   def index
     if admin
       @organization_id = params[:omron_click]

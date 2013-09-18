@@ -1,17 +1,23 @@
 <h1>
   <% if admin %>
     <% if @organization_id %>
-      <%= Organization.where(id: @organization_id).first.name + " Users" %>
+      <%= Organization.where(id: @organization_id).first.name + "'s Users" %>
     <% else %>
       <%= "All Users" %>
     <% end %>
   <% else %>
-    <%= Organization.where(id: @people.first.organization.id).name  %>
+    <%= Organization.find_by_id(current_client.organization.id).name + "'s Users" %>
   <% end %>
 </h1>
 <p><%= notice %></p>
 <br>
-
+<% if admin && @organization_id %>
+  <p><%= link_to "Export #{Organization.where(:id => @organization_id).first.name}'s Users' Data to CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+<% elsif admin %>
+ <p><%= link_to "Export All Users' Data to CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+<% else %>
+<p><%= link_to "Export #{current_client.organization.name}'s Users' Data to CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+<% end %>
 <div class="search_input">
 <h4>Search</h4>
   <p><%= form_tag people_path, :method => :get, class: "form-search", remote: true do %>
