@@ -4,6 +4,7 @@ class PeopleController < ApplicationController
 
   def index
     if admin
+      @organization_id = params[:omron_click]
       @people = Person.admin_index_view.order_by_organization.page(params[:page])
       if params[:omron_click].present?
         @people = @people.from_organization(params[:omron_click])

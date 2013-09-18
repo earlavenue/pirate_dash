@@ -1,4 +1,14 @@
-<h1>People</h1>
+<h1>
+  <% if admin %>
+    <% if @organization_id %>
+      <%= Organization.where(id: @organization_id).first.name + " Users" %>
+    <% else %>
+      <%= "All Users" %>
+    <% end %>
+  <% else %>
+    <%= Organization.where(id: @people.first.organization.id).name  %>
+  <% end %>
+</h1>
 <p><%= notice %></p>
 <br>
 
