@@ -4,7 +4,7 @@ module PeopleHelper
     if @month_stats_hash[:steps] != 0
       content_tag(:div, "", id: "user_activity_graph", class: "graph", style: "width:100%;height:300px;", data: {x_values: x_values(@date), y_values: y_values(@uploads, @date), month: @date.month})
     else
-      image_tag("no_data_available.jpg")
+      image_tag("no_data_available.jpg", style:"pointer-events: none;")
     end
   end
 
