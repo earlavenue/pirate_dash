@@ -25,4 +25,4 @@
 //= require people
 //= require clients
 //= require theme
-
+//= require pirates
