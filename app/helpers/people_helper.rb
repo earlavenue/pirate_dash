@@ -8,9 +8,8 @@ module PeopleHelper
     end
   end
 
-  def activations_chart
-    content_tag(:div, "", id: "statsChart", class: "graph")
-  end
+
+
 
 
   private
