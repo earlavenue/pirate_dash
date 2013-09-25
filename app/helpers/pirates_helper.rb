@@ -18,9 +18,9 @@ module PiratesHelper
 
     (1..12).map do |month|
       if month < 12
-        all_uploads_through_month = all_uploads_through_year.reject { |obj| obj[1] >= "#{year}/#{month + 1}/01" }
+        all_uploads_through_month = all_uploads_through_year.reject { |obj| obj[1] == nil || obj[1] >= "#{year}/#{month + 1}/01" }
       else
-        all_uploads_through_month = all_uploads_through_year.reject { |obj| obj[1] >= "#{year+1}/01/01" }
+        all_uploads_through_month = all_uploads_through_year.reject { |obj| obj[1] == nil || obj[1] >= "#{year+1}/01/01" }
       end
       user_ids = []
       all_uploads_through_month.each do |upload|
