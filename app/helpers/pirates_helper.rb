@@ -5,7 +5,11 @@ module PiratesHelper
 
   # def activations_y_values(year)
   #   (1..12).map do |month|
-  #     date = "#{year}/#{month + 1}/1"
+  #     if month < 12
+  #       date = "#{year}/#{month + 1}/01"
+  #     else
+  #       date = "#{year + 1}/01/01"
+  #     end
   #     sql = "SELECT COUNT( * ) FROM (SELECT DISTINCT user_id FROM (SELECT user_id, DATE FROM of_of_measurements WHERE DATE < '#{date}') AS uploads_to_date) AS distinct_uploads"
   #     y_value = ActiveRecord::Base.connection.execute(sql)
   #     [month, y_value]
