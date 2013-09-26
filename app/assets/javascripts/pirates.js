@@ -2,7 +2,7 @@
         var activated = $("#statsChart").data("y-values");
 
         var plot = $.plot($("#statsChart"),
-            [ { data: activated, label: "Activated"} ], {
+            [ { data: activated, label: "Activations"} ], {
                 series: {
                     lines: { show: true,
                             lineWidth: 1,
@@ -28,7 +28,7 @@
                 colors: ["#05e727"],
                 xaxis: {
                     ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"],
-                           [7,"JUL"], [8,"AUG"], [9,"SEP"],[10, "OCT"],[11, "NOV"], [12, "DEC"]],
+                           [7,"JUL"], [8,"AUG"], [9,"SEP"],[10, "OCT"],[11, "NOV"], [12, "DEC"],[13, "JAN "]],
                     font: {
                         size: 12,
                         family: "Open Sans, Arial",
@@ -70,7 +70,7 @@
                     var month = item.series.xaxis.ticks[item.dataIndex].label;
 
                     showTooltip(item.pageX, item.pageY,
-                                item.series.label + " as of " + month + ": " + y);
+                                y + " activations as of " + month + " 1");
                 }
             }
             else {
