@@ -26,4 +26,3 @@ module PiratesHelper
 
   end
 end
-#Extra Comment
