@@ -19,7 +19,7 @@ group :development do
 end
 
 group :production do
-  gem 'puma'
+  gem 'rainbows'
 end
 
 

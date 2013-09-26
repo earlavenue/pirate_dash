@@ -5,7 +5,10 @@ class PiratesController < ApplicationController
   include PiratesHelper
 
   def activations
-    @y_values_as_array = activations_y_values(2013)
-    @y_values_as_json = activations_y_values(2013).to_json
+    unless @year
+      @year = Time.now.year
+    end
+    @y_values_as_array = activations_y_values(@year)
+    @y_values_as_json = activations_y_values(@year).to_json
   end
 end
