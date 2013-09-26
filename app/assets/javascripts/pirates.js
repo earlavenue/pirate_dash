@@ -1,15 +1,13 @@
  //  jQuery Flot Chart
         var activated = $("#statsChart").data("y-values");
-        var sold = [[1,20], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,76],[11,64],[12,73]];
 
         var plot = $.plot($("#statsChart"),
-            [ { data: activated, label: "Activated"},
-             { data: sold, label: "Sold" }], {
+            [ { data: activated, label: "Activated"} ], {
                 series: {
                     lines: { show: true,
                             lineWidth: 1,
                             fill: true,
-                            fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.09 } ] }
+                            fillColor: { colors: { opacity: 0.05 }  }
                          },
                     points: { show: true,
                              lineWidth: 2,
@@ -27,7 +25,7 @@
                         // show: false
                         labelBoxBorderColor: "#fff"
                     },
-                colors: ["#05e727", "#30a0eb"],
+                colors: ["#05e727"],
                 xaxis: {
                     ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"],
                            [7,"JUL"], [8,"AUG"], [9,"SEP"],[10, "OCT"],[11, "NOV"], [12, "DEC"]],
