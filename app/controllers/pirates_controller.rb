@@ -5,7 +5,7 @@ class PiratesController < ApplicationController
   include PiratesHelper
 
   def activations
-    @activations_y_values = activations_y_values(2013)
-
+    @y_values_as_array = activations_y_values(2013)
+    @y_values_as_json = activations_y_values(2013).to_json
   end
 end

@@ -22,7 +22,7 @@
                        borderWidth: 0
                     },
                 legend: {
-                        // show: false
+                        show: false,
                         labelBoxBorderColor: "#fff"
                     },
                 colors: ["#05e727"],
