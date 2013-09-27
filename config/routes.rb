@@ -13,5 +13,5 @@ PirateMetricsDashboard::Application.routes.draw do
   post '/sessions' => 'sessions#create', as: 'sessions'
   delete '/sessions' => 'sessions#destroy', as: 'session'
 
-  get '/pirates/activations/:year' => 'pirates#activations', as: 'activations'
+  get '/pirates/activations' => 'pirates#activations', as: 'activations'
 end
