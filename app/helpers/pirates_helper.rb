@@ -10,7 +10,7 @@ module PiratesHelper
       else
         date = "#{year+ 1}/01/01".to_date
       end
-      relation = Upload.select("distinct user_id, device_serial").where("date <= ?", date).all
+      relation = Upload.select("distinct user_id, device_serial").where("date <= ?", date).to_a
       [month, relation]
     end
   end
