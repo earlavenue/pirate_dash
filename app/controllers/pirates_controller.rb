@@ -10,7 +10,8 @@ class PiratesController < ApplicationController
     else
       @year = Time.now.year
     end
-    @y_values_as_array = activations_y_values(@year)
-    @y_values_as_json = @y_values_as_array.to_json
+    @year_info_with_relation = year_info_with_relation(@year)
+    @year_info_with_count = activations_y_values(@year_info_with_relation)
+    @y_values_as_json = @year_info_with_count.to_json
   end
 end
