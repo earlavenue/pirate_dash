@@ -10,8 +10,8 @@ class PiratesController < ApplicationController
     else
       @year = Time.now.year
     end
-    @year_info_with_relation = year_info_with_relation(@year)
-    @year_info_with_count = activations_y_values(@year_info_with_relation)
-    @y_values_as_json = @year_info_with_count.to_json
+    @discrete_month_activations = discrete_month_activations(@year)
+    @aggregate_month_activations = aggregate_month_activations(@discrete_month_activations, @year)
+    @y_values_as_json = @aggregate_month_activations.to_json
   end
 end
