@@ -3,6 +3,7 @@ module PiratesHelper
     content_tag(:div, "", id: "statsChart", class: "graph", data: {y_values: @y_values_as_json})
   end
 
+
   def discrete_month_activations(year)
     (1..13).map do |month|
       if month < 13
@@ -43,6 +44,6 @@ module PiratesHelper
     q4 = aggregate_month_activations[12][1] - aggregate_month_activations[9][1]
 
     [q1,q2,q3,q4]
-
   end
 end
+
