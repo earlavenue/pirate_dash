@@ -14,4 +14,9 @@ class PiratesController < ApplicationController
     @aggregate_month_activations = aggregate_month_activations(@discrete_month_activations, @year)
     @y_values_as_json = @aggregate_month_activations.to_json
   end
+
+  def devices
+    @month_count_for_device = month_count_for_device(2013, "HJ72")
+    @quarterly_device_values = quarterly_device_values(@month_count_for_device)
+  end
 end

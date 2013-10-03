@@ -14,4 +14,5 @@ PirateMetricsDashboard::Application.routes.draw do
   delete '/sessions' => 'sessions#destroy', as: 'session'
 
   get '/pirates/activations' => 'pirates#activations', as: 'activations'
+  get '/pirates/devices' => 'pirates#devices', as: 'devices'
 end

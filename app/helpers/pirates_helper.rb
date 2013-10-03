@@ -3,6 +3,30 @@ module PiratesHelper
     content_tag(:div, "", id: "statsChart", class: "graph", data: {y_values: @y_values_as_json})
   end
 
+  def month_count_for_device(year, device)
+    prefix = "#{device}%"
+    (1..13).map do |month|
+      if month < 13
+        date = "#{year}/#{month}/01".to_date
+      else
+        date = "#{year + 1}/01/01".to_date
+      end
+      date1 = date - 1.month
+      date2 = date
+      device_count = Upload.find_by_sql(['select count(*) as total from (select user_id, device_serial, min(date) as first_upload from of_of_measurements group by user_id having (first_upload between ? AND ?) AND (device_serial LIKE ?)) as count', date1, date2, prefix]).first.total
+      [month, device_count]
+    end
+  end
+
+  def quarterly_device_values(month_count_for_device)
+    q1 = month_count_for_device[1][1] + month_count_for_device[2][1] + month_count_for_device[3][1]
+    q2 = month_count_for_device[4][1] + month_count_for_device[5][1] + month_count_for_device[6][1]
+    q3 = month_count_for_device[7][1] + month_count_for_device[8][1] + month_count_for_device[9][1]
+    q4 = month_count_for_device[10][1] + month_count_for_device[11][1] + month_count_for_device[12][1]
+
+    [q1,q2,q3,q4]
+  end
+
 
   def discrete_month_activations(year)
     (1..13).map do |month|
