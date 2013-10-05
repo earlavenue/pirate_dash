@@ -16,13 +16,11 @@ class PiratesController < ApplicationController
   end
 
   def devices
-    @month_count_for_device_HJ72 = month_count_for_device(2013, "HJ72")
-    @quarterly_values_HJ72 = quarterly_device_values(@month_count_for_device_HJ72)
-    @device_HJ72 = ['HJ-720IT', @quarterly_values_HJ72]
+    @quarter_count_for_HJ72 = quarter_count_for_device(2013, "HJ72")
+    @device_HJ72 = ['HJ-720IT', @quarter_count_for_HJ72]
 
-    @month_count_for_device_HJA = month_count_for_device(2013, "HJA")
-    @quarterly_values_HJA = quarterly_device_values(@month_count_for_device_HJA)
-    @device_HJA = ['HJA-312', @quarterly_values_HJA]
+    @quarter_count_for_HJA = quarter_count_for_device(2013, "HJA")
+    @device_HJA = ['HJA-312', @quarter_count_for_HJA]
 
 
     # @month_count_for_device_002 = month_count_for_device(2013, "002")
