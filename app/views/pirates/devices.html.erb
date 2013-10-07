@@ -1,5 +1,20 @@
 <h1>Quarterly Activations by Device</h1>
 
+<div class="btn-group span3 controls">
+  <% unless @year <= 2012 %>
+    <div class="btn btn_hack prev">
+      <%= link_to content_tag(:i, " ", :class => "icon-arrow-left"), {controller: "pirates", action: "devices", year: @year - 1} %>
+    </div>
+    <% end %>
+
+      <button class="btn"><%= @year %></button>
+
+    <% unless @year >= Time.now.year %>
+      <div class="btn btn_hack next">
+        <%= link_to content_tag(:i, " ", :class => "icon-arrow-right"), {contoller: "pirates", action: "devices", year: @year + 1} %>
+      </div>
+    <% end %>
+  </div>
 
 <table class="table table-bordered">
   <tr>

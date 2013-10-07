@@ -27,4 +27,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_omron_business
+    unless current_client.organization.name == "Omron Business" || current_client.organization.name == "Omron Fitness"
+      redirect_to people_url, notice: "You are not authorized for that page."
+    end
+  end
+
 end

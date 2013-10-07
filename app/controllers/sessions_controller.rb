@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
       session[:client_id] = u.id
       if u.organization.name == "Omron Fitness"
         redirect_to organizations_url
+      elsif u.organization.name == "Omron Business"
+        redirect_to devices_url
       else
         redirect_to people_url
       end

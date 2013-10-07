@@ -1,6 +1,6 @@
 class PiratesController < ApplicationController
   before_action :require_signin
-  before_action :require_omron
+  before_action :require_omron_business
 
   include PiratesHelper
 
@@ -16,13 +16,18 @@ class PiratesController < ApplicationController
   end
 
   def devices
-    @quarter_count_for_HJ72 = quarter_count_for_device(2013, "HJ72")
+    if params[:year]
+      @year = params[:year].to_i
+    else
+      @year = Time.now.year
+    end
+    @quarter_count_for_HJ72 = quarter_count_for_device(@year, "HJ72")
     @device_HJ72 = ['HJ-720IT', @quarter_count_for_HJ72]
 
-    @quarter_count_for_HJA = quarter_count_for_device(2013, "HJA")
+    @quarter_count_for_HJA = quarter_count_for_device(@year, "HJA")
     @device_HJA = ['HJA-312', @quarter_count_for_HJA]
 
-    @quarter_count_for_0002 = quarter_count_for_device(2013, "0002")
+    @quarter_count_for_0002 = quarter_count_for_device(@year, "0002")
     @device_0002 = ['HJ-322, 323, 324', @quarter_count_for_0002]
 
     @devices = [@device_HJ72, @device_HJA, @device_0002]
