@@ -21,7 +21,7 @@ module PiratesHelper
       else
         date2 = "#{year + 1}/01/01".to_date
       end
-      device_count = Upload.find_by_sql(['select count(*) as total from (select user_id, device_serial, min(date) as first_upload from of_of_measurements group by user_id having (first_upload between ? AND ?) AND (device_serial LIKE ?)) as count', date1, date2, prefix]).first.total
+      device_count = Upload.find_by_sql(['select count(*) as total from (select device_serial, min(date) as first_upload from of_of_measurements group by device_serial having (first_upload between ? AND ?) AND (device_serial LIKE ?)) as count', date1, date2, prefix]).first.total
       [month, device_count]
     end
   end
