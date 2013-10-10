@@ -2,6 +2,7 @@ class Person < ActiveRecord::Base
   self.table_name = "of_of_users"
   self.primary_key = "user_id"
 
+  has_many :quarters
   has_many :uploads, -> { order(date: :asc) }, foreign_key: :user_id
   has_one :membership
   has_one :organization, through: :membership

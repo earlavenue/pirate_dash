@@ -1,4 +1,4 @@
-class PiratesController < ApplicationController
+ class PiratesController < ApplicationController
   before_action :require_signin
   before_action :require_omron_business
 
