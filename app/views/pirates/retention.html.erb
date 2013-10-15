@@ -1,0 +1,25 @@
+<table class="table table-bordered">
+  <tr>
+    <td>2011 Quarter 1</td>
+    <td>2011 Quarter 2</td>
+    <td>2011 Quarter 3</td>
+    <td>2011 Quarter 4</td>
+    <td>2012 Quarter 1</td>
+    <td>2012 Quarter 2</td>
+    <td>2012 Quarter 3</td>
+    <td>2012 Quarter 4</td>
+    <td>2013 Quarter 1</td>
+    <td>2013 Quarter 2</td>
+    <td>2013 Quarter 3</td>
+  </tr>
+<tr>
+
+<% date = "2011-01-01".to_date %>
+  <% 11.times do  %>
+  <td>
+    <%= Quarter.active_users(date) %>
+  </td>
+    <% date += 3.months %>
+  <% end  %>
+</tr>
+</table>

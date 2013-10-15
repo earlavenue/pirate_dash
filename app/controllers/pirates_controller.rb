@@ -35,4 +35,6 @@
     # @quarterly_values_002 = quarterly_device_values(@month_count_for_device_002)
     # @device_002 = ['HJ-322, 323, 324', @quarterly_values_002]
   end
+  def retention
+  end
 end
