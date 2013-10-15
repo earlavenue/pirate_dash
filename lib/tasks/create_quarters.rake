@@ -1,7 +1,7 @@
 desc "Make quarter records for people"
 task :create_quarters => [:environment] do
 
-  table = Person.find_by_sql(["select user_id, min(date) as first_upload_date from of_of_measurements group by user_id"])
+  table = Person.find_by_sql(["select user_id, min(date) as first_upload_date from of_of_measurements where date != "0000-00-00 00:00:00" group by user_id"])
 
   table.each do |row|
     person = Person.find_by_user_id(row.user_id)
