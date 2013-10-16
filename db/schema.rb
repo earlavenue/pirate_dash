@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131010194609) do
+ActiveRecord::Schema.define(version: 20131016165421) do
 
   create_table "clients", force: true do |t|
     t.string   "email"
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20131010194609) do
     t.integer   "aerobicCalories"
     t.integer   "basalMetabolism"
     t.integer   "walkCalories"
+    t.string    "device_model"
   end
 
   add_index "of_of_measurements", ["date", "device_serial", "user_id"], name: "unique_measure", unique: true, length: {"date"=>nil, "device_serial"=>20, "user_id"=>nil}, using: :btree

@@ -4,7 +4,6 @@ module PiratesHelper
   end
 
   def quarter_count_for_device(year, device)
-    prefix = "#{device}%"
     (1..4).map do |quarter|
       if quarter == 1
         month = 1
@@ -21,7 +20,7 @@ module PiratesHelper
       else
         date2 = "#{year + 1}/01/01".to_date
       end
-      device_count = Upload.find_by_sql(['select count(*) as total from (select device_serial, min(date) as first_upload from of_of_measurements group by device_serial having (first_upload between ? AND ?) AND (device_serial LIKE ?)) as count', date1, date2, prefix]).first.total
+      device_count = Upload.find_by_sql(['select count(*) as total from (select device_model, device_serial, min(date) as first_upload from of_of_measurements group by device_serial having (first_upload between ? AND ?) AND (device_model = ?)) as count', date1, date2, device]).first.total
       [month, device_count]
     end
   end
