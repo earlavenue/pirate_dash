@@ -1,8 +1,8 @@
-class Quarter < ActiveRecord::Base
+class Person_Quarter < ActiveRecord::Base
   belongs_to :person
 
   def self.create_quarter_record(user_id, start_date)
-    q = Quarter.new
+    q = Person_quarter.new
     q.person_id = user_id
     q.start_date = start_date
     q.active = false
@@ -10,7 +10,7 @@ class Quarter < ActiveRecord::Base
   end
 
   def self.active_users(date)
-    Quarter.where(start_date: date).where(active: true).count
+    Person_quarter.where(start_date: date).where(active: true).count
   end
 
 

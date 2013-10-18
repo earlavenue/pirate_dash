@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131017180905) do
+ActiveRecord::Schema.define(version: 20131018192048) do
 
   create_table "clients", force: true do |t|
     t.string   "email"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20131017180905) do
   end
 
   add_index "clients", ["organization_id"], name: "client_org_id_ix", using: :btree
+
+  create_table "device_quarters", force: true do |t|
+    t.string  "device_model"
+    t.integer "activations"
+    t.date    "start_date"
+  end
 
   create_table "memberships", force: true do |t|
     t.integer "organization_id"
@@ -508,13 +514,7 @@ ActiveRecord::Schema.define(version: 20131017180905) do
     t.string   "code"
   end
 
-  create_table "quarter_summaries", force: true do |t|
-    t.string  "device_model"
-    t.integer "activations"
-    t.date    "start_date"
-  end
-
-  create_table "quarters", force: true do |t|
+  create_table "person_quarters", force: true do |t|
     t.string  "person_id"
     t.date    "start_date"
     t.boolean "active"
