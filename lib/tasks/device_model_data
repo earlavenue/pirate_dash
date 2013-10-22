@@ -1,3 +1,0 @@
-desc "Add Data to the Device Model Column"
-task :device_model_data => [:environment] do
-end
