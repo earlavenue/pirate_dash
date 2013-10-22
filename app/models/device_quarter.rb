@@ -1,4 +1,4 @@
-class Device_quarters < ActiveRecord::Base
+class DeviceQuarter < ActiveRecord::Base
 
 
 

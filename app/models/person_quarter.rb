@@ -1,4 +1,4 @@
-class Person_Quarter < ActiveRecord::Base
+class PersonQuarter < ActiveRecord::Base
   belongs_to :person
 
   def self.create_quarter_record(user_id, start_date)
