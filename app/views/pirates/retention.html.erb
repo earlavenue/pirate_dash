@@ -17,7 +17,7 @@
 <% date = "2011-01-01".to_date %>
   <% 11.times do  %>
   <td>
-    <%= Person_quarter.active_users(date) %>
+    <%= PersonQuarter.active_users(date) %>
   </td>
     <% date += 3.months %>
   <% end  %>
