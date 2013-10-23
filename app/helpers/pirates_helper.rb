@@ -3,6 +3,19 @@ module PiratesHelper
     content_tag(:div, "", id: "statsChart", class: "graph", data: {y_values: @y_values_as_json})
   end
 
+  def current_quarter_activations(device_model, start_date)
+    date1 = start_date
+    date2 = start_date + 3.months
+    device_count = Upload.find_by_sql(['select count(*) as total from (select device_model, device_serial, min(date) as first_upload from of_of_measurements group by device_serial having (first_upload between ? AND ?) AND (device_model = ?)) as count', date1, date2, device_model]).first.total
+  end
+
+
+
+
+
+
+
+
   def quarter_count_for_device(year, device)
     (1..4).map do |quarter|
       if quarter == 1

@@ -25,15 +25,27 @@
     <th>Q4</th>
   </tr>
 
-<% @devices.each do |device| %>
-  <tr>
-    <td><%= device[0] %></td>
-    <td><%= device[1][0][1] %></td>
-    <td><%= device[1][1][1]%></td>
-    <td><%= device[1][2][1] %></td>
-    <td><%= device[1][3][1] %></td>
-
-<% end %>
+<tr>
+  <td>HJ-720IT</td>
+  <td><%= @Q1HJ720 %></td>
+  <td><%= @Q2HJ720 %></td>
+  <td><%= @Q3HJ720  %></td>
+  <td><%= @Q4HJ720 %></td>
+</tr>
+<tr>
+  <td>HJA-312</td>
+  <td><%= @Q1HJA312 %></td>
+  <td><%= @Q2HJA312 %></td>
+  <td><%= @Q3HJA312  %></td>
+  <td><%= @Q4HJA312 %></td>
+</tr>
+<tr>
+  <td>HJ-320s</td>
+  <td><%= @Q1HJ322 %></td>
+  <td><%= @Q2HJ322 %></td>
+  <td><%= @Q3HJ322  %></td>
+  <td><%= @Q4HJ322 %></td>
+</tr>
 </table>
 
 <br />
