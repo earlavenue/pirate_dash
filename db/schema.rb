@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018192048) do
+ActiveRecord::Schema.define(version: 20131024161322) do
 
   create_table "clients", force: true do |t|
     t.string   "email"
@@ -518,6 +518,7 @@ ActiveRecord::Schema.define(version: 20131018192048) do
     t.string  "person_id"
     t.date    "start_date"
     t.boolean "active"
+    t.boolean "previous_quarter"
   end
 
 end

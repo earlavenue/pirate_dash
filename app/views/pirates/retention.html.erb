@@ -1,5 +1,6 @@
 <table class="table table-bordered">
   <tr>
+    <td>Quarters</td>
     <td>2011 Quarter 1</td>
     <td>2011 Quarter 2</td>
     <td>2011 Quarter 3</td>
@@ -12,9 +13,10 @@
     <td>2013 Quarter 2</td>
     <td>2013 Quarter 3</td>
   </tr>
-<tr>
 
+<tr>
 <% date = "2011-01-01".to_date %>
+  <td>Aggregate</td>
   <% 11.times do  %>
   <td>
     <%= PersonQuarter.active_users(date) %>
@@ -22,4 +24,28 @@
     <% date += 3.months %>
   <% end  %>
 </tr>
+
+<tr>
+  <% date = "2011-01-01".to_date %>
+  <td>Users Gained</td>
+  <% 11.times do  %>
+  <td>
+    <%= PersonQuarter.users_gained(date) %>
+  </td>
+    <% date += 3.months %>
+  <% end  %>
+</tr>
+
+<tr>
+  <% date = "2011-01-01".to_date %>
+  <td>Users Lost</td>
+  <% 11.times do  %>
+  <td>
+    <%= PersonQuarter.users_lost(date) %>
+  </td>
+    <% date += 3.months %>
+  <% end  %>
+</tr>
+
+
 </table>

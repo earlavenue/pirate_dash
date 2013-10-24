@@ -13,5 +13,12 @@ class PersonQuarter < ActiveRecord::Base
     PersonQuarter.where(start_date: date).where(active: true).count
   end
 
+  def self.users_gained(start_date)
+    PersonQuarter.where(:start_date => start_date).where(:active => true).where(:previous_quarter => false).count
+  end
+
+  def self.users_lost(start_date)
+    PersonQuarter.where(:start_date => start_date).where(:active => false).where(:previous_quarter => true).count
+  end
 
 end
