@@ -106,6 +106,11 @@
   end
 
   def retention
+    if params[:year]
+      @year = params[:year].to_i
+    else
+      @year = Time.now.year
+    end
   end
 
 end

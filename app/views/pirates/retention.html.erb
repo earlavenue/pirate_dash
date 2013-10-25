@@ -1,23 +1,32 @@
+<h1>Retention by Quarter</h1>
+<div class="btn-group span3 controls">
+  <% unless @year <= 2011 %>
+    <div class="btn btn_hack prev">
+      <%= link_to content_tag(:i, " ", :class => "icon-arrow-left"), {controller: "pirates", action: "retention", year: @year - 1} %>
+    </div>
+  <% end %>
+
+  <button class="btn"><%= @year %></button>
+
+  <% unless @year >= Time.now.year %>
+    <div class="btn btn_hack next">
+      <%= link_to content_tag(:i, " ", :class => "icon-arrow-right"), {contoller: "pirates", action: "retention", year: @year + 1} %>
+    </div>
+  <% end %>
+</div>
 <table class="table table-bordered">
   <tr>
     <td>Quarters</td>
-    <td>2011 Quarter 1</td>
-    <td>2011 Quarter 2</td>
-    <td>2011 Quarter 3</td>
-    <td>2011 Quarter 4</td>
-    <td>2012 Quarter 1</td>
-    <td>2012 Quarter 2</td>
-    <td>2012 Quarter 3</td>
-    <td>2012 Quarter 4</td>
-    <td>2013 Quarter 1</td>
-    <td>2013 Quarter 2</td>
-    <td>2013 Quarter 3</td>
+    <td>Q1</td>
+    <td>Q2</td>
+    <td>Q3</td>
+    <td>Q4</td>
   </tr>
 
 <tr>
-<% date = "2011-01-01".to_date %>
+<% date = "#{@year}-01-01".to_date %>
   <td>Aggregate</td>
-  <% 11.times do  %>
+  <% 4.times do  %>
   <td>
     <%= PersonQuarter.active_users(date) %>
   </td>
@@ -26,9 +35,9 @@
 </tr>
 
 <tr>
-  <% date = "2011-01-01".to_date %>
+  <% date = "#{@year}-01-01".to_date %>
   <td>Users Gained</td>
-  <% 11.times do  %>
+  <% 4.times do  %>
   <td>
     <%= PersonQuarter.users_gained(date) %>
   </td>
@@ -37,9 +46,9 @@
 </tr>
 
 <tr>
-  <% date = "2011-01-01".to_date %>
+  <% date = "#{@year}-01-01".to_date %>
   <td>Users Lost</td>
-  <% 11.times do  %>
+  <% 4.times do  %>
   <td>
     <%= PersonQuarter.users_lost(date) %>
   </td>
