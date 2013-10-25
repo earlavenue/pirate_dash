@@ -27,9 +27,13 @@
 <% date = "#{@year}-01-01".to_date %>
   <td>Aggregate</td>
   <% 4.times do  %>
-  <td>
-    <%= PersonQuarter.active_users(date) %>
-  </td>
+    <% if Time.now > date && Time.now < date + 3.months %>
+      <td>Current Quarter</td>
+    <% elsif Time.now < date %>
+      <td>-</td>
+    <% else %>
+      <td><%= PersonQuarter.active_users(date) %></td>
+    <% end %>
     <% date += 3.months %>
   <% end  %>
 </tr>
@@ -37,10 +41,14 @@
 <tr>
   <% date = "#{@year}-01-01".to_date %>
   <td>Users Gained</td>
-  <% 4.times do  %>
-  <td>
-    <%= PersonQuarter.users_gained(date) %>
-  </td>
+ <% 4.times do  %>
+    <% if Time.now > date && Time.now < date + 3.months %>
+      <td>Current Quarter</td>
+    <% elsif Time.now < date %>
+      <td>-</td>
+    <% else %>
+      <td><%= PersonQuarter.users_gained(date) %></td>
+    <% end %>
     <% date += 3.months %>
   <% end  %>
 </tr>
@@ -48,10 +56,14 @@
 <tr>
   <% date = "#{@year}-01-01".to_date %>
   <td>Users Lost</td>
-  <% 4.times do  %>
-  <td>
-    <%= PersonQuarter.users_lost(date) %>
-  </td>
+   <% 4.times do  %>
+    <% if Time.now > date && Time.now < date + 3.months %>
+      <td>Current Quarter</td>
+    <% elsif Time.now < date %>
+      <td>-</td>
+    <% else %>
+      <td><%= PersonQuarter.users_lost(date) %></td>
+    <% end %>
     <% date += 3.months %>
   <% end  %>
 </tr>
