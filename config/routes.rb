@@ -16,5 +16,5 @@ PirateMetricsDashboard::Application.routes.draw do
   get '/pirates/activations' => 'pirates#activations', as: 'activations'
   get '/pirates/devices' => 'pirates#devices', as: 'devices'
   get '/pirates/retention' => 'pirates#retention', as: 'retention'
-
+  get '/pirates/users_lost' => 'pirates#users_lost', as: 'users_lost'
 end

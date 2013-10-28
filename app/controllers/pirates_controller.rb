@@ -103,6 +103,7 @@
       @Q3HJ322 = DeviceQuarter.where(device_model: "HJ-322").where(start_date: @q3_start).first.activations
       @Q4HJ322 = DeviceQuarter.where(device_model: "HJ-322").where(start_date: @q4_start).first.activations
     end
+
   end
 
   def retention
@@ -111,6 +112,11 @@
     else
       @year = Time.now.year
     end
+  end
+
+  def users_lost
+    @start_date = params[:quarter]
+    @person_quarters = PersonQuarter.users_lost(@start_date)
   end
 
 end

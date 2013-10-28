@@ -32,7 +32,7 @@
     <% elsif Time.now < date %>
       <td>-</td>
     <% else %>
-      <td><%= PersonQuarter.active_users(date) %></td>
+      <td><%= PersonQuarter.active_users(date).count %></td>
     <% end %>
     <% date += 3.months %>
   <% end  %>
@@ -47,7 +47,7 @@
     <% elsif Time.now < date %>
       <td>-</td>
     <% else %>
-      <td><%= PersonQuarter.users_gained(date) %></td>
+      <td><%= PersonQuarter.users_gained(date).count %></td>
     <% end %>
     <% date += 3.months %>
   <% end  %>
@@ -62,9 +62,18 @@
     <% elsif Time.now < date %>
       <td>-</td>
     <% else %>
-      <td><%= PersonQuarter.users_lost(date) %></td>
+      <td><%= PersonQuarter.users_lost(date).count %></td>
     <% end %>
     <% date += 3.months %>
+  <% end  %>
+</tr>
+<tr>
+  <% date = "#{@year}-01-01".to_date %>
+  <td></td>
+  <% 4.times do  %>
+    <td><%= link_to "View People Lost", users_lost_url(:quarter => date), class: "btn btn-info" %>
+  </td>
+  <% date += 3.months %>
   <% end  %>
 </tr>
 

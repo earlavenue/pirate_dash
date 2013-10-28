@@ -1,4 +1,5 @@
 module PiratesHelper
+
   def activations_chart
     content_tag(:div, "", id: "statsChart", class: "graph", data: {y_values: @y_values_as_json})
   end
