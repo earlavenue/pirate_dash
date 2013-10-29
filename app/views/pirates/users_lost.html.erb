@@ -8,8 +8,8 @@
 <% @person_quarters.each do |pq| %>
 <% person = Person.find(pq.person_id) %>
 <tr>
-<td><%= "#{person.first_name} #{person.last_name} " %></td>
-<td><%= person.email %></td>
+<td><%= "#{person.try(first_name)} #{person.try(last_name)} " %></td>
+<td><%= person.try(email) %></td>
 </tr>
 <% end %>
 
