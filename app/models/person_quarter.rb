@@ -6,6 +6,7 @@ class PersonQuarter < ActiveRecord::Base
     q.person_id = user_id
     q.start_date = start_date
     q.active = false
+    q.previous_quarter = false
     q.save
   end
 

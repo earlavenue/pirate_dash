@@ -4,6 +4,8 @@ gem 'kaminari'
 gem 'mysql2'
 gem 'rails', '4.0.0'
 
+gem 'whenever', :require => false
+
 # Merging rails 4 branch to master
 # rdoc (~> 3.4)
 
