@@ -6,10 +6,10 @@
 <td>Culprit's Email</td>
 </tr>
 <% @person_quarters.each do |pq| %>
-<% person = Person.find(pq.person_id) %>
+<% person = Person.find_by_user_id(pq.person_id) %>
   <% if person %>
     <tr>
-    <td><%= "#{person.try(:first_name)} #{person.try(:last_name)} " %></td>
+    <td><%= "#{person.try(:first_name)} #{person.try(:last_name)}" %></td>
     <td><%= person.try(:email) %></td>
     </tr>
   <% end %>
