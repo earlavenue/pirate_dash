@@ -10,8 +10,8 @@
     else
       @year = Time.now.year
     end
-    @discrete_month_activations = discrete_month_activations(@year)
-    @aggregate_month_activations = aggregate_month_activations(@discrete_month_activations, @year)
+    @discrete_month_activations = Pirate.discrete_month_activations(@year)
+    @aggregate_month_activations = Pirate.aggregate_month_activations(@discrete_month_activations, @year)
     @y_values_as_json = @aggregate_month_activations.to_json
   end
 
@@ -35,9 +35,9 @@
       current_quarter = quarter_hash[current_month]
 
       if current_quarter == "#{@year}-01-01".to_date
-        @Q1HJ720 = current_quarter_activations("HJ-720", current_quarter)
-        @Q1HJA312 = current_quarter_activations("HJA-312", current_quarter)
-        @Q1HJ322 = current_quarter_activations("HJ-322", current_quarter)
+        @Q1HJ720 = Pirate.current_quarter_activations("HJ-720", current_quarter)
+        @Q1HJA312 = Pirate.current_quarter_activations("HJA-312", current_quarter)
+        @Q1HJ322 = Pirate.current_quarter_activations("HJ-322", current_quarter)
         @Q2HJ720 = "-"
         @Q2HJA312 = "-"
         @Q2HJ322 = "-"
@@ -51,9 +51,9 @@
         @Q1HJ720 = DeviceQuarter.where(device_model: "HJ-720").where(start_date: @q1_start).first.activations
         @Q1HJA312 = DeviceQuarter.where(device_model: "HJA-312").where(start_date: @q1_start).first.activations
         @Q1HJ322 = DeviceQuarter.where(device_model: "HJ-322").where(start_date: @q1_start).first.activations
-        @Q2HJ720 = current_quarter_activations("HJ-720", current_quarter)
-        @Q2HJA312 = current_quarter_activations("HJA-312", current_quarter)
-        @Q2HJ322 = current_quarter_activations("HJ-322", current_quarter)
+        @Q2HJ720 = Pirate.current_quarter_activations("HJ-720", current_quarter)
+        @Q2HJA312 = Pirate.current_quarter_activations("HJA-312", current_quarter)
+        @Q2HJ322 = Pirate.current_quarter_activations("HJ-322", current_quarter)
         @Q3HJ720 = "-"
         @Q3HJA312 = "-"
         @Q3HJ322 = "-"
@@ -67,9 +67,9 @@
         @Q2HJ720 = DeviceQuarter.where(device_model: "HJ-720").where(start_date: @q2_start).first.activations
         @Q2HJA312 = DeviceQuarter.where(device_model: "HJA-312").where(start_date: @q2_start).first.activations
         @Q2HJ322 = DeviceQuarter.where(device_model: "HJ-322").where(start_date: @q2_start).first.activations
-        @Q3HJ720 = current_quarter_activations("HJ-720", current_quarter)
-        @Q3HJA312 = current_quarter_activations("HJA-312", current_quarter)
-        @Q3HJ322 = current_quarter_activations("HJ-322", current_quarter)
+        @Q3HJ720 = Pirate.current_quarter_activations("HJ-720", current_quarter)
+        @Q3HJA312 = Pirate.current_quarter_activations("HJA-312", current_quarter)
+        @Q3HJ322 = Pirate.current_quarter_activations("HJ-322", current_quarter)
         @Q4HJ720 = "-"
         @Q4HJA312 = "-"
         @Q4HJ322 = "-"
@@ -83,9 +83,9 @@
         @Q3HJ720 = DeviceQuarter.where(device_model: "HJ-720").where(start_date: @q3_start).first.activations
         @Q3HJA312 = DeviceQuarter.where(device_model: "HJA-312").where(start_date: @q3_start).first.activations
         @Q3HJ322 = DeviceQuarter.where(device_model: "HJ-322").where(start_date: @q3_start).first.activations
-        @Q4HJ720 = current_quarter_activations("HJ-720", current_quarter)
-        @Q4HJA312 = current_quarter_activations("HJA-312", current_quarter)
-        @Q4HJ322 = current_quarter_activations("HJ-322", current_quarter)
+        @Q4HJ720 = Pirate.current_quarter_activations("HJ-720", current_quarter)
+        @Q4HJA312 = Pirate.current_quarter_activations("HJA-312", current_quarter)
+        @Q4HJ322 = Pirate.current_quarter_activations("HJ-322", current_quarter)
       end
     else
       @Q1HJ720 = DeviceQuarter.where(device_model: "HJ-720").where(start_date: @q1_start).first.activations

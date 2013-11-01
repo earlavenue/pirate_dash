@@ -8,10 +8,6 @@ module PeopleHelper
     end
   end
 
-
-
-
-
   private
 
   def x_values(date)

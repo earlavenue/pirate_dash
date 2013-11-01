@@ -55,6 +55,7 @@ FactoryGirl.define do
     aerobic_steps 75
     distance 500.0
     calories 50
+    device_model "blah"
     sequence(:device_serial) { |n| "HJ#{n}" }
     is_device_input 0
     server_time Time.now
