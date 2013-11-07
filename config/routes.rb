@@ -2,6 +2,8 @@ PirateMetricsDashboard::Application.routes.draw do
 
   get '/people/export_to_csv' => 'people#export_to_csv', as: 'export'
 
+  get '/activity_data' => 'uploads#api', as: 'api'
+
   root to: 'people#index'
 
   resources :organizations
@@ -18,3 +20,4 @@ PirateMetricsDashboard::Application.routes.draw do
   get '/pirates/retention' => 'pirates#retention', as: 'retention'
   get '/pirates/users_lost' => 'pirates#users_lost', as: 'users_lost'
 end
+

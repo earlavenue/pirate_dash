@@ -94,66 +94,66 @@ ActiveRecord::Schema.define(version: 20131024161322) do
   add_index "of_links", ["link_visible"], name: "link_visible", using: :btree
 
   create_table "of_of_badge_lib", id: false, force: true do |t|
-    t.integer  "id",                 limit: 8, null: false
-    t.text     "badge_name"
-    t.text     "criteria"
-    t.text     "image_loc"
-    t.datetime "date_create",                  null: false
-    t.text     "badge_headline"
-    t.text     "badge_subhead"
-    t.text     "badge_facebook_txt"
-    t.text     "badge_twitter_txt"
-    t.text     "fb_image_loc"
+    t.integer   "id",                 limit: 8, null: false
+    t.text      "badge_name"
+    t.text      "criteria"
+    t.text      "image_loc"
+    t.timestamp "date_create",                  null: false
+    t.text      "badge_headline"
+    t.text      "badge_subhead"
+    t.text      "badge_facebook_txt"
+    t.text      "badge_twitter_txt"
+    t.text      "fb_image_loc"
   end
 
   add_index "of_of_badge_lib", ["id"], name: "id", unique: true, using: :btree
 
   create_table "of_of_goal_lib", id: false, force: true do |t|
-    t.integer  "id",           limit: 8, null: false
-    t.text     "goal_name"
-    t.text     "goal_type"
-    t.text     "units"
-    t.float    "default_goal"
-    t.integer  "timeframe"
-    t.datetime "date_create",            null: false
-    t.text     "metric_units"
+    t.integer   "id",           limit: 8, null: false
+    t.text      "goal_name"
+    t.text      "goal_type"
+    t.text      "units"
+    t.float     "default_goal"
+    t.integer   "timeframe"
+    t.timestamp "date_create",            null: false
+    t.text      "metric_units"
   end
 
   add_index "of_of_goal_lib", ["id"], name: "id", unique: true, using: :btree
 
   create_table "of_of_measurements", id: false, force: true do |t|
-    t.integer  "id",                    limit: 8,                null: false
-    t.integer  "user_id",               limit: 8,                null: false
-    t.datetime "date",                                           null: false
-    t.integer  "total_steps",                                    null: false
-    t.integer  "aerobic_steps",                      default: 0, null: false
-    t.integer  "aerobic_walking_time"
-    t.integer  "calories"
-    t.float    "distance"
-    t.float    "fat_burned"
-    t.text     "hourly_steps"
-    t.text     "hourly_aerobic_steps"
-    t.text     "hourly_equip"
-    t.text     "hourly_event"
-    t.integer  "is_device_input",       limit: 1,                null: false
-    t.integer  "day_serial"
-    t.datetime "server_time",                                    null: false
-    t.text     "device_serial"
-    t.float    "weight"
-    t.string   "clientversion",         limit: 10
-    t.string   "platform",              limit: 10
-    t.integer  "hrm_duration"
-    t.integer  "hrm_max_hr"
-    t.integer  "hrm_avg_hr"
-    t.string   "hrm_status",            limit: 512
-    t.string   "hrm_distance_readings", limit: 512
-    t.string   "hrm_hr_readings",       limit: 1024
-    t.float    "walkMass"
-    t.float    "aerobicMass"
-    t.integer  "aerobicCalories"
-    t.integer  "basalMetabolism"
-    t.integer  "walkCalories"
-    t.string   "device_model"
+    t.integer   "id",                    limit: 8,                null: false
+    t.integer   "user_id",               limit: 8,                null: false
+    t.datetime  "date",                                           null: false
+    t.integer   "total_steps",                                    null: false
+    t.integer   "aerobic_steps",                      default: 0, null: false
+    t.integer   "aerobic_walking_time"
+    t.integer   "calories"
+    t.float     "distance"
+    t.float     "fat_burned"
+    t.text      "hourly_steps"
+    t.text      "hourly_aerobic_steps"
+    t.text      "hourly_equip"
+    t.text      "hourly_event"
+    t.integer   "is_device_input",       limit: 1,                null: false
+    t.integer   "day_serial"
+    t.timestamp "server_time",                                    null: false
+    t.text      "device_serial"
+    t.float     "weight"
+    t.string    "clientversion",         limit: 10
+    t.string    "platform",              limit: 10
+    t.integer   "hrm_duration"
+    t.integer   "hrm_max_hr"
+    t.integer   "hrm_avg_hr"
+    t.string    "hrm_status",            limit: 512
+    t.string    "hrm_distance_readings", limit: 512
+    t.string    "hrm_hr_readings",       limit: 1024
+    t.float     "walkMass"
+    t.float     "aerobicMass"
+    t.integer   "aerobicCalories"
+    t.integer   "basalMetabolism"
+    t.integer   "walkCalories"
+    t.string    "device_model"
   end
 
   add_index "of_of_measurements", ["date", "device_serial", "user_id"], name: "unique_measure", unique: true, length: {"date"=>nil, "device_serial"=>20, "user_id"=>nil}, using: :btree
@@ -161,48 +161,48 @@ ActiveRecord::Schema.define(version: 20131024161322) do
   add_index "of_of_measurements", ["user_id"], name: "user_id", using: :btree
 
   create_table "of_of_oauth_consumer", force: true do |t|
-    t.string   "consumer_key",    limit: 100, null: false
-    t.string   "consumer_secret", limit: 100, null: false
-    t.string   "url",             limit: 200, null: false
-    t.datetime "created_on",                  null: false
-    t.string   "company",         limit: 100, null: false
+    t.string    "consumer_key",    limit: 100, null: false
+    t.string    "consumer_secret", limit: 100, null: false
+    t.string    "url",             limit: 200, null: false
+    t.timestamp "created_on",                  null: false
+    t.string    "company",         limit: 100, null: false
   end
 
   create_table "of_of_oauth_request", force: true do |t|
-    t.integer  "user_id",        limit: 3
-    t.string   "request_key",    limit: 100, null: false
-    t.string   "request_secret", limit: 100, null: false
-    t.datetime "created_on",                 null: false
+    t.integer   "user_id",        limit: 3
+    t.string    "request_key",    limit: 100, null: false
+    t.string    "request_secret", limit: 100, null: false
+    t.timestamp "created_on",                 null: false
   end
 
   add_index "of_of_oauth_request", ["request_key"], name: "request_key", using: :btree
 
   create_table "of_of_oauth_user", force: true do |t|
-    t.integer  "user_id",                   null: false
-    t.string   "access_key",    limit: 100, null: false
-    t.string   "access_secret", limit: 100, null: false
-    t.string   "partner_id",    limit: 100, null: false
-    t.datetime "created_on",                null: false
+    t.integer   "user_id",                   null: false
+    t.string    "access_key",    limit: 100, null: false
+    t.string    "access_secret", limit: 100, null: false
+    t.string    "partner_id",    limit: 100, null: false
+    t.timestamp "created_on",                null: false
   end
 
   create_table "of_of_product_reg", force: true do |t|
-    t.string   "first_name",    limit: 50
-    t.string   "last_name",     limit: 50
-    t.string   "email",         limit: 100
-    t.string   "address1",      limit: 100
-    t.string   "address2",      limit: 50
-    t.string   "country",       limit: 15
-    t.string   "state",         limit: 15
-    t.string   "city",          limit: 15
-    t.string   "zip",           limit: 15
-    t.string   "prod_category", limit: 15,  null: false
-    t.string   "model_num",     limit: 15,  null: false
-    t.string   "serial_num",    limit: 15,  null: false
-    t.string   "date",          limit: 15,  null: false
-    t.string   "price",         limit: 15,  null: false
-    t.string   "location",      limit: 15,  null: false
-    t.string   "client_type",   limit: 50,  null: false
-    t.datetime "register_time",             null: false
+    t.string    "first_name",    limit: 50
+    t.string    "last_name",     limit: 50
+    t.string    "email",         limit: 100
+    t.string    "address1",      limit: 100
+    t.string    "address2",      limit: 50
+    t.string    "country",       limit: 15
+    t.string    "state",         limit: 15
+    t.string    "city",          limit: 15
+    t.string    "zip",           limit: 15
+    t.string    "prod_category", limit: 15,  null: false
+    t.string    "model_num",     limit: 15,  null: false
+    t.string    "serial_num",    limit: 15,  null: false
+    t.string    "date",          limit: 15,  null: false
+    t.string    "price",         limit: 15,  null: false
+    t.string    "location",      limit: 15,  null: false
+    t.string    "client_type",   limit: 50,  null: false
+    t.timestamp "register_time",             null: false
   end
 
   create_table "of_of_sharing", id: false, force: true do |t|
@@ -220,24 +220,24 @@ ActiveRecord::Schema.define(version: 20131024161322) do
   add_index "of_of_sharing", ["id"], name: "id", unique: true, using: :btree
 
   create_table "of_of_user_badges", id: false, force: true do |t|
-    t.integer  "id",           limit: 8, null: false
-    t.integer  "badge_id",     limit: 8, null: false
-    t.integer  "user_id",      limit: 8, null: false
-    t.datetime "date_awarded",           null: false
+    t.integer   "id",           limit: 8, null: false
+    t.integer   "badge_id",     limit: 8, null: false
+    t.integer   "user_id",      limit: 8, null: false
+    t.timestamp "date_awarded",           null: false
   end
 
   add_index "of_of_user_badges", ["id"], name: "id", unique: true, using: :btree
   add_index "of_of_user_badges", ["user_id"], name: "user_id", using: :btree
 
   create_table "of_of_user_goals", id: false, force: true do |t|
-    t.integer  "id",              limit: 8,               null: false
-    t.integer  "user_id",         limit: 8,               null: false
-    t.integer  "goal_id",         limit: 8,               null: false
-    t.text     "goal_type"
-    t.float    "value",                     default: 0.0
-    t.float    "progress",                  default: 0.0
-    t.integer  "timeframe"
-    t.datetime "date_start_goal",                         null: false
+    t.integer   "id",              limit: 8,               null: false
+    t.integer   "user_id",         limit: 8,               null: false
+    t.integer   "goal_id",         limit: 8,               null: false
+    t.text      "goal_type"
+    t.float     "value",                     default: 0.0
+    t.float     "progress",                  default: 0.0
+    t.integer   "timeframe"
+    t.timestamp "date_start_goal",                         null: false
   end
 
   add_index "of_of_user_goals", ["id"], name: "id", unique: true, using: :btree
@@ -245,46 +245,46 @@ ActiveRecord::Schema.define(version: 20131024161322) do
   add_index "of_of_user_goals", ["user_id"], name: "user_id", using: :btree
 
   create_table "of_of_users", id: false, force: true do |t|
-    t.integer  "user_id",                limit: 8,                      null: false
-    t.text     "first_name",             limit: 255,                    null: false
-    t.text     "last_name",              limit: 255,                    null: false
-    t.text     "email",                  limit: 255,                    null: false
-    t.text     "password",               limit: 255,                    null: false
-    t.datetime "birthdate"
-    t.text     "gender",                 limit: 255
-    t.text     "country",                limit: 255
-    t.text     "address1",               limit: 255
-    t.text     "address2",               limit: 255
-    t.text     "city",                   limit: 255
-    t.text     "state",                  limit: 255
-    t.text     "zip",                    limit: 255
-    t.text     "phone",                  limit: 255
-    t.text     "timezone",               limit: 255
-    t.binary   "profile_pic",            limit: 2147483647
-    t.string   "ext",                    limit: 5
-    t.integer  "email_comm",                                default: 1
-    t.integer  "display_weight",                            default: 1
-    t.integer  "private_profile",                           default: 0
-    t.integer  "imperial_units",                            default: 1
-    t.text     "twitter_token"
-    t.text     "twitter_verifier"
-    t.integer  "twitter_user_id",        limit: 8
-    t.integer  "facebook_user_id",       limit: 8
-    t.integer  "best_step_day",                             default: 0
-    t.datetime "best_step_day_date"
-    t.integer  "best_calories_day",                         default: 0
-    t.datetime "best_calories_day_date"
-    t.float    "best_distance_day"
-    t.datetime "best_distance_day_date"
-    t.datetime "date_created",                                          null: false
-    t.integer  "new_user",                                  default: 1
-    t.datetime "last_visit_time"
-    t.string   "pw_reset",               limit: 12,                     null: false
-    t.datetime "last_upload",                                           null: false
-    t.string   "runkeeper_token",        limit: 32
-    t.integer  "beta",                   limit: 1,          default: 0, null: false
-    t.string   "hv_record_id",           limit: 40
-    t.string   "hv_person_id",           limit: 40
+    t.integer   "user_id",                limit: 8,                      null: false
+    t.text      "first_name",             limit: 255,                    null: false
+    t.text      "last_name",              limit: 255,                    null: false
+    t.text      "email",                  limit: 255,                    null: false
+    t.text      "password",               limit: 255,                    null: false
+    t.datetime  "birthdate"
+    t.text      "gender",                 limit: 255
+    t.text      "country",                limit: 255
+    t.text      "address1",               limit: 255
+    t.text      "address2",               limit: 255
+    t.text      "city",                   limit: 255
+    t.text      "state",                  limit: 255
+    t.text      "zip",                    limit: 255
+    t.text      "phone",                  limit: 255
+    t.text      "timezone",               limit: 255
+    t.binary    "profile_pic",            limit: 2147483647
+    t.string    "ext",                    limit: 5
+    t.integer   "email_comm",                                default: 1
+    t.integer   "display_weight",                            default: 1
+    t.integer   "private_profile",                           default: 0
+    t.integer   "imperial_units",                            default: 1
+    t.text      "twitter_token"
+    t.text      "twitter_verifier"
+    t.integer   "twitter_user_id",        limit: 8
+    t.integer   "facebook_user_id",       limit: 8
+    t.integer   "best_step_day",                             default: 0
+    t.datetime  "best_step_day_date"
+    t.integer   "best_calories_day",                         default: 0
+    t.datetime  "best_calories_day_date"
+    t.float     "best_distance_day"
+    t.datetime  "best_distance_day_date"
+    t.timestamp "date_created",                                          null: false
+    t.integer   "new_user",                                  default: 1
+    t.datetime  "last_visit_time"
+    t.string    "pw_reset",               limit: 12,                     null: false
+    t.datetime  "last_upload",                                           null: false
+    t.string    "runkeeper_token",        limit: 32
+    t.integer   "beta",                   limit: 1,          default: 0, null: false
+    t.string    "hv_record_id",           limit: 40
+    t.string    "hv_person_id",           limit: 40
   end
 
   add_index "of_of_users", ["facebook_user_id"], name: "facebook_user_id", unique: true, using: :btree
@@ -292,31 +292,31 @@ ActiveRecord::Schema.define(version: 20131024161322) do
   add_index "of_of_users", ["user_id"], name: "id", unique: true, using: :btree
 
   create_table "of_of_weekly_measurements", force: true do |t|
-    t.datetime "start_date",                     null: false
-    t.integer  "additional_calories",            null: false
-    t.datetime "server_time",                    null: false
-    t.integer  "user_id",                        null: false
-    t.integer  "weekly_target",                  null: false
-    t.string   "device_serial",       limit: 40
+    t.datetime  "start_date",                     null: false
+    t.integer   "additional_calories",            null: false
+    t.timestamp "server_time",                    null: false
+    t.integer   "user_id",                        null: false
+    t.integer   "weekly_target",                  null: false
+    t.string    "device_serial",       limit: 40
   end
 
   create_table "of_of_workout", force: true do |t|
-    t.integer  "user_id",                   null: false
-    t.datetime "server_time",               null: false
-    t.string   "device_serial", limit: 50,  null: false
-    t.integer  "walkStep",                  null: false
-    t.integer  "calories",                  null: false
-    t.float    "fatBurned",                 null: false
-    t.integer  "walkTime",                  null: false
-    t.datetime "endDate",                   null: false
-    t.datetime "startDate",                 null: false
-    t.float    "totalDistance",             null: false
-    t.float    "averageSpeed",              null: false
-    t.float    "averagePace",               null: false
-    t.integer  "jogTime",                   null: false
-    t.integer  "jogStep",                   null: false
-    t.string   "distance",      limit: 100, null: false
-    t.string   "status",        limit: 100, null: false
+    t.integer   "user_id",                   null: false
+    t.timestamp "server_time",               null: false
+    t.string    "device_serial", limit: 50,  null: false
+    t.integer   "walkStep",                  null: false
+    t.integer   "calories",                  null: false
+    t.float     "fatBurned",                 null: false
+    t.integer   "walkTime",                  null: false
+    t.datetime  "endDate",                   null: false
+    t.datetime  "startDate",                 null: false
+    t.float     "totalDistance",             null: false
+    t.float     "averageSpeed",              null: false
+    t.float     "averagePace",               null: false
+    t.integer   "jogTime",                   null: false
+    t.integer   "jogStep",                   null: false
+    t.string    "distance",      limit: 100, null: false
+    t.string    "status",        limit: 100, null: false
   end
 
   create_table "of_options", primary_key: "option_id", force: true do |t|
