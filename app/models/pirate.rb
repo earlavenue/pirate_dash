@@ -25,7 +25,16 @@ class Pirate < ActiveRecord::Base
       end
       date1 = date - 1.month
       date2 = date
-      y_value = Upload.find_by_sql(["select count(*) as total from (select user_id, min(date) as first_upload from of_of_measurements group by user_id having first_upload between ? AND ?) as count", date1, date2]).first.total
+      query = <<-END
+        select count(*) as total from (
+          select user_id, min(date) as first_upload
+          from of_of_measurements
+          group by user_id
+          having first_upload >= ? and first_upload < ?
+        ) as count
+      END
+
+      y_value = Upload.find_by_sql([query, date1, date2]).first.total
      # y_value = Upload.select("user_id, min(date) as 'first_upload'").group("user_id").having("'first_upload' between ? AND ?", date - 1.month, date).count
       [month, y_value]
     end
