@@ -20,7 +20,7 @@ class PeopleController < ApplicationController
           else
             input_method = "Manually Uploaded"
           end
-          csv << ["#{person.first_name} #{person.last_name}",  upload.date.strftime("%b %d, %Y"),upload.total_steps,upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
+          csv << ["#{person.first_name} #{person.last_name}", upload.date.try(:strftime, "%b %d, %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
        end
       end
     end
