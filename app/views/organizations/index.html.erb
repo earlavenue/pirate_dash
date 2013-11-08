@@ -9,6 +9,7 @@
     <th>City</th>
     <th>State</th>
     <th>Zip</th>
+    <th>Number of Users</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,6 +22,7 @@
     <td><%= organization.city %></td>
     <td><%= organization.state %></td>
     <td><%= organization.zip %></td>
+    <td><%= organization.people.count %></td>
     <td><%= link_to "New Client", new_client_url(org: organization.id)%></td>
     <td><%= link_to 'Edit', edit_organization_path(organization) %> </td>
     <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
