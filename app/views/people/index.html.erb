@@ -12,7 +12,7 @@
 <p><%= notice %></p>
 <br>
 <% if admin && @organization_id %>
-  <p><%= link_to "Export #{Organization.where(:id => @organization_id).first.name}'s Users' Data to CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+  <p><%= link_to "Export #{Organization.where(:id => @organization_id).first.name}'s Users' Data to CSV", {:controller => "people", :action => "export_to_csv", organization_id: @organization_id}, class: "btn btn-info"  %></p>
 <% elsif admin %>
  <p><%= link_to "Export All Users' Data to CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
 <% else %>
