@@ -25,27 +25,27 @@
     <th>Q4</th>
   </tr>
 
-<tr>
-  <td>HJ-720</td>
-  <td><%= @Q1HJ720 %></td>
-  <td><%= @Q2HJ720 %></td>
-  <td><%= @Q3HJ720  %></td>
-  <td><%= @Q4HJ720 %></td>
-</tr>
-<tr>
-  <td>HJA-312</td>
-  <td><%= @Q1HJA312 %></td>
-  <td><%= @Q2HJA312 %></td>
-  <td><%= @Q3HJA312  %></td>
-  <td><%= @Q4HJA312 %></td>
-</tr>
-<tr>
-  <td>HJ-320s</td>
-  <td><%= @Q1HJ322 %></td>
-  <td><%= @Q2HJ322 %></td>
-  <td><%= @Q3HJ322  %></td>
-  <td><%= @Q4HJ322 %></td>
-</tr>
+  <tr>
+    <td>HJ-720</td>
+    <td><%= @device_hash["HJ-720_#{@year}-01-01"] %></td>
+    <td><%= @device_hash["HJ-720_#{@year}-04-01"] %></td>
+    <td><%= @device_hash["HJ-720_#{@year}-07-01"] %></td>
+    <td><%= @device_hash["HJ-720_#{@year}-10-01"] %></td>
+  </tr>
+  <tr>
+    <td>HJA-312</td>
+    <td><%= @device_hash["HJA-312_#{@year}-01-01"] %></td>
+    <td><%= @device_hash["HJA-312_#{@year}-04-01"] %></td>
+    <td><%= @device_hash["HJA-312_#{@year}-07-01"] %></td>
+    <td><%= @device_hash["HJA-312_#{@year}-10-01"] %></td>
+  </tr>
+  <tr>
+    <td>HJ-320s</td>
+    <td><%= @device_hash["HJ-322_#{@year}-01-01"] %></td>
+    <td><%= @device_hash["HJ-322_#{@year}-04-01"] %></td>
+    <td><%= @device_hash["HJ-322_#{@year}-07-01"] %></td>
+    <td><%= @device_hash["HJ-322_#{@year}-10-01"] %></td>
+  </tr>
 </table>
 
 
