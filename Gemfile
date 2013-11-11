@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'kaminari'
 gem 'mysql2'
 gem 'rails', '4.0.0'
+gem 'dalli'
 
 gem 'whenever', :require => false
 

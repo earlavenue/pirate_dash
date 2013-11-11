@@ -11,23 +11,23 @@ class PeopleController < ApplicationController
       people = Person.from_organization(current_client.organization.id)
     end
 
-    # query = <<-END
-    #   select person.first_name, person.last_name, upload.date, upload.total_steps, upload.aerobic_steps, upload.calories, upload.distance, upload.device_serial, upload.is_device_input
+    query = <<-END
+      select person.first_name, person.last_name, upload.date, upload.total_steps, upload.aerobic_steps, upload.calories, upload.distance, upload.device_serial, upload.is_device_input
 
-    #   from of_of_measurements as upload
+      from of_of_measurements as upload
 
-    #   inner join of_of_users as person
-    #   on upload.user_id = person.user_id
+      inner join of_of_users as person
+      on upload.user_id = person.user_id
 
-    #   inner join memberships
-    #   on person.user_id = memberships.person_id
+      inner join memberships
+      on person.user_id = memberships.person_id
 
-    #   inner join organizations
-    #   on memberships.organization_id = organizations.id
+      inner join organizations
+      on memberships.organization_id = organizations.id
 
-    #   where memberships.organization_id = ?
+      where memberships.organization_id = ?
 
-    # END
+    END
 
     csv_string = CSV.generate do |csv|
       csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Device Serial", "Input Method"]
