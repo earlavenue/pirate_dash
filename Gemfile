@@ -4,6 +4,7 @@ gem 'kaminari'
 gem 'mysql2'
 gem 'rails', '4.0.0'
 gem 'dalli'
+gem 'memcachier'
 
 gem 'whenever', :require => false
 
