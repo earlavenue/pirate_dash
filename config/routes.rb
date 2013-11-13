@@ -7,7 +7,13 @@ PirateMetricsDashboard::Application.routes.draw do
   root to: 'people#index'
 
   resources :organizations
+
   resources :clients
+  get '/clients/:id/edit_profile' => 'clients#edit_profile', as: 'edit_profile'
+  get '/clients/:id/edit_password' => 'clients#edit_password', as: 'edit_password'
+  patch 'clients/:id/edit_profile' => 'clients#update_profile', as: 'update_profile'
+  patch 'clients/:id/edit_password' => 'clients#update_password', as: 'update_password'
+
   resources :people,:only => [:index, :show]
 
 

@@ -63,6 +63,7 @@
                 <% unless current_client.organization.name == "Omron Business" || admin   %>
                   <li><%= link_to "#{current_client.organization.name} Members", people_url %></li>
                   <% end %>
+                  <li><%= link_to "Profile", client_path(current_client) %></li>
                   <li><%= link_to "Sign out", sessions_url, method: :delete %></li>
                 <% else %>
                     <li><%= link_to "Sign in", new_session_url %></li>
