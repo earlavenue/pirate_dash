@@ -16,8 +16,8 @@ feature 'Create Client' do
       fill_in 'First name', with: 'new'
       fill_in 'Last name', with: 'user'
       fill_in 'Email', with: 'newuser@example.com'
-      fill_in 'client_password', with: 'secret123'
-      fill_in 'client_password_confirmation', with: 'secret123'
+      fill_in 'client_password', with: 'Secret123*'
+      fill_in 'client_password_confirmation', with: 'Secret123*'
       click_button 'Create Client'
     }.to change(Client, :count).by(1)
    # HOW TO DO THIS? expect(current_path).to eq client_path(NEW USER I JUST CREATED)

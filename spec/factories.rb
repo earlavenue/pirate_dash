@@ -2,8 +2,8 @@ FactoryGirl.define do
   factory :client do
     first_name "Fool"
     last_name "Barbarian"
-    password "foobar"
-    password_confirmation "foobar"
+    password "Foobar7*"
+    password_confirmation "Foobar7*"
     sequence(:email) { |n| "#{first_name}#{n}@example.com" }
     organization
 

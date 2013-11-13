@@ -3,11 +3,11 @@ require 'spec_helper'
 describe Client do
   context "that exists" do
     before :each do
-      @client = create(:client, first_name: "batman", password: "gotham", password_confirmation: "gotham")
+      @client = create(:client, first_name: "batman", password: "Gotham8*", password_confirmation: "Gotham8*")
     end
 
     it "authenticates with matching clientname and password" do
-      expect(@client.authenticate("gotham")).to be_valid
+      expect(@client.authenticate("Gotham8*")).to be_valid
     end
 
     it "does not authenticate with incorrect password" do

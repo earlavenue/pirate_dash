@@ -63,8 +63,8 @@ describe ClientsController do
 
   context 'regular client' do
     before :each do
-      client = create(:client)
-      session[:client_id] = client.id
+      @client2 = create(:client)
+      session[:client_id] = @client2.id
     end
 
     describe 'GET #index' do
@@ -75,47 +75,56 @@ describe ClientsController do
     end
 
     describe 'GET #show' do
-      it "requires omron" do
+      it "allows a client to view their show page." do
+        get :show, id: @client2
+        expect(assigns(:client)).to eq(@client2)
+      end
+      it "renders the :show template" do
+        get :show, id: @client2
+        expect(response).to render_template :show
+      end
+
+      it "doesn't allow a client to view another client's page" do
         get :show, id: @client
-        expect(response).to redirect_to people_url
+        expect(response).to redirect_to client_url(@client2)
       end
     end
 
-    describe 'GET #new' do
-      it "requires omron" do
-        get :new
-        expect(response).to redirect_to people_url
+      describe 'GET #new' do
+        it "requires omron" do
+          get :new
+          expect(response).to redirect_to people_url
+        end
       end
-    end
 
-    describe 'GET #edit' do
-      it "requires omron" do
-        get :edit, id: @client
-        expect(response).to redirect_to people_url
+      describe 'GET #edit' do
+        it "requires omron" do
+          get :edit, id: @client
+          expect(response).to redirect_to people_url
+        end
       end
-    end
 
-    describe 'POST #create' do
-      it "requires omron" do
-        post :create
-        expect(response).to redirect_to people_url
+      describe 'POST #create' do
+        it "requires omron" do
+          post :create
+          expect(response).to redirect_to people_url
+        end
       end
-    end
 
-    describe 'PUT #update' do
-      it "requires omron" do
-        put :update, id: @client
-        expect(response).to redirect_to people_url
+      describe 'PUT #update' do
+        it "requires omron" do
+          put :update, id: @client
+          expect(response).to redirect_to people_url
+        end
       end
-    end
 
-    describe 'DELETE #destroy' do
-      it "requires omron" do
-        delete :destroy, id: @client
-        expect(response).to redirect_to people_url
+      describe 'DELETE #destroy' do
+        it "requires omron" do
+          delete :destroy, id: @client
+          expect(response).to redirect_to people_url
+        end
       end
     end
-  end
 
 
   context 'omron client' do
