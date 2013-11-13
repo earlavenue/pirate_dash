@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   before_action :require_signin
   before_action :require_omron, :except => [:show, :edit_profile, :edit_password, :update_profile, :update_password]
+  before_action :authenticate_client, :only => [:show, :edit_profile, :edit_password, :update_profile, :update_password]
 
   def index
     @clients = Client.includes(:organization).order("organizations.name")
@@ -74,6 +75,13 @@ class ClientsController < ApplicationController
   end
 
   private
+
+  def authenticate_client
+
+    if current_client != Client.find(params[:id]) && current_client.organization != Organization.find_by_name("Omron Fitness")
+      redirect_to client_path(current_client), notice: "You are not authorized to view this page."
+    end
+  end
 
   def edit_profile_params
     params.require(:client).permit(:first_name, :last_name, :email)
