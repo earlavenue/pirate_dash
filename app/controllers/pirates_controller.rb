@@ -10,8 +10,8 @@
     else
       @year = Time.now.year
     end
-    @discrete_month_activations = Pirate.discrete_month_activations(@year)
-    @aggregate_month_activations = Pirate.aggregate_month_activations(@discrete_month_activations, @year)
+    @discrete_month_activations = Upload.discrete_month_activations(@year)
+    @aggregate_month_activations = Upload.aggregate_month_activations(@discrete_month_activations, @year)
     @y_values_as_json = @aggregate_month_activations.to_json
   end
 
@@ -29,9 +29,9 @@
     date = "#{@year}-01-01".to_date
     4.times do |i|
       if current_quarter == date
-        @device_hash["HJ-720_#{date}"] = Pirate.current_quarter_activations("HJ-720", current_quarter)
-        @device_hash["HJ-322_#{date}"] = Pirate.current_quarter_activations("HJ-322", current_quarter)
-        @device_hash["HJA-312_#{date}"] = Pirate.current_quarter_activations("HJA-312", current_quarter)
+        @device_hash["HJ-720_#{date}"] = Upload.current_quarter_activations("HJ-720", current_quarter)
+        @device_hash["HJ-322_#{date}"] = Upload.current_quarter_activations("HJ-322", current_quarter)
+        @device_hash["HJA-312_#{date}"] = Upload.current_quarter_activations("HJA-312", current_quarter)
       elsif current_quarter < date
         @device_hash["HJ-720_#{date}"] = "-"
         @device_hash["HJ-322_#{date}"] = "-"
