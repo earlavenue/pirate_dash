@@ -50,6 +50,7 @@ describe Upload do
       end
     end
   end
+
   context "Pirate Upload Work" do
     before :each do
       @jc = create(:person, first_name: "Jeff", last_name: "Cohen")

@@ -5,7 +5,7 @@ describe ClientsController do
   render_views
 
   before :each do
-    @client = create(:client, organization: create(:organization, name: "Zebratown"))
+    @client = create(:client, password: "Corre6t", password_confirmation: "Corre6t", organization: create(:organization, name: "Zebratown"))
   end
 
   context 'guest visitor' do
@@ -90,41 +90,87 @@ describe ClientsController do
       end
     end
 
-      describe 'GET #new' do
-        it "requires omron" do
-          get :new
-          expect(response).to redirect_to people_url
-        end
-      end
-
-      describe 'GET #edit' do
-        it "requires omron" do
-          get :edit, id: @client
-          expect(response).to redirect_to people_url
-        end
-      end
-
-      describe 'POST #create' do
-        it "requires omron" do
-          post :create
-          expect(response).to redirect_to people_url
-        end
-      end
-
-      describe 'PUT #update' do
-        it "requires omron" do
-          put :update, id: @client
-          expect(response).to redirect_to people_url
-        end
-      end
-
-      describe 'DELETE #destroy' do
-        it "requires omron" do
-          delete :destroy, id: @client
-          expect(response).to redirect_to people_url
-        end
+    describe 'GET #new' do
+      it "requires omron" do
+        get :new
+        expect(response).to redirect_to people_url
       end
     end
+
+    describe 'GET #edit' do
+      it "requires omron" do
+        get :edit, id: @client
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'POST #create' do
+      it "requires omron" do
+        post :create
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'PUT #update' do
+      it "requires omron" do
+        put :update, id: @client
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'DELETE #destroy' do
+      it "requires omron" do
+        delete :destroy, id: @client
+        expect(response).to redirect_to people_url
+      end
+    end
+
+    describe 'GET #edit_profile' do
+      it "allows the current client to see their edit page" do
+        get :edit_profile, id: @client2
+        expect(response).to render_template :edit_profile
+      end
+      it "doesn't allows the another client to see current client's edit page" do
+         get :edit_profile, id: @client
+         expect(response).to redirect_to client_url(@client2)
+      end
+    end
+
+    describe 'GET #edit_password' do
+      it "allows the current client to see their edit password page" do
+        get :edit_password, id: @client2
+        expect(response).to render_template :edit_password
+      end
+      it "doesn't allows the another client to see current client's edit password page" do
+         get :edit_password, id: @client
+         expect(response).to redirect_to client_url(@client2)
+      end
+    end
+
+    describe 'PUT #update_password' do
+        it "identifies the correct client" do
+          put :update_password, id: @client2, client: attributes_for(:client, password: "New7888", password_confirmation: "New7888")
+          expect(assigns(:client)).to eq(@client2)
+        end
+
+
+####Problems with the put request tests
+
+        it "updates the client's password with correct current password" do
+          put :update_password, id: @client2, current_password: "Foobar7*", client: attributes_for(:client, password: "New7888", password_confirmation: "New7888")
+          @client2.reload
+          expect(@client2.password).to eq("New7888")
+        end
+
+        it "doesn't update the client's attributes with incorrect current password" do
+          put :update_password, id: @client, client: attributes_for(:client, current_password: "WRONGO")
+          @client.reload
+          expect(@client.password).to eq("Corre6t")
+        end
+      end
+
+
+  end
 
 
   context 'omron client' do

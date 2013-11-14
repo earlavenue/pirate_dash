@@ -42,6 +42,13 @@ FactoryGirl.define do
     pw_reset ""
   end
 
+  factory :person_quarter do
+    sequence(:person_id) { |n| n }
+    start_date "2013-01-01".to_date
+    active false
+    previous_quarter false
+  end
+
   factory :membership do
     person_id 54321
     organization_id 98765

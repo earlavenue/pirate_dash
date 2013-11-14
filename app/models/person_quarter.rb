@@ -10,15 +10,10 @@ class PersonQuarter < ActiveRecord::Base
     q.save
   end
 
-  def self.active_users(date)
-    PersonQuarter.where(start_date: date).where(active: true)
-  end
+  scope  :active_users, ->(date) { where(start_date: date).where(active: true) }
 
-  def self.users_gained(start_date)
-    PersonQuarter.where(:start_date => start_date).where(:active => true).where(:previous_quarter => false)
-  end
+  scope :users_gained, ->(start_date) { where(:start_date => start_date).where(:active => true).where(:previous_quarter => false) }
 
-  def self.users_lost(start_date)
-    PersonQuarter.where(:start_date => start_date).where(:active => false).where(:previous_quarter => true)
-  end
+  scope :users_lost, ->(start_date) { where(:start_date => start_date).where(:active => false).where(:previous_quarter => true) }
+
 end
