@@ -40,5 +40,7 @@ PirateMetricsDashboard::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  # Forgot Password (In production.rb file we'll need to point this at our domain, i.e. config.action_mailer.default_url_options = { :host => 'cwdash.herokuapp.com' })
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
 end
