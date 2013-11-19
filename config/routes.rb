@@ -7,6 +7,7 @@ PirateMetricsDashboard::Application.routes.draw do
   root to: 'people#index'
 
   resources :organizations
+  resources :password_resets
 
   resources :clients
   get '/clients/:id/edit_profile' => 'clients#edit_profile', as: 'edit_profile'

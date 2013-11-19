@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024161322) do
+ActiveRecord::Schema.define(version: 20131119154922) do
 
   create_table "clients", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "organization_id"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "clients", ["organization_id"], name: "client_org_id_ix", using: :btree
