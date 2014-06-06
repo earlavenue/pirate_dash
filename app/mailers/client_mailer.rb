@@ -1,5 +1,5 @@
 class ClientMailer < ActionMailer::Base
-  default from: "901banditos@gmail.com"
+  default from: "armontdevelopment@gmail.com"
 
   def password_reset(client)
     @client = client
