@@ -1,0 +1,28 @@
+random code
+
+#for people_controller
+      #organization.uploads.includes(:person).find_in_batches(make it do like 5 querries)
+      #organization related to uploads
+      # people_with_uploads = people.includes(:uploads)
+
+      # people_with_uploads.each do |p|
+      #   p.uploads.each do |u|
+      #     if u.is_device_input == 1
+      #       input_method = "Synced from Device"
+      #     else
+      #       input_method = "Manually Uploaded"
+      #     end
+          # csv << ["#{p.first_name} #{p.last_name}", u.date.try(:strftime, "%b %d, %Y"), u.total_steps, u.aerobic_steps, u.calories, ('%.2f' % u.distance), u.device_serial, input_method]
+      #   end
+      # end
+
+    if admin && params[:organization_id]
+      people = Person.from_organization(params[:organization_id])
+      uploads = Organization.find(params[:organization_id]).uploads
+    elsif admin
+      people = Person.all
+      uploads = Organization.all.uploads
+    else
+      people = Person.from_organization(current_client.organization.id)
+      uploads = Organization.find(params[:organization_id]).uploads.
+    end
