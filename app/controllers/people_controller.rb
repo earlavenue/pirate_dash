@@ -3,75 +3,44 @@ class PeopleController < ApplicationController
   before_action :protect_show, only: [:show]
 
   def export_to_csv
-    if admin && params[:organization_id]
-      people = Person.from_organization(params[:organization_id])
-    elsif admin
-      people = Person.all
-    else
-      people = Person.from_organization(current_client.organization.id)
-    end
-
-    query = <<-END
-      select person.first_name, person.last_name, upload.date, upload.total_steps, upload.aerobic_steps, upload.calories, upload.distance, upload.device_serial, upload.is_device_input
-
-      from of_of_measurements as upload
-
-      inner join of_of_users as person
-      on upload.user_id = person.user_id
-
-      inner join memberships
-      on person.user_id = memberships.person_id
-
-      inner join organizations
-      on memberships.organization_id = organizations.id
-
-      where memberships.organization_id = ?
-
-    END
-
     csv_string = CSV.generate do |csv|
       csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Device Serial", "Input Method"]
-      people_with_uploads = people.includes(:uploads)
-      people_with_uploads.each do |p|
-        p.uploads.each do |u|
-          if u.is_device_input == 1
-            input_method = "Synced from Device"
-          else
-            input_method = "Manually Uploaded"
+      unless admin
+        Organization.find(current_client.organization.id).uploads.includes(:person).find_in_batches(batch_size: 6000) do |group|
+          group.each do |upload|
+            if upload.is_device_input == 1
+              input_method = "Synced from Device"
+            else
+              input_method = "Manually Uploaded"
+            end
+            csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d, %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
           end
-          csv << ["#{p.first_name} #{p.last_name}", u.date.try(:strftime, "%b %d, %Y"), u.total_steps, u.aerobic_steps, u.calories, ('%.2f' % u.distance), u.device_serial, input_method]
+        end
+      end
+      if admin && params[:organization_id]
+        Organization.find(params[:organization_id]).uploads.includes(:person).find_in_batches(batch_size: 6000) do |group|
+          group.each do |upload|
+            if upload.is_device_input == 1
+              input_method = "Synced from Device"
+            else
+              input_method = "Manually Uploaded"
+            end
+            csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d, %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
+          end
+        end
+      elsif admin
+        Organization.all.uploads.includes(:person).find_in_batches(batch_size: 6000) do |group|
+          group.each do |upload|
+            if upload.is_device_input == 1
+              input_method = "Synced from Device"
+            else
+              input_method = "Manually Uploaded"
+            end
+            csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d, %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
+          end
         end
       end
     end
-
-    # result_set = Person.joins("uploads on uploads.user_id = person.user_id").joins("memberships on person.user_id = membership.person_id").joins("organizations on memberships.organization_id = organizations.id").select("people.first_name, people.last_name, uploads.date, uploads.total_steps, uploads.aerobic_steps, uploads.calories, uploads.distance, uploads.device_serial, uploads.is_device_input").where("memberships.organization_id = 7")
-
-    # result_set = Upload.includes(:person).where(organization_id: 7)
-
-    # result_set = Person.find_by_sql([query, 7])
-    # debugger
-
-    # csv_string = CSV.generate do |csv|
-    #   result_set.each do |row|
-    #     csv << row
-    #   end
-    # end
-
-
-    # csv_string = CSV.generate do |csv|
-    #   csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Device Serial", "Input Method"]
-    #   @export_people.each do |person|
-    #     person.uploads.each do |upload|
-    #       if upload.is_device_input == 1
-    #         input_method = "Synced from Device"
-    #       else
-    #         input_method = "Manually Uploaded"
-    #       end
-    #       csv << ["#{person.first_name} #{person.last_name}", upload.date.try(:strftime, "%b %d, %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
-    #    end
-    #   end
-    # end
-
 
     send_data csv_string,
       :type => 'text/csv; charset=iso-8859-1; header=present',

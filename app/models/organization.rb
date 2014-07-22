@@ -7,5 +7,6 @@ class Organization < ActiveRecord::Base
 
   has_many :memberships
   has_many :people, through: :memberships
+  has_many :uploads, through: :people
   has_many :clients
 end
