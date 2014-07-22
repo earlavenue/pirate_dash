@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
     csv_string = CSV.generate do |csv|
       csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Device Serial", "Input Method"]
       unless admin
-        Organization.find(current_client.organization.id).uploads.includes(:person).find_in_batches(batch_size: 6000) do |group|
+        Organization.find(current_client.organization.id).uploads.includes(:person).find_in_batches(batch_size: 8000) do |group|
           group.each do |upload|
             if upload.is_device_input == 1
               input_method = "Synced from Device"
@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
         end
       end
       if admin && params[:organization_id]
-        Organization.find(params[:organization_id]).uploads.includes(:person).find_in_batches(batch_size: 6000) do |group|
+        Organization.find(params[:organization_id]).uploads.includes(:person).find_in_batches(batch_size: 8000) do |group|
           group.each do |upload|
             if upload.is_device_input == 1
               input_method = "Synced from Device"
@@ -29,7 +29,7 @@ class PeopleController < ApplicationController
           end
         end
       elsif admin
-        Organization.all.uploads.includes(:person).find_in_batches(batch_size: 6000) do |group|
+        Organization.all.uploads.includes(:person).find_in_batches(batch_size: 8000) do |group|
           group.each do |upload|
             if upload.is_device_input == 1
               input_method = "Synced from Device"
