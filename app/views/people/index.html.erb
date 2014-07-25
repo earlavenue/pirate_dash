@@ -1,43 +1,77 @@
-<h1>People</h1>
+<h1>
+  <% if admin %>
+    <% if @organization_id %>
+      <%= Organization.where(id: @organization_id).first.name + "'s Users" %>
+    <% else %>
+      <%= "All Users" %>
+    <% end %>
+  <% else %>
+    <%= Organization.find_by_id(current_client.organization.id).name + "'s Users" %>
+  <% end %>
+</h1>
+<p><%= notice %></p>
 <br>
-<h4><%= link_to "Operations", operations_url %></h4>
-<br>
-
+<% if admin && @organization_id %>
+  <p><%= link_to "Export #{Organization.where(:id => @organization_id).first.name}'s Users' Data to CSV", {:controller => "people", :action => "export_to_csv", organization_id: @organization_id}, class: "btn btn-info"  %></p>
+<% elsif admin %>
+ <p><%= link_to "Export All Users' Data to CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+<% else %>
+<p><%= link_to "Export #{current_client.organization.name}'s Users' Data to CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+<% end %>
+<div class="search_input">
 <h4>Search</h4>
-  <p><%= form_tag people_path, :method => :get, class: "form-search" do %>
+  <p><%= form_tag people_path, :method => :get, class: "form-search", remote: true do %>
     Last name: <%= text_field_tag :search_last_name, params[:search_last_name], class: "search-query" %></p>
-    <h5>OR</h5>
-    <p>Device serial: <%= text_field_tag :search_serial, params[:search_serial], class: "search-query" %></p>
     <p><%= submit_tag "Search", :name => nil, class: "btn btn-primary" %></p>
   <% end %>
 <br>
+</div>
 
-<% if params[:search_last_name].present? %>
-  <h4>Search Results for Last Name = <%= params[:search_last_name].capitalize %></h4>
-  <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
-<% elsif params[:search_serial].present? %>
-  <h4>Search Results for Device serial number = <%= params[:search_serial] %></h4>
-  <%= button_to "Clear", people_path, :method => :get, class: "btn btn-primary" %>
-<% else %>
-  <h4>Recently active</h4>
-<% end %>
 
+<div class="clear_search"></div>
+
+
+<%= paginate @people %>
 <table class="table table-bordered table-striped">
   <tr>
+    <% if admin %>
+      <th>Organization</th>
+    <% end %>
     <th>Name</th>
-    <th>KM UserID</th>
-    <th>Omron UserID</th>
-    <th>Dev Serial</th>
-    <th># of events performed</th>
+    <th>Email</th>
+    <th>First Upload</th>
+    <th>Last Upload</th>
+    <th>Total Number of Days Uploaded</th>
   </tr>
 
 <% @people.each do |person| %>
-  <tr>
-    <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
-    <td><%= person.km_userid %></td>
-    <td><%= person.omron_userid %></td>
-    <td><%= person.dev_serial %></td>
-    <td><%= person.events.count %></td>
+  <tr class="person_row" id="person_<%= person.user_id %>">
+    <% if admin %>
+      <td><%= person.organization_name %></td>
+    <% end %>
+    <% if person.first_name == "" && person.last_name == "" %>
+      <td><%= link_to "No Name Provided", person %></td>
+    <% else %>
+      <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
+    <% end %>
+    <td><%= person.email %></td>
+    <% if person.uploads.length != 0 %>
+      <% if person.uploads.first.date == nil %>
+        <td>N/A</td>
+      <% else %>
+        <td><%= person.uploads.first.date.strftime("%b %d, %Y") %></td>
+      <% end %>
+      <% if person.uploads.last.date == nil %>
+        <td>N/A</td>
+      <% else %>
+        <td><%= person.uploads.last.date.strftime("%b %d, %Y") %></td>
+      <% end %>
+      <td><%= person.uploads.length %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @organization.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @organization.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @organization.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @organization.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @organization.zip %>
+</p>
+
+<%= link_to "Create client account", new_client_url %>
+<%= link_to 'Back', organizations_path %>

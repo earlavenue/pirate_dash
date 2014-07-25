@@ -1,14 +1,36 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def current_user
-    @current_user || User.find_by_id(session[:user_id])
+  helper_method :current_client
+
+  helper_method :admin
+
+  private
+
+  def current_client
+    @current_client ||= Client.find_by_id(session[:client_id])
   end
-  helper_method :current_user
+
+  def admin
+    @admin ||= true if current_client.organization.name == "Omron Fitness"
+  end
 
   def require_signin
-    if current_user.blank?
-      redirect_to new_session_url
+    if current_client.blank?
+      redirect_to new_session_url, notice: "You are not signed in"
     end
   end
+
+  def require_omron
+    if current_client.organization.name != "Omron Fitness"
+      redirect_to people_url, notice: "You are not authorized for that page."
+    end
+  end
+
+  def require_omron_business
+    unless current_client.organization.name == "Omron Business" || current_client.organization.name == "Omron Fitness"
+      redirect_to people_url, notice: "You are not authorized for that page."
+    end
+  end
+
 end

@@ -1,0 +1,36 @@
+<h1>All Organizations</h1>
+<p><%= notice %></p>
+<br>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Number of Users</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @organizations.each do |organization| %>
+  <tr>
+    <td><%= link_to organization.name, people_url(:omron_click => organization.id) %></td>
+    <td><%= organization.address %></td>
+    <td><%= organization.city %></td>
+    <td><%= organization.state %></td>
+    <td><%= organization.zip %></td>
+    <td><%= organization.people.count %></td>
+    <td><%= link_to "New Client", new_client_url(org: organization.id)%></td>
+    <td><%= link_to 'Edit', edit_organization_path(organization) %> </td>
+    <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Organization', new_organization_path %>
+

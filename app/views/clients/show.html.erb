@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<h2><%= "#{@client.first_name} #{@client.last_name}" %></h2>
+<p>
+  <b>Email:</b>
+  <%= @client.email %>
+</p>
+
+
+<%= link_to 'Edit Profile', edit_profile_path(@client) %> |
+<%= link_to 'Change Password', edit_password_path(@client) %>
+<br>
+<%= link_to 'Back', clients_path %>

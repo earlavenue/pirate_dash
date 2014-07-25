@@ -12,4 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery-ui-1.10.2.custom.min
+//= require jquery.knob
+//= require jquery.flot
+//= require jquery.flot.resize
+//= require jquery.flot.stack
+//= require bootstrap
+//= require bootstrap.min
+//= require bootstrap-datepicker
+//= require application
+//= require organizations
+//= require people
+//= require clients
+//= require theme
+//= require pirates

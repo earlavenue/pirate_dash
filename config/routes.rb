@@ -1,23 +1,30 @@
 PirateMetricsDashboard::Application.routes.draw do
-  resources :people do
-    collection { post :import }
-  end
-  get '/sync' => 'People#sync', as: 'sync'
-  get '/operations' => 'People#operations', as: 'operations'
 
-  root to: 'Pages#dashboard'
+  get '/people/export_to_csv' => 'people#export_to_csv', as: 'export'
 
-  resources :users
+  get '/activity_data' => 'uploads#api', as: 'api'
 
-  get '/dashboard' => 'Pages#dashboard', as: 'dashboard'
-  get '/refresh' => 'Pages#refresh', as: 'refresh'
-  get '/activations' => 'Pages#activations', as: 'activations'
-  post '/import_uploads' => 'Pages#import_uploads', as: 'import_uploads'
+  root to: 'people#index'
+
+  resources :organizations
+  resources :password_resets
+
+  resources :clients
+  get '/clients/:id/edit_profile' => 'clients#edit_profile', as: 'edit_profile'
+  get '/clients/:id/edit_password' => 'clients#edit_password', as: 'edit_password'
+  patch 'clients/:id/edit_profile' => 'clients#update_profile', as: 'update_profile'
+  patch 'clients/:id/edit_password' => 'clients#update_password', as: 'update_password'
+
+  resources :people,:only => [:index, :show]
 
 
+  get '/sessions/new' => 'sessions#new', as: 'new_session'
+  post '/sessions' => 'sessions#create', as: 'sessions'
+  delete '/sessions' => 'sessions#destroy', as: 'session'
 
-  get '/sessions/new' => 'Sessions#new', as: 'new_session'
-  post '/sessions' => 'Sessions#create', as: 'sessions'
-  delete '/sessions' => 'Sessions#destroy', as: 'session'
+  get '/pirates/activations' => 'pirates#activations', as: 'activations'
+  get '/pirates/devices' => 'pirates#devices', as: 'devices'
+  get '/pirates/retention' => 'pirates#retention', as: 'retention'
+  get '/pirates/users_lost' => 'pirates#users_lost', as: 'users_lost'
+end
 
-  end

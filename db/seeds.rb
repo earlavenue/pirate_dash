@@ -1,18 +1,34 @@
 raise "Can't run in #{Rails.env}" unless Rails.env.development?
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Organization.destroy_all
+Organization.create({
+  name: 'Rush Hospital',
+  address: 'West Loop Somewhere',
+  city: 'Chicago',
+  state: 'IL',
+  zip: '60101'
+  })
+Organization.create({
+  name: 'General',
+  address: 'N/A',
+  city: 'N/A',
+  state: 'N/A',
+  zip: 'N/A'
+  })
+Organization.create({
+  name: 'Omron Fitness',
+  address: "Zach's Apartment",
+  city: "Chicago",
+  state: "IL",
+  zip: "60556"
+  })
+puts 'Three organizations created: Rush Hospital, Omron Fitness, and "General".'
 
-User.destroy_all
-User.create(
-    {email: 'pirate@example.com',
-    first_name: 'Edward',
-    last_name: 'Teach',
+Client.destroy_all
+Client.create(
+    {email: 'flash@example.com',
+    first_name: 'Flash',
+    last_name: 'Gordon',
     password: '12345',
     password_confirmation: '12345'})
 
@@ -94,116 +110,11 @@ puts 'Six people created'
 puts 'Currently, importing people from KISSmetrics only supports two columns. Make sure the csv only includes "km_userid" and "dev_serial".'
 puts ''
 
-Event.destroy_all
-Event.create(
-    {action: 'dashboard',
-    doer: '1123',
-    event_time: 1367889160})
-Event.create(
-    {action: 'page view',
-    doer: '1075',
-    event_time: 1367890276})
-Event.create(
-    {action: 'uploaded',
-    doer: '1077',
-    event_time: 1367890283})
-Event.create(
-    {action: 'uploaded',
-    doer: '1012',
-    event_time: 1367890296})
-Event.create(
-    {action: 'pc driver download',
-    doer: '1002',
-    event_time: 1367890299})
-Event.create(
-    {action: 'home page view',
-    doer: '700',
-    event_time: 1367890339})
-Event.create(
-    {action: 'page view',
-    doer: 'luke@example.com',
-    event_time: 1367890349})
-Event.create(
-    {action: 'uploaded',
-    doer: 'andrew@example.com',
-    event_time: 1367890356})
-Event.create(
-    {action: 'email signup',
-    doer: 'marty@example.com',
-    event_time: 1367890361})
-Event.create(
-    {action: 'dashboard',
-    doer: 'michael@example.com',
-    event_time: 1367890369})
-Event.create(
-    {action: 'uploaded',
-    doer: 'audrey@example.com',
-    event_time: 1367890385})
-Event.create(
-    {action: 'mac download page',
-    doer: 'miles@example.com',
-    event_time: 1367890478})
-Event.create(
-    {action: 'visited site',
-    doer: '1077',
-    event_time: 1367890499})
-Event.create(
-    {action: 'visited site',
-    doer: '1012',
-    event_time: 1367889122})
-Event.create(
-    {action: 'uploaded',
-    doer: '1075',
-    event_time: 1367889154})
-Event.create(
-    {action: 'uploaded',
-    doer: '1075',
-    event_time: 1367889164})
-Event.create(
-    {action: 'uploaded',
-    doer: '1002',
-    event_time: 1367889268})
-Event.create(
-    {action: 'uploaded',
-    doer: '700',
-    event_time: 1367889298})
-Event.create(
-    {action: 'uploaded',
-    doer: 'marty@example.com',
-    event_time: 1367889607})
-Event.create(
-    {action: 'uploaded',
-    doer: '1123',
-    event_time: 1367889611})
-Event.create(
-    {action: 'uploaded',
-    doer: '700',
-    event_time: 1367889740})
-Event.create(
-    {action: 'uploaded',
-    doer: 'audrey@example.com',
-    event_time: 1367889736})
-Event.create(
-    {action: 'visited site',
-    doer: 'luke@example.com',
-    event_time: 1367889731})
-Event.create(
-    {action: 'page view',
-    doer: '1002',
-    event_time: 1367889727})
-
-puts '24 events created with "action", "doer", and "event_time" set (this is what we receive in JSON from KM).'
-puts ''
-puts 'Now we run a script to identify the people who did those events using the "doer" column and set the "person_id" column.'
-
-Event.all.each do |event|
-    if Person.find_by_km_userid(event.doer)
-        event.person_id = Person.find_by_km_userid(event.doer).id
-        event.save
-    elsif Person.find_by_email(event.doer)
-        event.person_id = Person.find_by_email(event.doer).id
-        event.save
-    end
-end
-
-puts '"person_id" column set for all events.'
+Client.create(
+    {email: 'zach@example.com',
+    first_name: 'Zach',
+    last_name: 'Albright',
+    password: '12345',
+    password_confirmation: '12345',
+    organization_id: Organization.find_by_name("Omron Fitness").id})
+puts "Two clients created: Flash Gordon from Rush Hospital and Zach Albright from Omron Fitness. Log in with [first_name]@example.com / 12345."

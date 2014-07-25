@@ -1,0 +1,53 @@
+<h1>Quarterly Activations by Device</h1>
+
+<div class="btn-group span3 controls">
+  <% unless @year <= 2012 %>
+    <div class="btn btn_hack prev">
+      <%= link_to content_tag(:i, " ", :class => "icon-arrow-left"), {controller: "pirates", action: "devices", year: @year - 1} %>
+    </div>
+    <% end %>
+
+      <button class="btn"><%= @year %></button>
+
+    <% unless @year >= Time.now.year %>
+      <div class="btn btn_hack next">
+        <%= link_to content_tag(:i, " ", :class => "icon-arrow-right"), {contoller: "pirates", action: "devices", year: @year + 1} %>
+      </div>
+    <% end %>
+  </div>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Device</th>
+    <th>Q1</th>
+    <th>Q2</th>
+    <th>Q3</th>
+    <th>Q4</th>
+  </tr>
+
+  <tr>
+    <td>HJ-720</td>
+    <td><%= @device_hash["HJ-720_#{@year}-01-01"] %></td>
+    <td><%= @device_hash["HJ-720_#{@year}-04-01"] %></td>
+    <td><%= @device_hash["HJ-720_#{@year}-07-01"] %></td>
+    <td><%= @device_hash["HJ-720_#{@year}-10-01"] %></td>
+  </tr>
+  <tr>
+    <td>HJA-312</td>
+    <td><%= @device_hash["HJA-312_#{@year}-01-01"] %></td>
+    <td><%= @device_hash["HJA-312_#{@year}-04-01"] %></td>
+    <td><%= @device_hash["HJA-312_#{@year}-07-01"] %></td>
+    <td><%= @device_hash["HJA-312_#{@year}-10-01"] %></td>
+  </tr>
+  <tr>
+    <td>HJ-320s</td>
+    <td><%= @device_hash["HJ-322_#{@year}-01-01"] %></td>
+    <td><%= @device_hash["HJ-322_#{@year}-04-01"] %></td>
+    <td><%= @device_hash["HJ-322_#{@year}-07-01"] %></td>
+    <td><%= @device_hash["HJ-322_#{@year}-10-01"] %></td>
+  </tr>
+</table>
+
+
+
+

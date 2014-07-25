@@ -1,0 +1,18 @@
+<% people.each do |person| %>
+  <tr class="person_row" id="person_<%= person.user_id %>">
+    <% if admin %>
+      <td><%= person.organization_name %></td>
+    <% end %>
+    <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
+    <td><%= person.email %></td>
+    <% if person.uploads.length != 0 %>
+      <td><%= person.uploads.first.date.strftime("%b %d, %Y") %></td>
+      <td><%= person.uploads.last.date.strftime("%b %d, %Y") %></td>
+      <td><%= person.uploads.length %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+      <td></td>
+    <% end %>
+  </tr>
+<% end %>
