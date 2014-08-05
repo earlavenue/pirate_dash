@@ -1,4 +1,4 @@
-worker_processes 3
+worker_processes 2
 preload_app true
 
 Rainbows! do
