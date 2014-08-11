@@ -4,58 +4,45 @@ class PeopleController < ApplicationController
 
   def export_to_csv
     if admin && params[:organization_id]
-      send_data Organization.find(params[:organization_id]).export,
+      if ClientMailer.send_csv(params[:organization_id], current_client.id).deliver
+        redirect_to people_path(organization_id: params[:organization_id]), notice: "An email with your organization's uploads will arrive shortly"
+      else
+        redirect_to people_path(organization_id: params[:organization_id]), notice: "We're sorry something went wrong."
+      end
+    else
+      if ClientMailer.send_csv(Organization.find(current_client.organization.id), current_client.id).deliver
+        redirect_to people_path, notice: "An email with your organization's uploads will arrive shortly"
+      else
+        redirect_to people_path, notice: "We're sorry something went wrong."
+      end
+    end
+  end
+  def export_csv_2_months
+    if admin && params[:organization_id]
+      send_data Organization.find(params[:organization_id]).export_2_months,
       :type => 'text/csv; charset=iso-8859-1; header=present',
       :disposition => "attachment; filename=test.csv"
     else
-      send_data Organization.find(current_client.organization.id).export,
+      send_data Organization.find(current_client.organization.id).export_2_months,
       :type => 'text/csv; charset=iso-8859-1; header=present',
       :disposition => "attachment; filename=test.csv"
     end
   end
-  #   csv_string = CSV.generate do |csv|
-  #     csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Device Serial", "Input Method"]
-  #     unless admin
-  #       Organization.find(current_client.organization.id).uploads.includes(:person).find_in_batches(batch_size: 100) do |group|
-  #         group.each do |upload|
-  #           if upload.is_device_input == 1
-  #             input_method = "Synced from Device"
-  #           else
-  #             input_method = "Manually Uploaded"
-  #           end
-  #           csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
-  #         end
-  #       end
-  #     end
-  #     if admin && params[:organization_id]
-  #       Organization.find(params[:organization_id]).uploads.includes(:person).find_in_batches(batch_size: 7000) do |group|
-  #         group.each do |upload|
-  #           if upload.is_device_input == 1
-  #             input_method = "Synced from Device"
-  #           else
-  #             input_method = "Manually Uploaded"
-  #           end
-  #           csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
-  #         end
-  #       end
-  #     elsif admin
-  #       Organization.all.uploads.includes(:person).find_in_batches(batch_size: 7000) do |group|
-  #         group.each do |upload|
-  #           if upload.is_device_input == 1
-  #             input_method = "Synced from Device"
-  #           else
-  #             input_method = "Manually Uploaded"
-  #           end
-  #           csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
-  #         end
-  #       end
-  #     end
-  #   end
-
-  #   send_data csv_string,
-  #     :type => 'text/csv; charset=iso-8859-1; header=present',
-  #     :disposition => "attachment; filename=test.csv"
-  # end
+  def export_to_excel
+    if admin && params[:organization_id]
+      if ClientMailer.send_excel(params[:organization_id], current_client.id).deliver
+        redirect_to people_path(organization_id: params[:organization_id]), notice: "An email with your organization's uploads will arrive shortly"
+      else
+        redirect_to people_path(organization_id: params[:organization_id]), notice: "We're sorry something went wrong."
+      end
+    else
+      if ClientMailer.send_excel(Organization.find(current_client.organization.id), current_client.id).deliver
+        redirect_to people_path, notice: "An email with your organization's uploads will arrive shortly"
+      else
+        redirect_to people_path, notice: "We're sorry something went wrong."
+      end
+    end
+  end
 
   def index
     if admin
