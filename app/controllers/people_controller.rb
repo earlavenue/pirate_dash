@@ -81,7 +81,7 @@ class PeopleController < ApplicationController
     else
       @first_upload_date = @person.membership.first_upload_date
     end
-    if @first_upload_date == nil
+    if @first_upload_date == nil && @person.uploads == []
       redirect_to people_url, notice: "There is no upload data for this person."
     end
   end

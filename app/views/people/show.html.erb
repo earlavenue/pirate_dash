@@ -9,7 +9,13 @@
         </h1>
 
         <div class="btn-group span3 controls">
-        <% unless @date.beginning_of_month <= @first_upload_date%>
+        <% if @first_upload_date %>
+            <% unless @date.beginning_of_month <= @first_upload_date%>
+                <div class="btn btn_hack prev">
+                    <%= link_to content_tag(:i, " ", :class => "icon-arrow-left"), person_url(@person, date: "#{@date - 1.month}") %>
+                </div>
+            <% end %>
+        <% else %>
             <div class="btn btn_hack prev">
                 <%= link_to content_tag(:i, " ", :class => "icon-arrow-left"), person_url(@person, date: "#{@date - 1.month}") %>
             </div>

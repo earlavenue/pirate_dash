@@ -10,8 +10,12 @@ class Membership < ActiveRecord::Base
     m = Membership.find_by_person_id(person.user_id)
     uploads = person.uploads
     if uploads != []
-      m.first_upload_date = uploads.first.date.to_date
-      m.save
+      if uploads.first.date
+        m.first_upload_date = uploads.first.date.to_date
+        m.save
+      else
+        return nil
+      end
       return m.first_upload_date
     else
       return nil
