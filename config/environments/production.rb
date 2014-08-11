@@ -42,7 +42,7 @@ PirateMetricsDashboard::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   config.logger = Logger.new(STDOUT)
-  config.logger.level = Logger.const_get('INFO')
+  config.logger.level = Logger.const_get('DEBUG')
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
 
