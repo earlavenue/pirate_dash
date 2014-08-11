@@ -20,9 +20,7 @@ class Organization < ActiveRecord::Base
           input_method = "Manually Uploaded"
         end
         csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
-        end
       end
     end
   end
-
 end
