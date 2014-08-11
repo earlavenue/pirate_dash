@@ -6,8 +6,12 @@
     <td><%= link_to "#{person.first_name} #{person.last_name}", person %></td>
     <td><%= person.email %></td>
     <% if person.uploads.length != 0 %>
-      <td><%= person.uploads.first.date.strftime("%b %d, %Y") %></td>
-      <td><%= person.uploads.last.date.strftime("%b %d, %Y") %></td>
+      <% if person.uploads.first.date  %>
+        <td><%= person.uploads.first.date.strftime("%b %d, %Y") %></td>
+      <% end %>
+      <% if person.uploads.last.date %>
+        <td><%= person.uploads.last.date.strftime("%b %d, %Y") %></td>
+      <% end %>
       <td><%= person.uploads.length %></td>
     <% else %>
       <td></td>
