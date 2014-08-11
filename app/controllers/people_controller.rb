@@ -3,49 +3,59 @@ class PeopleController < ApplicationController
   before_action :protect_show, only: [:show]
 
   def export_to_csv
-    csv_string = CSV.generate do |csv|
-      csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Device Serial", "Input Method"]
-      unless admin
-        Organization.find(current_client.organization.id).uploads.inctludes(:person).find_in_batches(batch_size: 7000) do |group|
-          group.each do |upload|
-            if upload.is_device_input == 1
-              input_method = "Synced from Device"
-            else
-              input_method = "Manually Uploaded"
-            end
-            csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
-          end
-        end
-      end
-      if admin && params[:organization_id]
-        Organization.find(params[:organization_id]).uploads.includes(:person).find_in_batches(batch_size: 7000) do |group|
-          group.each do |upload|
-            if upload.is_device_input == 1
-              input_method = "Synced from Device"
-            else
-              input_method = "Manually Uploaded"
-            end
-            csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
-          end
-        end
-      elsif admin
-        Organization.all.uploads.includes(:person).find_in_batches(batch_size: 7000) do |group|
-          group.each do |upload|
-            if upload.is_device_input == 1
-              input_method = "Synced from Device"
-            else
-              input_method = "Manually Uploaded"
-            end
-            csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
-          end
-        end
-      end
-    end
-
-    send_data csv_string,
+    if admin && params[:organization_id]
+      send_data Organization.find(params[:organization_id]).export,
       :type => 'text/csv; charset=iso-8859-1; header=present',
       :disposition => "attachment; filename=test.csv"
+    else
+      send_data Organization.find(current_client.organization.id).export,
+      :type => 'text/csv; charset=iso-8859-1; header=present',
+      :disposition => "attachment; filename=test.csv"
+    end
   end
+  #   csv_string = CSV.generate do |csv|
+  #     csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Device Serial", "Input Method"]
+  #     unless admin
+  #       Organization.find(current_client.organization.id).uploads.includes(:person).find_in_batches(batch_size: 100) do |group|
+  #         group.each do |upload|
+  #           if upload.is_device_input == 1
+  #             input_method = "Synced from Device"
+  #           else
+  #             input_method = "Manually Uploaded"
+  #           end
+  #           csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
+  #         end
+  #       end
+  #     end
+  #     if admin && params[:organization_id]
+  #       Organization.find(params[:organization_id]).uploads.includes(:person).find_in_batches(batch_size: 7000) do |group|
+  #         group.each do |upload|
+  #           if upload.is_device_input == 1
+  #             input_method = "Synced from Device"
+  #           else
+  #             input_method = "Manually Uploaded"
+  #           end
+  #           csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
+  #         end
+  #       end
+  #     elsif admin
+  #       Organization.all.uploads.includes(:person).find_in_batches(batch_size: 7000) do |group|
+  #         group.each do |upload|
+  #           if upload.is_device_input == 1
+  #             input_method = "Synced from Device"
+  #           else
+  #             input_method = "Manually Uploaded"
+  #           end
+  #           csv << ["#{upload.person.first_name} #{upload.person.last_name}", upload.date.try(:strftime, "%b %d %Y"), upload.total_steps, upload.aerobic_steps, upload.calories, ('%.2f' % upload.distance), upload.device_serial, input_method]
+  #         end
+  #       end
+  #     end
+  #   end
+
+  #   send_data csv_string,
+  #     :type => 'text/csv; charset=iso-8859-1; header=present',
+  #     :disposition => "attachment; filename=test.csv"
+  # end
 
   def index
     if admin
