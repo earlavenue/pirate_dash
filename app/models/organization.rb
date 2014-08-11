@@ -13,7 +13,7 @@ class Organization < ActiveRecord::Base
   def export
     csv_string = CSV.generate do |csv|
       csv << ["Name", "Upload Date", "Steps", "Aerobic Steps", "Calories", "Miles", "Device Serial", "Input Method"]
-      self.uploads.includes(:person).find_each(batch_size: 6000) do |upload|
+      self.uploads.includes(:person).except(:order).find_each(batch_size: 6000) do |upload|
         if upload.is_device_input == 1
           input_method = "Synced from Device"
         else
