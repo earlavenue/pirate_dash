@@ -21,11 +21,11 @@ class PeopleController < ApplicationController
     if admin && params[:organization_id]
       send_data Organization.find(params[:organization_id]).export_2_months,
       :type => 'text/csv; charset=iso-8859-1; header=present',
-      :disposition => "attachment; filename=test.csv"
+      :disposition => "attachment; filename=#{Organization.find(params[:organization_id]).name}.csv"
     else
       send_data Organization.find(current_client.organization.id).export_2_months,
       :type => 'text/csv; charset=iso-8859-1; header=present',
-      :disposition => "attachment; filename=test.csv"
+      :disposition => "attachment; filename=#{Organization.find(current_client.organization.id).name}.csv"
     end
   end
   def export_to_excel

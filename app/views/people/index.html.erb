@@ -21,9 +21,9 @@
 <% if admin && @organization_id %>
   <p><%= link_to "Export Last Two Months to CSV #{Organization.where(:id => @organization_id).first.name}'s Users' Data", {:controller => "people", :action => "export_csv_2_months", organization_id: @organization_id}, class: "btn btn-info"  %></p>
 <% elsif admin %>
-  <p><%= link_to "Export All Users' Data to CSV", {:controller => "people", :action => "export_csv_2_months"}, class: "btn btn-info"  %></p>
+  <p><%= link_to "Export Last Two Months to CSV", {:controller => "people", :action => "export_csv_2_months"}, class: "btn btn-info"  %></p>
 <% else %>
-  <p><%= link_to "Export to CSV #{current_client.organization.name}'s Users' Data", {:controller => "people", :action => "export_csv_2_months"}, class: "btn btn-info"  %></p>
+  <p><%= link_to "Export Last Two Months to CSV #{current_client.organization.name}'s Users' Data", {:controller => "people", :action => "export_csv_2_months"}, class: "btn btn-info"  %></p>
 <% end %>
 
 <div class="search_input">
