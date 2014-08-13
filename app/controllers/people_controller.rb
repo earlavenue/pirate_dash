@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
 
   def export_to_csv
     if admin && params[:organization_id]
-      if ClientMailer.send_csv(params[:organization_id], current_client.id).deliver
+      if ClientMailer.delay.send_csv(params[:organization_id], current_client.id)
         redirect_to people_path(omron_click: params[:organization_id]), notice: "An email with your organization's uploads will arrive shortly"
       else
         redirect_to people_path(omron_click: params[:organization_id]), notice: "We're sorry something went wrong."

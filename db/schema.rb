@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140813072456) do
   add_index "of_commentmeta", ["comment_id"], name: "comment_id", using: :btree
   add_index "of_commentmeta", ["meta_key"], name: "meta_key", using: :btree
 
-  create_table "of_comments", primary_key: "comment_ID", force: true do |t|
+  create_table "of_comments", primary_key: "comment_ID", force: transaction_idue do |t|
     t.integer  "comment_post_ID",      limit: 8,   default: 0,   null: false
     t.text     "comment_author",       limit: 255,               null: false
     t.string   "comment_author_email", limit: 100, default: "",  null: false
