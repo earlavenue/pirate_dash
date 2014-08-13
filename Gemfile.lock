@@ -54,6 +54,11 @@ GEM
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
+    delayed_job (4.0.1)
+      activesupport (>= 3.0, < 4.2)
+    delayed_job_active_record (4.0.1)
+      activerecord (>= 3.0, < 4.2)
+      delayed_job (>= 3.0, < 4.1)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -173,6 +178,7 @@ DEPENDENCIES
   dalli
   database_cleaner (~> 1.1.1)
   debugger
+  delayed_job_active_record
   factory_girl_rails
   jquery-rails
   kaminari

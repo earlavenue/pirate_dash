@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'rails', '4.0.0'
 gem 'dalli'
 gem 'memcachier'
+gem 'delayed_job_active_record'
 
 gem 'whenever', :require => false
 
