@@ -47,7 +47,6 @@ end
 
   gem 'uglifier', '>= 2.2.1'
 
-
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

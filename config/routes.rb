@@ -3,6 +3,7 @@ PirateMetricsDashboard::Application.routes.draw do
   get '/people/export_to_csv' => 'people#export_to_csv', as: 'export'
 
   get '/people/export_to_excel' => 'people#export_to_excel', as: 'export_to_excel'
+
   get '/people/export_csv_2_months' => 'people#export_csv_2_months', as: 'export_csv_2_months'
 
   get '/activity_data' => 'uploads#api', as: 'api'

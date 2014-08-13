@@ -9,13 +9,9 @@ class ClientMailer < ActionMailer::Base
   def send_csv(organization_id, client_id)
     @organization = Organization.find(organization_id)
     @client = Client.find(client_id)
-    attachments["csv_for#{@organization.name}"] = @organization.export()
-    mail to: @client.email, subject: "Exported Upload Info"
-  end
-  def send_excel(organization_id, client_id)
-    @organization = Organization.find(organization_id)
-    @client = Client.find(client_id)
-    attachments["excel_for#{@organization.name}"] = @organization.export(col_sep: "\t")
-    mail to: @client.email, subject: "Exported Upload Info for Excel"
+    @organization.export(@organization.name)
+    attachments["csv_for_#{@organization.name}.csv"] =File.read(Rails.root.join("/tmp/#{@organization.name}.csv"))
+    mail to: @client.email, subject: "Upload Info in CSV"
+    File.delete(Rails.root.join("#{@organization.name}.csv")) if File.exist?(Rails.root.join("#{@organization.name}.csv"))
   end
 end

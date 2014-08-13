@@ -5,9 +5,9 @@ class PeopleController < ApplicationController
   def export_to_csv
     if admin && params[:organization_id]
       if ClientMailer.send_csv(params[:organization_id], current_client.id).deliver
-        redirect_to people_path(organization_id: params[:organization_id]), notice: "An email with your organization's uploads will arrive shortly"
+        redirect_to people_path(omron_click: params[:organization_id]), notice: "An email with your organization's uploads will arrive shortly"
       else
-        redirect_to people_path(organization_id: params[:organization_id]), notice: "We're sorry something went wrong."
+        redirect_to people_path(omron_click: params[:organization_id]), notice: "We're sorry something went wrong."
       end
     else
       if ClientMailer.send_csv(Organization.find(current_client.organization.id), current_client.id).deliver
@@ -26,21 +26,6 @@ class PeopleController < ApplicationController
       send_data Organization.find(current_client.organization.id).export_2_months,
       :type => 'text/csv; charset=iso-8859-1; header=present',
       :disposition => "attachment; filename=#{Organization.find(current_client.organization.id).name}.csv"
-    end
-  end
-  def export_to_excel
-    if admin && params[:organization_id]
-      if ClientMailer.send_excel(params[:organization_id], current_client.id).deliver
-        redirect_to people_path(organization_id: params[:organization_id]), notice: "An email with your organization's uploads will arrive shortly"
-      else
-        redirect_to people_path(organization_id: params[:organization_id]), notice: "We're sorry something went wrong."
-      end
-    else
-      if ClientMailer.send_excel(Organization.find(current_client.organization.id), current_client.id).deliver
-        redirect_to people_path, notice: "An email with your organization's uploads will arrive shortly"
-      else
-        redirect_to people_path, notice: "We're sorry something went wrong."
-      end
     end
   end
 
