@@ -4,6 +4,17 @@
 ## Codeship Status
 https://www.codeship.io/projects/6bff32c0-f30c-0130-3fea-6a9e98eeb1b2/status
 
+####Code for Exporting all info to a CSV
+<% if admin && @organization_id %>
+  <p><%= link_to "Send Email with All #{Organization.where(:id => @organization_id).first.name}'s Data as CSV", {:controller => "people", :action => "export_to_csv", organization_id: @organization_id}, class: "btn btn-info"  %></p>
+<% elsif admin %>
+  <p><%= link_to "Export All Users' Data to CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+<% else %>
+  <p><%= link_to "Send Email with All #{current_client.organization.name}'s Data as CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+<% end %>
+
+
+
 ####Code for Export to Excel Below
 
 Export to excel code for client mailer
