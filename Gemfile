@@ -6,7 +6,7 @@ gem 'rails', '4.0.0'
 gem 'dalli'
 gem 'memcachier'
 gem 'delayed_job_active_record'
-gem "workless", "~> 1.1.3"
+gem "workless", "~> 1.2.2"
 
 gem 'whenever', :require => false
 
