@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
         redirect_to people_path(omron_click: params[:organization_id]), notice: "We're sorry something went wrong."
       end
     else
-      if ClientMailer.send_csv(Organization.find(current_client.organization.id), current_client.id).deliver
+      if ClientMailer.delay.send_csv(Organization.find(current_client.organization.id), current_client.id)
         redirect_to people_path, notice: "An email with your organization's uploads will arrive shortly"
       else
         redirect_to people_path, notice: "We're sorry something went wrong."

@@ -12,6 +12,13 @@
 <p><%= notice %></p>
 <br>
 <% if admin && @organization_id %>
+  <p><%= link_to "Send Email with All #{Organization.where(:id => @organization_id).first.name}'s Data as CSV", {:controller => "people", :action => "export_to_csv", organization_id: @organization_id}, class: "btn btn-info"  %></p>
+<% elsif admin %>
+  <p><%= link_to "Export All Users' Data to CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+<% else %>
+  <p><%= link_to "Send Email with All #{current_client.organization.name}'s Data as CSV", {:controller => "people", :action => "export_to_csv"}, class: "btn btn-info"  %></p>
+<% end %>
+<% if admin && @organization_id %>
   <p><%= link_to "Export #{Organization.where(:id => @organization_id).first.name}'s' Last Two Months' Data to CSV", {:controller => "people", :action => "export_csv_2_months", organization_id: @organization_id}, class: "btn btn-info"  %></p>
 <% elsif admin %>
   <p><%= link_to "Export Last Two Months' Data to CSV", {:controller => "people", :action => "export_csv_2_months"}, class: "btn btn-info"  %></p>
